@@ -393,7 +393,6 @@ body {
       display: block;
       position: relative;
       padding: 0.125rem;
-      margin: 0 0.125rem;
       color: inherit;
       text-decoration: none; }
       .kb-hero__link:hover, .kb-hero__link:focus, .kb-hero__link:active {
