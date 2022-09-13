@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compileSass": "node-sass -r --output-style compressed src/css/index.scss -o ./src/css",
+    "compileSass": "node-sass -r src/css/index.scss -o ./src/css",
     "sass": "npm run compileSass && npm run compileSass -- -w",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

@@ -52,7 +52,7 @@ function App() {
                         <h1 className="kb-text-heading kb-text-heading--large">
                             My name is<br /><span className="kb-font-color--brand">Kevin Beronilla</span><br />and I am a visual artist.
                         </h1>
-                        <p className="kb-hero__description">With a multi-disciplinary background in graphic/UI/UX design, front-end development, photography, and video, I aim to create beautiful experiences in multi-media.</p>
+                        <p className="kb-hero__description">With a multi-disciplinary background in graphic/UI/UX design, front-end development, photography, and video, my mission is to create beautiful experiences in all forms of media.</p>
                     </div>
                 </div>
                 

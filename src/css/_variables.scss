@@ -1,13 +1,14 @@
-@mixin variables {
-    --kb-vh: 1vh;
-    --kb-mq-large: 'only screen and (max-width: 1280px)';
-    --kb-mq-medium: 'only screen and (max-width: 1024px)';
-    --kb-mq-small: 'only screen and (max-width: 768px)';
-    --kb-mq-x-small: 'only screen and (max-width: 480px)';
-    --kb-font-family-display: 'Libre Bodoni', serif;
-    --kb-font-family-body: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-    --kb-color-brand: #f68b1f;
-    --kb-color-font-inverse: white;
-    --kb-color-font-default: #1e1e1e;
-    --kb-color-hero-background: #1e1e1e;
+$kb-mq-large: only screen and (max-width: 1280px);
+$kb-mq-medium: only screen and (max-width: 1024px);
+$kb-mq-small: only screen and (max-width: 768px);
+
+@mixin custom-properties {
+        --kb-vh: 1vh;
+        --kb-mq-x-small: 'only screen and (max-width: 480px)';
+        --kb-font-family-display: 'Libre Bodoni', serif;
+        --kb-font-family-body: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+        --kb-color-brand: #f68b1f;
+        --kb-color-font-inverse: white;
+        --kb-color-font-default: #1e1e1e;
+        --kb-color-hero-background: #1e1e1e;
 }
