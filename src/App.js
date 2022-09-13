@@ -16,35 +16,35 @@ function App() {
     }, []);
 
     return (
-        <div className="kb-scope">
+        <div className="kb">
             <main className="kb-container">
                 <div className="kb-hero">
                     <div className="kb-hero__sidebar">
                         <img src={logo} alt="Kevin Beronilla" className="kb-hero__logo" />
                         <ul className="kb-hero__links">
-                            <li>
-                                <a className="kb-hero__link" href="./downloads/kevin-beronilla-resume.pdf" target="_blank">
+                            <li className="kb-hero__link">
+                                <a href="./downloads/kevin-beronilla-resume.pdf" target="_blank">
                                     <span className="icon fa fa-file-text"></span>
-                                    <span className="kb-hero__link-label">Resume</span>
                                 </a>
+                                <span className="kb-hero__link-label">Resume</span>
                             </li>
-                            <li>
-                                <a className="kb-hero__link" href="https://github.com/kevinberonilla" target="_blank" rel="noreferrer">
+                            <li className="kb-hero__link">
+                                <a href="https://github.com/kevinberonilla" target="_blank" rel="noreferrer">
                                     <span className="icon fa fa-github"></span>
-                                    <span className="kb-hero__link-label">GitHub</span>
                                 </a>
+                                <span className="kb-hero__link-label">GitHub</span>
                             </li>
-                            <li>
-                                <a className="kb-hero__link" href="mailto:kevin.beronilla@gmail.com">
+                            <li className="kb-hero__link">
+                                <a href="mailto:kevin.beronilla@gmail.com">
                                     <span className="icon fa fa-linkedin"></span>
-                                    <span className="kb-hero__link-label">LinkedIn</span>
                                 </a>
+                                <span className="kb-hero__link-label">LinkedIn</span>
                             </li>
-                            <li>
-                                <a className="kb-hero__link" href="mailto:kevin.beronilla@gmail.com">
+                            <li className="kb-hero__link">
+                                <a href="mailto:kevin.beronilla@gmail.com">
                                     <span className="icon fa fa-envelope"></span>
-                                    <span className="kb-hero__link-label">Email</span>
                                 </a>
+                                <span className="kb-hero__link-label">Email</span>
                             </li>
                         </ul>
                     </div>

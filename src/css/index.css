@@ -308,7 +308,7 @@ template {
 body {
   margin: 0; }
 
-.kb-scope {
+.kb {
   --kb-vh: 1vh;
   --kb-mq-x-small: 'only screen and (max-width: 480px)';
   --kb-font-family-display: 'Libre Bodoni', serif;
@@ -324,12 +324,12 @@ body {
   line-height: 1.75;
   background-color: var(--kb-color-hero-background);
   color: var(--kb-color-font-inverse); }
-  .kb-scope .kb * {
+  .kb * {
     box-sizing: border-box; }
-  .kb-scope .kb img {
+  .kb img {
     max-width: 100%;
     height: auto; }
-  .kb-scope .kb-assistive-text {
+  .kb-assistive-text {
     position: absolute !important;
     margin: -1px !important;
     border: 0 !important;
@@ -340,73 +340,72 @@ body {
     clip: rect(0 0 0 0) !important;
     text-transform: none !important;
     white-space: nowrap !important; }
-  .kb-scope .kb-position--relative {
+  .kb-position--relative {
     position: relative; }
-  .kb-scope .kb-position--absolute {
+  .kb-position--absolute {
     position: absolute; }
-  .kb-scope .kb-position--sticky {
+  .kb-position--sticky {
     position: sticky; }
-  .kb-scope .kb-position--fixed {
+  .kb-position--fixed {
     position: fixed; }
-  .kb-scope .kb-container {
+  .kb-container {
     max-width: 1280px;
     margin: 0 auto; }
-  .kb-scope .kb-text-heading {
+  .kb-text-heading {
     font-family: var(--kb-font-family-display);
     font-weight: 400;
     line-height: 1.25;
     margin: 1rem 0; }
-    .kb-scope .kb-text-heading--small {
+    .kb-text-heading--small {
       font-size: 1.5rem; }
-    .kb-scope .kb-text-heading--medium {
+    .kb-text-heading--medium {
       font-size: 2.5rem; }
-    .kb-scope .kb-text-heading--large {
+    .kb-text-heading--large {
       font-size: 3.5rem; }
-  .kb-scope .kb-font-color--brand {
+  .kb-font-color--brand {
     color: var(--kb-color-brand); }
-  .kb-scope .kb-hero {
+  .kb-hero {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 8rem; }
     @media (max-width: 1280px) {
-      .kb-scope .kb-hero {
+      .kb-hero {
         padding: 6rem; } }
-    .kb-scope .kb-hero__content {
+    .kb-hero__content {
       flex: 0 0 auto; }
-    .kb-scope .kb-hero__description {
+    .kb-hero__description {
       margin-top: 2rem;
       max-width: 27.5rem; }
-    .kb-scope .kb-hero__sidebar {
+    .kb-hero__sidebar {
       flex: 0 0 auto;
       padding-top: 6.75rem; }
-    .kb-scope .kb-hero__logo {
+    .kb-hero__logo {
       display: block;
       width: 10rem;
       margin-bottom: 0.25rem; }
-    .kb-scope .kb-hero__links {
+    .kb-hero__links {
       list-style: none;
       padding-left: 3rem;
       display: flex;
       margin: 1rem 0 0; }
-      .kb-scope .kb-hero__links > li {
-        margin: 0 0.125rem; }
-        .kb-scope .kb-hero__links > li a {
-          display: block;
-          padding: 0.375rem;
-          color: inherit;
-          text-decoration: none; }
-          .kb-scope .kb-hero__links > li a:hover, .kb-scope .kb-hero__links > li a:focus, .kb-scope .kb-hero__links > li a:active {
-            color: var(--kb-color-brand); }
-    .kb-scope .kb-hero__link {
+    .kb-hero__link {
       display: block;
       position: relative;
       padding: 0.125rem;
+      margin: 0 0.125rem;
       color: inherit;
       text-decoration: none; }
-      .kb-scope .kb-hero__link:hover, .kb-scope .kb-hero__link:focus, .kb-scope .kb-hero__link:active {
+      .kb-hero__link:hover, .kb-hero__link:focus, .kb-hero__link:active {
         color: var(--kb-color-brand); }
-      .kb-scope .kb-hero__link-label {
+      .kb-hero__link a {
+        display: block;
+        padding: 0.375rem;
+        color: inherit;
+        text-decoration: none; }
+        .kb-hero__link a:hover, .kb-hero__link a:focus, .kb-hero__link a:active {
+          color: var(--kb-color-brand); }
+      .kb-hero__link-label {
         display: block;
         font-size: 0.8rem;
         pointer-events: none;
@@ -416,6 +415,6 @@ body {
         transform: translateX(-50%) translateY(-1rem);
         opacity: 0;
         transition: all 100ms ease; }
-        .kb-hero__link:hover .kb-scope .kb-hero__link-label {
+        .kb-hero__link:hover .kb-hero__link-label {
           opacity: 1;
           transform: translateX(-50%); }
