@@ -1,4 +1,3 @@
-import './css/App.css';
 import logo from './images/logo.svg';
 import { useRef, useState, useEffect } from 'react';
 import Checkbox from './Checkbox';
@@ -133,13 +132,13 @@ function App() {
                                     <span className="kb-hero__link-label">Email</span>
                                 </li>
                             </ul>
-                            <div className="kb-hero__controls">
-                                Filter Projects
-                                <Checkbox label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
-                                <Checkbox label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
-                                <Checkbox label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
-                                <Checkbox label="Video" name="video" checked={filters.video} onChange={handleFilterChange} />
-                            </div>
+                            <fieldset class="kb-hero__controls">
+                                <legend class="kb-line-height--reset">Filter Projects</legend>
+                                <Checkbox className="kb-m-top--x-small" label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
+                                <Checkbox className="kb-m-top--x-small" label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
+                                <Checkbox className="kb-m-top--x-small" label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
+                                <Checkbox className="kb-m-top--x-small" label="Video" name="video" checked={filters.video} onChange={handleFilterChange} />
+                            </fieldset>
                         </div>
                         <div className="kb-hero__content">
                             <h1 className="kb-text-heading kb-text-heading--large">
@@ -153,7 +152,7 @@ function App() {
                     </div>
                 </section>
                 {
-                    projects.length
+                    filteredProjects.length
                     ?
                     <section className="kb-gallery">
                         <ul className="kb-project__list">
@@ -164,8 +163,8 @@ function App() {
                                             <a className="kb-project__link" href={project.hash}>
                                                 <img className="kb-project__thumbnail" src={project.thumbnailUrl} alt={project.name} onLoad={handleThumbnailLoad} />
                                                 <span className="kb-project__hover-tile">
-                                                    <span className="kb-project__name kb-text-heading kb-text-heading--small kb-m-around--none">{project.name}</span>
-                                                    <small className="kb-project__year kb-m-top--small kb-m-bottom--none">{project.startYear ? project.startYear + '—' + project.endYear : project.endYear}</small>
+                                                    <span className="kb-project__name kb-m-around--none">{project.name}</span>
+                                                    <em className="kb-project__year kb-text--small kb-m-top--small kb-m-bottom--none">{project.startYear ? project.startYear + '—' + project.endYear : project.endYear}</em>
                                                 </span>
                                             </a>
                                         </li>

@@ -1,5 +1,6 @@
 @import 'normalize';
 @import 'variables';
+@import 'checkbox';
 @import 'utility';
 @import 'https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital@0;1&display=swap';
 @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css';
@@ -121,11 +122,12 @@ body {
         &__controls {
             padding-left: 3rem;
             margin-top: 3.75rem;
+            border: none;
         }
     }
 
     &-gallery {
-        background-color: rgba(0, 0, 0, 0.05);
+        margin-bottom: 4rem;
     }
 
     &-project {
@@ -138,6 +140,7 @@ body {
             margin: 0;
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         &__link {
@@ -155,22 +158,22 @@ body {
             z-index: 0;
             width: 100%;
             height: 100%;
-            transform: translateY(100%);
+            margin-top: 100%;
             opacity: 0;
             transition: all 250ms ease;
 
             .kb-project--loaded &,
             .kb-project--revealed & {
-                transform: none;
+                margin-top: 0;
                 opacity: 1;
             }
 
             .kb-project--revealed & {
-                transition: none;
+                transition-property: transform, filter;
             }
 
             .kb-project__link:hover & {
-                transform: scale(1.1);
+                transform: scale(1.05);
                 filter: blur(5px) saturate(0.75);
                 mix-blend-mode: screen;
             }
@@ -209,6 +212,9 @@ body {
         }
 
         &__name {
+            font-weight: 700;
+            font-size: 1.25rem;
+            line-height: 1.25;
             color: var(--kb-color-brand);
             transition-delay: 100ms;
         }
@@ -218,7 +224,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 4rem;
+        padding: 0 4rem 4rem;
         opacity: 0;
         transition: opacity 500ms ease 750ms;
 
@@ -227,5 +233,6 @@ body {
         }
     }
 
+    @include checkbox;
     @include utility;
 }

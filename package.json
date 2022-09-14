@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compileSass": "node-sass --output-style expanded --source-map true --source-map-contents true -r ./src/css/App.scss -o ./src/css",
+    "compileSass": "node-sass --output-style expanded --source-map true --source-map-contents true -r ./src/css/index.scss -o ./src/css",
     "sass": "npm run compileSass && npm run compileSass -- -w",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

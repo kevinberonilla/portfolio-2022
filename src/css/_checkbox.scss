@@ -1,9 +1,7 @@
-@import 'variables';
-
-.kb {
+@mixin checkbox {
     &-checkbox {
         display: flex;
-
+    
         &__label {
             display: block;
             line-height: 1;

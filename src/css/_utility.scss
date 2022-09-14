@@ -19,6 +19,16 @@
         }
     }
 
+    &-line-height {
+        &--reset {
+            line-height: 1;
+        }
+
+        &--body {
+            line-height: 1.75;
+        }
+    }
+
     &-display {
         &--block {
             display: block;

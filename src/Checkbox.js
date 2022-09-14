@@ -1,4 +1,3 @@
-import './css/Checkbox.css';
 import { useRef } from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,7 +5,7 @@ function Checkbox(props) {
     const root = useRef();
 
     return (
-        <label ref={root} className="kb-checkbox">
+        <label ref={root} className={'kb-checkbox' + (props.className ? ' ' + props.className : '')}>
             <input type="checkbox" name={props.name} checked={props.checked} onChange={props.onChange} />
             <div className="kb-checkbox__label kb-text--small">{props.label}</div>
         </label>
