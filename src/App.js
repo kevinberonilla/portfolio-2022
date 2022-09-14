@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import './App.css';
 
 function App() {
+    const year = new Date().getFullYear();
     const [projects, setProjects] = useState([]);
+    const [filteredProjects, setFilteredProjects] = useState([]);
     const [allThumbnailsLoaded, setAllThumbnailsLoaded] = useState(false);
     let thumbnailsLoaded = 0;
     
@@ -35,6 +37,7 @@ function App() {
                 });
 
                 setProjects(projects);
+                setFilteredProjects(projects);
             } catch (error) {
                 console.error(error);
             }
@@ -64,7 +67,7 @@ function App() {
 
         window.setTimeout(() => {
             thumbnailsLoaded++;
-            loadedImage.closest('.kb-projects__item').classList.add('kb-projects__item--loaded');
+            loadedImage.closest('.kb-project').classList.add('kb-project--loaded');
 
             if (thumbnailsLoaded >= projects.length) {
                 setAllThumbnailsLoaded(true);
@@ -73,70 +76,84 @@ function App() {
     }
 
     return (
-        <main className="kb">
-            <section className={'kb-hero' + (allThumbnailsLoaded ? ' kb-hero--loaded' : '')}>
-                <div className="kb-hero__layout kb-container">
-                    <div className="kb-hero__sidebar">
-                        <img src={logo} alt="Kevin Beronilla" className="kb-hero__logo" />
-                        <ul className="kb-hero__links-list">
-                            <li className="kb-hero__link">
-                                <a href="./downloads/kevin-beronilla-resume.pdf" target="_blank">
-                                    <span className="icon fa fa-file-text"></span>
-                                </a>
-                                <span className="kb-hero__link-label">Resume</span>
-                            </li>
-                            <li className="kb-hero__link">
-                                <a href="https://github.com/kevinberonilla" target="_blank" rel="noreferrer">
-                                    <span className="icon fa fa-github"></span>
-                                </a>
-                                <span className="kb-hero__link-label">GitHub</span>
-                            </li>
-                            <li className="kb-hero__link">
-                                <a href="https://www.linkedin.com/in/kevinberonilla" target="_blank" rel="noreferrer">
-                                    <span className="icon fa fa-linkedin"></span>
-                                </a>
-                                <span className="kb-hero__link-label">LinkedIn</span>
-                            </li>
-                            <li className="kb-hero__link">
-                                <a href="mailto:kevin.beronilla@gmail.com">
-                                    <span className="icon fa fa-envelope"></span>
-                                </a>
-                                <span className="kb-hero__link-label">Email</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="kb-hero__content">
-                        <h1 className="kb-text-heading kb-text-heading--large">
-                            My name is<br /><span className="kb-font-color--brand">Kevin Beronilla</span><br />and I am a visual artist.
-                        </h1>
-                        <p className="kb-hero__description">With a multi-disciplinary background in graphic/UI/UX design, front-end development, photography, and video, my mission is to create beautiful experiences in all forms of media.</p>
-                    </div>
-                </div>
-            </section>
-            {
-                projects.length
-                ?
-                <section className="kb-projects">
-                    <ul className="kb-projects__list">
-                        {projects.map(project => {
-                            return (
-                                <li key={project.id} className="kb-projects__item">
-                                    <a className="kb-projects__link" href={project.hash} style={{'--kb-color-project-background': project.backgroundColor, '--kb-color-project-text': project.textColor}}>
-                                        <img className="kb-projects__thumbnail" src={project.thumbnailUrl} alt={project.name} onLoad={handleThumbnailLoad} />
-                                        <span className="kb-projects__hover-tile">
-                                            <span className="kb-projects__title kb-text-heading kb-text-heading--small">{project.name}</span>
-                                            <small className="kb-projects__year">{project.startYear ? project.startYear + '—' + project.endYear : project.endYear}</small>
-                                        </span>
+        <div className="kb">
+            <main>
+                <section className={'kb-hero' + (allThumbnailsLoaded ? ' kb-hero--loaded' : '')}>
+                    <div className="kb-hero__layout kb-container">
+                        <div className="kb-hero__sidebar">
+                            <img src={logo} alt="Kevin Beronilla" className="kb-hero__logo" />
+                            <ul className="kb-hero__link-list">
+                                <li className="kb-hero__link">
+                                    <a href="./downloads/kevin-beronilla-resume.pdf" target="_blank">
+                                        <span className="icon fa fa-file-text"></span>
                                     </a>
+                                    <span className="kb-hero__link-label">Resume</span>
                                 </li>
-                            )
-                        })}
-                    </ul>
+                                <li className="kb-hero__link">
+                                    <a href="https://github.com/kevinberonilla" target="_blank" rel="noreferrer">
+                                        <span className="icon fa fa-github"></span>
+                                    </a>
+                                    <span className="kb-hero__link-label">GitHub</span>
+                                </li>
+                                <li className="kb-hero__link">
+                                    <a href="https://www.linkedin.com/in/kevinberonilla" target="_blank" rel="noreferrer">
+                                        <span className="icon fa fa-linkedin"></span>
+                                    </a>
+                                    <span className="kb-hero__link-label">LinkedIn</span>
+                                </li>
+                                <li className="kb-hero__link">
+                                    <a href="mailto:kevin.beronilla@gmail.com">
+                                        <span className="icon fa fa-envelope"></span>
+                                    </a>
+                                    <span className="kb-hero__link-label">Email</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="kb-hero__content">
+                            <h1 className="kb-text-heading kb-text-heading--large">
+                                My name is<br /><span className="kb-font-color--brand">Kevin Beronilla</span><br />and I am a visual artist.
+                            </h1>
+                            <div className="kb-hero__description">
+                                <p>With a multi-disciplinary background in graphic/UI/UX design, front-end development, photography, and non-linear video, my mission is to create beautiful experiences in all forms of media.</p>
+                                <p>When I'm not in front of a laptop, you can find me tinkering on cars or petting a fluffy animal.</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
-                :
-                ''
-            }
-        </main>
+                {
+                    projects.length
+                    ?
+                    <section className="kb-gallery">
+                        <ul className="kb-project__list">
+                            {
+                                filteredProjects.map(project => {
+                                    return (
+                                        <li key={project.id} className="kb-project">
+                                            <a className="kb-project__link" href={project.hash} style={{'--kb-color-project-background': project.backgroundColor, '--kb-color-project-text': project.textColor}}>
+                                                <img className="kb-project__thumbnail" src={project.thumbnailUrl} alt={project.name} onLoad={handleThumbnailLoad} />
+                                                <span className="kb-project__hover-tile">
+                                                    <span className="kb-project__name kb-text-heading kb-text-heading--small kb-m-around--none">{project.name}</span>
+                                                    <small className="kb-project__year kb-m-top--small kb-m-bottom--none">{project.startYear ? project.startYear + '—' + project.endYear : project.endYear}</small>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </section>
+                    :
+                    ''
+                }
+            </main>
+            <footer className={'kb-footer' + (allThumbnailsLoaded ? ' kb-footer--loaded' : '')}>
+                <p className="kb-text--small kb-m-around--none">
+                    &copy; {year} Kevin Beronilla. All works featured are copyrighted by the respective individuals and organizations of which they are a representation of.
+                    <br />
+                    This website was lovingly handcrafted using React, Sass, and Contenful.
+                </p>
+            </footer>
+        </div>
     );
 }
 

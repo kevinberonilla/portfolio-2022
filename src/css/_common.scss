@@ -1,4 +1,24 @@
 @mixin common {
+    &-text {
+        &--small {
+            font-size: 0.75rem;
+        }
+
+        &-align {
+            &--center {
+                text-align: center;
+            }
+            
+            &--left {
+                text-align: left;
+            }
+            
+            &--right {
+                text-align: right;
+            }
+        }
+    }
+
     &-display {
         &--block {
             display: block;
@@ -72,171 +92,171 @@
 
     &-p {
         &-around {
-            &-none {
+            &--none {
                 padding: 0;
             }
 
-            &-xx-small {
+            &--xx-small {
                 padding: var(--kb-spacing-xx-small);
             }
 
-            &-x-small {
+            &--x-small {
                 padding: var(--kb-spacing-x-small);
             }
 
-            &-small {
+            &--small {
                 padding: var(--kb-spacing-small);
             }
 
-            &-medium {
+            &--medium {
                 padding: var(--kb-spacing-medium);
             }
 
-            &-large {
+            &--large {
                 padding: var(--kb-spacing-large);
             }
 
-            &-x-large {
+            &--x-large {
                 padding: var(--kb-spacing-x-large);
             }
 
-            &-xx-large {
+            &--xx-large {
                 padding: var(--kb-spacing-xx-large);
             }
         }
 
         &-top {
-            &-none {
+            &--none {
                 padding-top: 0;
             }
 
-            &-xx-small {
+            &--xx-small {
                 padding-top: var(--kb-spacing-xx-small);
             }
 
-            &-x-small {
+            &--x-small {
                 padding-top: var(--kb-spacing-x-small);
             }
 
-            &-small {
+            &--small {
                 padding-top: var(--kb-spacing-small);
             }
 
-            &-medium {
+            &--medium {
                 padding-top: var(--kb-spacing-medium);
             }
 
-            &-large {
+            &--large {
                 padding-top: var(--kb-spacing-large);
             }
 
-            &-x-large {
+            &--x-large {
                 padding-top: var(--kb-spacing-x-large);
             }
 
-            &-xx-large {
+            &--xx-large {
                 padding-top: var(--kb-spacing-xx-large);
             }
         }
 
         &-right {
-            &-none {
+            &--none {
                 padding-right: 0;
             }
 
-            &-xx-small {
+            &--xx-small {
                 padding-right: var(--kb-spacing-xx-small);
             }
 
-            &-x-small {
+            &--x-small {
                 padding-right: var(--kb-spacing-x-small);
             }
 
-            &-small {
+            &--small {
                 padding-right: var(--kb-spacing-small);
             }
 
-            &-medium {
+            &--medium {
                 padding-right: var(--kb-spacing-medium);
             }
 
-            &-large {
+            &--large {
                 padding-right: var(--kb-spacing-large);
             }
 
-            &-x-large {
+            &--x-large {
                 padding-right: var(--kb-spacing-x-large);
             }
 
-            &-xx-large {
+            &--xx-large {
                 padding-right: var(--kb-spacing-xx-large);
             }
         }
 
         &-bottom {
-            &-none {
+            &--none {
                 padding-bottom: 0;
             }
 
-            &-xx-small {
+            &--xx-small {
                 padding-bottom: var(--kb-spacing-xx-small);
             }
 
-            &-x-small {
+            &--x-small {
                 padding-bottom: var(--kb-spacing-x-small);
             }
 
-            &-small {
+            &--small {
                 padding-bottom: var(--kb-spacing-small);
             }
 
-            &-medium {
+            &--medium {
                 padding-bottom: var(--kb-spacing-medium);
             }
 
-            &-large {
+            &--large {
                 padding-bottom: var(--kb-spacing-large);
             }
 
-            &-x-large {
+            &--x-large {
                 padding-bottom: var(--kb-spacing-x-large);
             }
 
-            &-xx-large {
+            &--xx-large {
                 padding-bottom: var(--kb-spacing-xx-large);
             }
         }
 
         &-left {
-            &-none {
+            &--none {
                 padding-left: 0;
             }
 
-            &-xx-small {
+            &--xx-small {
                 padding-left: var(--kb-spacing-xx-small);
             }
 
-            &-x-small {
+            &--x-small {
                 padding-left: var(--kb-spacing-x-small);
             }
 
-            &-small {
+            &--small {
                 padding-left: var(--kb-spacing-small);
             }
 
-            &-medium {
+            &--medium {
                 padding-left: var(--kb-spacing-medium);
             }
 
-            &-large {
+            &--large {
                 padding-left: var(--kb-spacing-large);
             }
 
-            &-x-large {
+            &--x-large {
                 padding-left: var(--kb-spacing-x-large);
             }
 
-            &-xx-large {
+            &--xx-large {
                 padding-left: var(--kb-spacing-xx-large);
             }
         }
@@ -244,171 +264,171 @@
 
     &-m {
         &-around {
-            &-none {
+            &--none {
                 margin: 0;
             }
 
-            &-xx-small {
+            &--xx-small {
                 margin: var(--kb-spacing-xx-small);
             }
 
-            &-x-small {
+            &--x-small {
                 margin: var(--kb-spacing-x-small);
             }
 
-            &-small {
+            &--small {
                 margin: var(--kb-spacing-small);
             }
 
-            &-medium {
+            &--medium {
                 margin: var(--kb-spacing-medium);
             }
 
-            &-large {
+            &--large {
                 margin: var(--kb-spacing-large);
             }
 
-            &-x-large {
+            &--x-large {
                 margin: var(--kb-spacing-x-large);
             }
 
-            &-xx-large {
+            &--xx-large {
                 margin: var(--kb-spacing-xx-large);
             }
         }
 
         &-top {
-            &-none {
+            &--none {
                 margin-top: 0;
             }
 
-            &-xx-small {
+            &--xx-small {
                 margin-top: var(--kb-spacing-xx-small);
             }
 
-            &-x-small {
+            &--x-small {
                 margin-top: var(--kb-spacing-x-small);
             }
 
-            &-small {
+            &--small {
                 margin-top: var(--kb-spacing-small);
             }
 
-            &-medium {
+            &--medium {
                 margin-top: var(--kb-spacing-medium);
             }
 
-            &-large {
+            &--large {
                 margin-top: var(--kb-spacing-large);
             }
 
-            &-x-large {
+            &--x-large {
                 margin-top: var(--kb-spacing-x-large);
             }
 
-            &-xx-large {
+            &--xx-large {
                 margin-top: var(--kb-spacing-xx-large);
             }
         }
 
         &-right {
-            &-none {
+            &--none {
                 margin-right: 0;
             }
 
-            &-xx-small {
+            &--xx-small {
                 margin-right: var(--kb-spacing-xx-small);
             }
 
-            &-x-small {
+            &--x-small {
                 margin-right: var(--kb-spacing-x-small);
             }
 
-            &-small {
+            &--small {
                 margin-right: var(--kb-spacing-small);
             }
 
-            &-medium {
+            &--medium {
                 margin-right: var(--kb-spacing-medium);
             }
 
-            &-large {
+            &--large {
                 margin-right: var(--kb-spacing-large);
             }
 
-            &-x-large {
+            &--x-large {
                 margin-right: var(--kb-spacing-x-large);
             }
 
-            &-xx-large {
+            &--xx-large {
                 margin-right: var(--kb-spacing-xx-large);
             }
         }
 
         &-bottom {
-            &-none {
+            &--none {
                 margin-bottom: 0;
             }
 
-            &-xx-small {
+            &--xx-small {
                 margin-bottom: var(--kb-spacing-xx-small);
             }
 
-            &-x-small {
+            &--x-small {
                 margin-bottom: var(--kb-spacing-x-small);
             }
 
-            &-small {
+            &--small {
                 margin-bottom: var(--kb-spacing-small);
             }
 
-            &-medium {
+            &--medium {
                 margin-bottom: var(--kb-spacing-medium);
             }
 
-            &-large {
+            &--large {
                 margin-bottom: var(--kb-spacing-large);
             }
 
-            &-x-large {
+            &--x-large {
                 margin-bottom: var(--kb-spacing-x-large);
             }
 
-            &-xx-large {
+            &--xx-large {
                 margin-bottom: var(--kb-spacing-xx-large);
             }
         }
 
         &-left {
-            &-none {
+            &--none {
                 margin-left: 0;
             }
 
-            &-xx-small {
+            &--xx-small {
                 margin-left: var(--kb-spacing-xx-small);
             }
 
-            &-x-small {
+            &--x-small {
                 margin-left: var(--kb-spacing-x-small);
             }
 
-            &-small {
+            &--small {
                 margin-left: var(--kb-spacing-small);
             }
 
-            &-medium {
+            &--medium {
                 margin-left: var(--kb-spacing-medium);
             }
 
-            &-large {
+            &--large {
                 margin-left: var(--kb-spacing-large);
             }
 
-            &-x-large {
+            &--x-large {
                 margin-left: var(--kb-spacing-x-large);
             }
 
-            &-xx-large {
+            &--xx-large {
                 margin-left: var(--kb-spacing-xx-large);
             }
         }
