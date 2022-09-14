@@ -117,6 +117,15 @@ body {
                 }
             }
         }
+
+        &__controls {
+            padding-left: 3rem;
+            margin-top: 3.75rem;
+        }
+    }
+
+    &-gallery {
+        background-color: rgba(0, 0, 0, 0.05);
     }
 
     &-project {
@@ -150,10 +159,14 @@ body {
             opacity: 0;
             transition: all 250ms ease;
 
-            .kb-project--loaded & {
+            .kb-project--loaded &,
+            .kb-project--revealed & {
                 transform: none;
-                transform-origin: center;
                 opacity: 1;
+            }
+
+            .kb-project--revealed & {
+                transition: none;
             }
 
             .kb-project__link:hover & {
@@ -185,7 +198,7 @@ body {
             display: block;
             position: relative;
             color: var(--kb-color-font);
-            transform: translateX(-2rem);
+            transform: translateX(-1rem);
             transition: all 250ms ease 150ms;
             opacity: 0;
 

@@ -1,10 +1,17 @@
+import './css/App.css';
 import logo from './images/logo.svg';
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import './App.css';
+import { useRef, useState, useEffect } from 'react';
+import Checkbox from './Checkbox';
 
 function App() {
     const year = new Date().getFullYear();
+    const hero = useRef();
+    const [filters] = useState({
+        design: true,
+        development: true,
+        photography: true,
+        video: true
+    });
     const [projects, setProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
     const [allThumbnailsLoaded, setAllThumbnailsLoaded] = useState(false);
@@ -44,10 +51,8 @@ function App() {
         }
 
         function handleWindowResize() {
-            let hero = window.document.querySelector('.kb-hero');
-
             window.document.body.style.setProperty('--kb-vh', window.innerHeight / 100 + 'px');
-            hero.style.setProperty('--kb-hero-height', hero.clientHeight + 'px');
+            hero.current.style.setProperty('--kb-hero-height', hero.current.clientHeight + 'px');
         }
 
         window.addEventListener('resize', handleWindowResize, {
@@ -64,20 +69,41 @@ function App() {
     function handleThumbnailLoad(event) {
         const loadedImage = event.currentTarget;
 
-        window.setTimeout(() => {
-            thumbnailsLoaded++;
-            loadedImage.closest('.kb-project').classList.add('kb-project--loaded');
+        if (!allThumbnailsLoaded) {
+            window.setTimeout(() => {
+                thumbnailsLoaded++;
+                loadedImage.closest('.kb-project').classList.add('kb-project--loaded');
 
-            if (thumbnailsLoaded >= projects.length) {
-                setAllThumbnailsLoaded(true);
-            }
-        }, Math.random() * 1000);
+                if (thumbnailsLoaded >= projects.length) {
+                    setAllThumbnailsLoaded(true);
+                }
+            }, Math.random() * 1000);
+        } else {
+            loadedImage.closest('.kb-project').classList.add('kb-project--revealed');
+        }
+    }
+
+    function handleFilterChange(event) {
+        const category = event.currentTarget.name;
+        const value = event.currentTarget.checked;
+
+        filters[category] = value;
+
+        let enabledCategories = Object.keys(filters).filter(key => filters[key]);
+        
+        setFilteredProjects(
+            projects.filter(project => {
+                const matchingFilters = enabledCategories.filter(category => project.categories.includes(category));
+
+                return matchingFilters.length;
+            })
+        );
     }
 
     return (
         <>
             <main>
-                <section className={'kb-hero' + (allThumbnailsLoaded ? ' kb-hero--loaded' : '')}>
+                <section ref={hero} className={'kb-hero' + (allThumbnailsLoaded ? ' kb-hero--loaded' : '')}>
                     <div className="kb-hero__layout kb-container">
                         <div className="kb-hero__sidebar">
                             <img src={logo} alt="Kevin Beronilla" className="kb-hero__logo" />
@@ -107,13 +133,20 @@ function App() {
                                     <span className="kb-hero__link-label">Email</span>
                                 </li>
                             </ul>
+                            <div className="kb-hero__controls">
+                                Filter Projects
+                                <Checkbox label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
+                                <Checkbox label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
+                                <Checkbox label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
+                                <Checkbox label="Video" name="video" checked={filters.video} onChange={handleFilterChange} />
+                            </div>
                         </div>
                         <div className="kb-hero__content">
                             <h1 className="kb-text-heading kb-text-heading--large">
                                 Hello! My name is<br /><span className="kb-font-color--brand">Kevin Beronilla</span><br />and I am a visual artist.
                             </h1>
                             <div className="kb-hero__description">
-                                <p>With a multi-disciplinary background in graphic/UI/UX design, front-end development, photography, and non-linear video, my mission is to create beautiful experiences in all forms of media.</p>
+                                <p>With a multi-disciplinary background in design, development, photography, and video, my mission is to create beautiful experiences in all forms of media.</p>
                                 <p>When I'm not in front of a laptop, you can find me tinkering on cars or petting fluffy animals.</p>
                             </div>
                         </div>
@@ -125,9 +158,9 @@ function App() {
                     <section className="kb-gallery">
                         <ul className="kb-project__list">
                             {
-                                filteredProjects.map(project => {
+                                filteredProjects.map((project, projectIndex) => {
                                     return (
-                                        <li key={project.id} className="kb-project">
+                                        <li key={project.id} className="kb-project" data-index={projectIndex}>
                                             <a className="kb-project__link" href={project.hash}>
                                                 <img className="kb-project__thumbnail" src={project.thumbnailUrl} alt={project.name} onLoad={handleThumbnailLoad} />
                                                 <span className="kb-project__hover-tile">
@@ -155,10 +188,5 @@ function App() {
         </>
     );
 }
-
-App.propTypes = {
-    projects: PropTypes.array,
-    loading: PropTypes.bool
-};
 
 export default App;

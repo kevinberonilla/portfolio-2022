@@ -403,6 +403,12 @@ body {
       .kb-hero__link:hover .kb-hero__link-label {
         opacity: 1;
         transform: translateX(-50%); }
+  .kb-hero__controls {
+    padding-left: 3rem;
+    margin-top: 3.75rem; }
+
+.kb-gallery {
+  background-color: rgba(0, 0, 0, 0.05); }
 
 .kb-project {
   flex: 0 0 25%;
@@ -429,10 +435,12 @@ body {
     transform: translateY(100%);
     opacity: 0;
     transition: all 250ms ease; }
-    .kb-project--loaded .kb-project__thumbnail {
+    .kb-project--loaded .kb-project__thumbnail,
+    .kb-project--revealed .kb-project__thumbnail {
       transform: none;
-      transform-origin: center;
       opacity: 1; }
+    .kb-project--revealed .kb-project__thumbnail {
+      transition: none; }
     .kb-project__link:hover .kb-project__thumbnail {
       transform: scale(1.1);
       filter: blur(5px) saturate(0.75);
@@ -453,7 +461,7 @@ body {
     display: block;
     position: relative;
     color: var(--kb-color-font);
-    transform: translateX(-2rem);
+    transform: translateX(-1rem);
     transition: all 250ms ease 150ms;
     opacity: 0; }
     .kb-project__link:hover .kb-project__name, .kb-project__link:hover .kb-project__year {
