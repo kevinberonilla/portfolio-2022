@@ -3,6 +3,9 @@
 # macOS
 .DS_Store
 
+# environment
+.env
+
 # dependencies
 /node_modules
 /.pnp

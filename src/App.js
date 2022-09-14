@@ -12,7 +12,7 @@ function App() {
         async function getProjects() {
             try {
                 const projectsHeaders = new Headers({
-                    'Authorization': 'Bearer 1Nn3zdYSHfku-EIvUXA3nL0gZRs-o2RYYgsqltMk9xY'
+                    'Authorization': 'Bearer ' + process.env.REACT_APP_CONTENTFUL_API_KEY
                 });
                 const requestOptions = {
                     method: 'GET',
