@@ -111,11 +111,11 @@ function App() {
                         </div>
                         <div className="kb-hero__content">
                             <h1 className="kb-text-heading kb-text-heading--large">
-                                My name is<br /><span className="kb-font-color--brand">Kevin Beronilla</span><br />and I am a visual artist.
+                                Hello! My name is<br /><span className="kb-font-color--brand">Kevin Beronilla</span><br />and I am a visual artist.
                             </h1>
                             <div className="kb-hero__description">
                                 <p>With a multi-disciplinary background in graphic/UI/UX design, front-end development, photography, and non-linear video, my mission is to create beautiful experiences in all forms of media.</p>
-                                <p>When I'm not in front of a laptop, you can find me tinkering on cars or petting a fluffy animal.</p>
+                                <p>When I'm not in front of a laptop, you can find me tinkering on cars or petting fluffy animals.</p>
                             </div>
                         </div>
                     </div>
