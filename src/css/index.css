@@ -370,6 +370,7 @@ body {
   --kb-spacing-large: 1.5rem;
   --kb-spacing-x-large: 2rem;
   --kb-spacing-xx-large: 3rem;
+  --kb-shadow--focus: 0 0 4px var(--kb-color-brand);
   min-height: calc(var(--kb-vh) * 100);
   margin: 0;
   background-color: var(--kb-color-background);
@@ -427,13 +428,8 @@ body {
 .kb-hero__link {
   display: block;
   position: relative;
-  padding: 0.125rem;
   color: var(--kb-color-font);
   text-decoration: none;
-}
-
-.kb-hero__link:hover, .kb-hero__link:focus, .kb-hero__link:active {
-  color: var(--kb-color-brand);
 }
 
 .kb-hero__link-list {
@@ -445,28 +441,37 @@ body {
 
 .kb-hero__link a {
   display: block;
-  padding: 0.375rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
   color: var(--kb-color-font);
   text-decoration: none;
+  line-height: 1;
 }
 
 .kb-hero__link a:hover, .kb-hero__link a:focus, .kb-hero__link a:active {
   color: var(--kb-color-brand);
 }
 
+.kb-hero__link a:focus, .kb-hero__link a:active {
+  outline: none;
+  box-shadow: var(--kb-shadow--focus);
+}
+
 .kb-hero__link-label {
   display: block;
   font-size: 0.8rem;
+  color: var(--kb-color-brand);
   pointer-events: none;
   position: absolute;
   top: calc(100% - 0.125rem);
   left: 50%;
-  transform: translateX(-50%) translateY(-1rem);
+  transform: translateX(-50%) translateY(-0.5rem);
   opacity: 0;
   transition: all 250ms ease;
 }
 
-.kb-hero__link:hover .kb-hero__link-label {
+.kb-hero__link:hover .kb-hero__link-label,
+.kb-hero__link:focus-within .kb-hero__link-label {
   opacity: 1;
   transform: translateX(-50%);
 }
@@ -525,7 +530,8 @@ body {
   transition-property: transform, filter;
 }
 
-.kb-project__link:hover .kb-project__thumbnail {
+.kb-project__link:hover .kb-project__thumbnail,
+.kb-project__link:focus .kb-project__thumbnail {
   transform: scale(1.05);
   filter: blur(5px) saturate(0.75);
   mix-blend-mode: screen;
@@ -543,7 +549,8 @@ body {
   background-color: var(--kb-color-project-background);
 }
 
-.kb-project__link:hover .kb-project__hover-tile {
+.kb-project__link:hover .kb-project__hover-tile,
+.kb-project__link:focus .kb-project__hover-tile {
   opacity: 1;
 }
 
@@ -556,7 +563,9 @@ body {
   opacity: 0;
 }
 
-.kb-project__link:hover .kb-project__name, .kb-project__link:hover .kb-project__year {
+.kb-project__link:hover .kb-project__name,
+.kb-project__link:focus .kb-project__name, .kb-project__link:hover .kb-project__year,
+.kb-project__link:focus .kb-project__year {
   transform: none;
   opacity: 1;
 }
@@ -582,15 +591,60 @@ body {
   opacity: 1;
 }
 
-.kb-checkbox {
+.kb-checkbox__input {
+  display: block;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  pointer-events: auto;
+}
+
+.kb-checkbox__faux {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 0.25rem;
+  border: thin solid rgba(136, 136, 136, 0.5);
+  position: relative;
+}
+
+.kb-checkbox__input:focus + .kb-checkbox__layout .kb-checkbox__faux,
+.kb-checkbox__input:active + .kb-checkbox__layout .kb-checkbox__faux {
+  box-shadow: var(--kb-shadow--focus);
+}
+
+.kb-checkbox__faux::before {
+  display: none;
+  content: '';
+  height: 0.25rem;
+  width: 0.5rem;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform-origin: center;
+  transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+  border-left: 2px solid var(--kb-color-brand);
+  border-bottom: 2px solid var(--kb-color-brand);
+}
+
+.kb-checkbox__input:checked + .kb-checkbox__layout .kb-checkbox__faux::before {
+  display: block;
+}
+
+.kb-checkbox__layout {
   display: flex;
 }
 
 .kb-checkbox__label {
   display: block;
   line-height: 1;
-  margin-left: 0.25rem;
-  padding-top: 0.125rem;
+  margin-left: 0.375rem;
+  padding-top: 0.25rem;
 }
 
 .kb-text--small {

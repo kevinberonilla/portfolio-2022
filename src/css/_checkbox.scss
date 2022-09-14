@@ -1,12 +1,59 @@
 @mixin checkbox {
     &-checkbox {
-        display: flex;
-    
+        &__input {
+            display: block;
+            width: 1px;
+            height: 1px;
+            border: 0;
+            clip: rect(0 0 0 0);
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            pointer-events: auto;
+        }
+
+        &__faux {
+            display: block;
+            width: 1.125rem;
+            height: 1.125rem;
+            border-radius: 0.25rem;
+            border: thin solid rgba(136, 136, 136, 0.5);
+            position: relative;
+
+            .kb-checkbox__input:focus + .kb-checkbox__layout &,
+            .kb-checkbox__input:active + .kb-checkbox__layout & {
+                box-shadow: var(--kb-shadow--focus);
+            }
+
+            &::before {
+                display: none;
+                content: '';
+                height: 0.25rem;
+                width: 0.5rem;
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform-origin: center;
+                transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+                border-left: 2px solid var(--kb-color-brand);
+                border-bottom: 2px solid var(--kb-color-brand);
+
+                .kb-checkbox__input:checked + .kb-checkbox__layout & {
+                    display: block;
+                }
+            }
+        }
+
+        &__layout {
+            display: flex;
+        }
+
         &__label {
             display: block;
             line-height: 1;
-            margin-left: 0.25rem;
-            padding-top: 0.125rem;
+            margin-left: 0.375rem;
+            padding-top: 0.25rem;
         }
     }
 }
