@@ -110,7 +110,7 @@ body {
                 left: 50%;
                 transform: translateX(-50%) translateY(-1rem);
                 opacity: 0;
-                transition: all 150ms ease;
+                transition: all 100ms ease;
 
                 .kb-hero__link:hover & {
                     opacity: 1;
@@ -155,11 +155,14 @@ body {
 
             .kb-projects__item--loaded & {
                 transform: none;
+                transform-origin: left center;
                 opacity: 1;
             }
 
             .kb-projects__link:hover & {
-                filter: blur(5px);
+                transform: scale(1.15);
+                filter: blur(5px) saturate(0.25);
+                mix-blend-mode: screen;
             }
         }
 
@@ -172,7 +175,7 @@ body {
             left: 0;
             padding: 15% 35% 15% 15%;
             opacity: 0;
-            transition: all 250ms ease;
+            transition: opacity 200ms ease;
 
             &::before {
                 content: '';
@@ -183,7 +186,7 @@ body {
                 bottom: 0;
                 left: 0;
                 background-color: var(--kb-color-project-background, black);
-                opacity: 0.8;
+                opacity: 0.75;
             }
     
             .kb-projects__link:hover & {
@@ -191,17 +194,18 @@ body {
             }
         }
             
-        &__title {
-            position: relative;
-            color: var(--kb-color-project-text, white);
-            margin: 0 0 0.5rem;
-        }
-
+        &__title,
         &__year {
-            position: relative;
             display: block;
+            position: relative;
             color: var(--kb-color-project-text, white);
             margin: 0;
+            transform: translateX(-1rem);
+            transition: transform 200ms ease;
+
+            .kb-projects__link:hover & {
+                transform: none;
+            }
         }
     }
 }

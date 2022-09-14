@@ -587,7 +587,7 @@ body {
         left: 50%;
         transform: translateX(-50%) translateY(-1rem);
         opacity: 0;
-        transition: all 150ms ease; }
+        transition: all 100ms ease; }
         .kb-hero__link:hover .kb-hero__link-label {
           opacity: 1;
           transform: translateX(-50%); }
@@ -618,9 +618,12 @@ body {
     transition: all 250ms ease; }
     .kb-projects__item--loaded .kb-projects__thumbnail {
       transform: none;
+      transform-origin: left center;
       opacity: 1; }
     .kb-projects__link:hover .kb-projects__thumbnail {
-      filter: blur(5px); }
+      transform: scale(1.15);
+      filter: blur(5px) saturate(0.25);
+      mix-blend-mode: screen; }
   .kb-projects__hover-tile {
     position: absolute;
     top: 0;
@@ -629,7 +632,7 @@ body {
     left: 0;
     padding: 15% 35% 15% 15%;
     opacity: 0;
-    transition: all 250ms ease; }
+    transition: opacity 200ms ease; }
     .kb-projects__hover-tile::before {
       content: '';
       display: block;
@@ -639,15 +642,15 @@ body {
       bottom: 0;
       left: 0;
       background-color: var(--kb-color-project-background, black);
-      opacity: 0.8; }
+      opacity: 0.75; }
     .kb-projects__link:hover .kb-projects__hover-tile {
       opacity: 1; }
-  .kb-projects__title {
-    position: relative;
-    color: var(--kb-color-project-text, white);
-    margin: 0 0 0.5rem; }
-  .kb-projects__year {
-    position: relative;
+  .kb-projects__title, .kb-projects__year {
     display: block;
+    position: relative;
     color: var(--kb-color-project-text, white);
-    margin: 0; }
+    margin: 0;
+    transform: translateX(-1rem);
+    transition: transform 200ms ease; }
+    .kb-projects__link:hover .kb-projects__title, .kb-projects__link:hover .kb-projects__year {
+      transform: none; }
