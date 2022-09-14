@@ -1,10 +1,12 @@
 import logo from './images/logo.svg';
-import { useRef, useState, useEffect } from 'react';
+import {useRef, useState, useEffect} from 'react';
 import Checkbox from './Checkbox';
+import ProjectModal from './ProjectModal';
 
 function App() {
     const year = new Date().getFullYear();
     const hero = useRef();
+    const projectModal = useRef();
     const [filters] = useState({
         design: true,
         development: true,
@@ -13,6 +15,7 @@ function App() {
     });
     const [projects, setProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
+    const [viewedProject, setViewedProject] = useState({});
     const [allThumbnailsLoaded, setAllThumbnailsLoaded] = useState(false);
     let thumbnailsLoaded = 0;
     
@@ -58,7 +61,7 @@ function App() {
             passive: true
         });
         handleWindowResize();
-        window.setTimeout(getProjects, 1);
+        getProjects();
 
         return () => {
             window.removeEventListener('resize', handleWindowResize);
@@ -88,15 +91,43 @@ function App() {
 
         filters[category] = value;
 
-        let enabledCategories = Object.keys(filters).filter(key => filters[key]);
+        const enabledCategories = Object.keys(filters).filter(key => filters[key]);
         
         setFilteredProjects(
             projects.filter(project => {
-                const matchingFilters = enabledCategories.filter(category => project.categories.includes(category));
+                for (let i = 0; i < project.categories.length; i++) {
+                    if (enabledCategories.includes(project.categories[i])) {
+                        return true;
+                    }
+                }
 
-                return matchingFilters.length;
+                return false;
             })
         );
+    }
+
+    function handleProjectClick(event) {
+        event.preventDefault();
+
+        const projectIndex = parseInt(event.currentTarget.dataset.index, 10);
+        const targetProject = filteredProjects[projectIndex];
+        const newDocumentTitle = targetProject.name + ' | Kevin Beronilla';
+
+        setViewedProject(targetProject);
+        window.document.title = newDocumentTitle;
+        window.history.replaceState(null, newDocumentTitle, window.location.pathname + targetProject.hash);
+
+        window.setTimeout(() => {
+            projectModal.current.show();
+        }, 0);
+    }
+
+    function handleProjectModalHidden() {
+        const newDocumentTitle = 'Kevin Beronilla';
+
+        setViewedProject({});
+        window.document.title = newDocumentTitle;
+        window.history.replaceState(null, newDocumentTitle, window.location.pathname);
     }
 
     return (
@@ -132,8 +163,8 @@ function App() {
                                     <span className="kb-hero__link-label">Email</span>
                                 </li>
                             </ul>
-                            <fieldset class="kb-hero__controls">
-                                <legend class="kb-line-height--reset">Filter Projects</legend>
+                            <fieldset className="kb-hero__controls">
+                                <legend>Filter Projects</legend>
                                 <Checkbox className="kb-m-top--x-small" label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
                                 <Checkbox className="kb-m-top--x-small" label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
                                 <Checkbox className="kb-m-top--x-small" label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
@@ -142,7 +173,7 @@ function App() {
                         </div>
                         <div className="kb-hero__content">
                             <h1 className="kb-text-heading kb-text-heading--large">
-                                Hello! My name is<br /><span className="kb-font-color--brand">Kevin Beronilla</span><br />and I am a visual artist.
+                                Hello! My name is<br /><span className="kb-text-color--brand">Kevin Beronilla</span><br />and I am a visual artist.
                             </h1>
                             <div className="kb-hero__description">
                                 <p>With a multi-disciplinary background in design, development, photography, and video, my mission is to create beautiful experiences in all forms of media.</p>
@@ -159,12 +190,12 @@ function App() {
                             {
                                 filteredProjects.map((project, projectIndex) => {
                                     return (
-                                        <li key={project.id} className="kb-project" data-index={projectIndex}>
-                                            <a className="kb-project__link" href={project.hash}>
+                                        <li key={project.id} className="kb-project">
+                                            <a className="kb-project__link" href={project.hash} data-index={projectIndex} onClick={handleProjectClick}>
                                                 <img className="kb-project__thumbnail" src={project.thumbnailUrl} alt={project.name} onLoad={handleThumbnailLoad} />
                                                 <span className="kb-project__hover-tile">
                                                     <span className="kb-project__name kb-m-around--none">{project.name}</span>
-                                                    <em className="kb-project__year kb-text--small kb-m-top--small kb-m-bottom--none">{project.startYear ? project.startYear + '—' + project.endYear : project.endYear}</em>
+                                                    <em className="kb-project__year kb-text-size--small kb-m-top--small kb-m-bottom--none">{project.startYear ? project.startYear + '—' + project.endYear : project.endYear}</em>
                                                 </span>
                                             </a>
                                         </li>
@@ -178,12 +209,13 @@ function App() {
                 }
             </main>
             <footer className={'kb-footer' + (allThumbnailsLoaded ? ' kb-footer--loaded' : '')}>
-                <p className="kb-text--small kb-m-around--none">
+                <p className="kb-text-size--small kb-m-around--none">
                     &copy; {year} Kevin Beronilla. All works featured are copyrighted by the respective individuals and organizations of which they are a representation of.
                     <br />
                     This portfolio was lovingly handcrafted using React, Sass, and Contenful.
                 </p>
             </footer>
+            {Object.keys(viewedProject).length ? <ProjectModal ref={projectModal} project={viewedProject} onHidden={handleProjectModalHidden} /> : ''}
         </>
     );
 }
