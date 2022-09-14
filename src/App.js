@@ -44,10 +44,9 @@ function App() {
         }
 
         function handleWindowResize() {
-            let app = document.querySelector('.kb');
-            let hero = document.querySelector('.kb-hero');
+            let hero = window.document.querySelector('.kb-hero');
 
-            app.style.setProperty('--kb-vh', window.innerHeight / 100 + 'px');
+            window.document.body.style.setProperty('--kb-vh', window.innerHeight / 100 + 'px');
             hero.style.setProperty('--kb-hero-height', hero.clientHeight + 'px');
         }
 
@@ -76,7 +75,7 @@ function App() {
     }
 
     return (
-        <div className="kb">
+        <>
             <main>
                 <section className={'kb-hero' + (allThumbnailsLoaded ? ' kb-hero--loaded' : '')}>
                     <div className="kb-hero__layout kb-container">
@@ -129,7 +128,7 @@ function App() {
                                 filteredProjects.map(project => {
                                     return (
                                         <li key={project.id} className="kb-project">
-                                            <a className="kb-project__link" href={project.hash} style={{'--kb-color-project-background': project.backgroundColor, '--kb-color-project-text': project.textColor}}>
+                                            <a className="kb-project__link" href={project.hash}>
                                                 <img className="kb-project__thumbnail" src={project.thumbnailUrl} alt={project.name} onLoad={handleThumbnailLoad} />
                                                 <span className="kb-project__hover-tile">
                                                     <span className="kb-project__name kb-text-heading kb-text-heading--small kb-m-around--none">{project.name}</span>
@@ -150,10 +149,10 @@ function App() {
                 <p className="kb-text--small kb-m-around--none">
                     &copy; {year} Kevin Beronilla. All works featured are copyrighted by the respective individuals and organizations of which they are a representation of.
                     <br />
-                    This website was lovingly handcrafted using React, Sass, and Contenful.
+                    This portfolio was lovingly handcrafted using React, Sass, and Contenful.
                 </p>
             </footer>
-        </div>
+        </>
     );
 }
 

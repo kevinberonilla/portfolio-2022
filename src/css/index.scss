@@ -1,6 +1,6 @@
 @import 'normalize';
 @import 'variables';
-@import 'common';
+@import 'utility';
 @import 'https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital@0;1&display=swap';
 @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css';
 
@@ -15,20 +15,17 @@ img {
 
 body {
     @include custom-properties;
-    margin: 0;
-    background-color: var(--kb-color-hero-background);
-}
-
-.kb {
     min-height: calc(var(--kb-vh) * 100);
+    margin: 0;
+    background-color: var(--kb-color-background);
+    color: var(--kb-color-font);
     font-family: var(--kb-font-family-body);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.75;
-    color: var(--kb-color-font-inverse);
+}
 
-    @include common;
-
+.kb {
     &-hero {
         margin-top: calc(var(--kb-hero-height) * -1);
         opacity: 0;
@@ -74,7 +71,7 @@ body {
             display: block;
             position: relative;
             padding: 0.125rem;
-            color: inherit;
+            color: var(--kb-color-font);
             text-decoration: none;
 
             &:hover,
@@ -93,7 +90,7 @@ body {
             a {
                 display: block;
                 padding: 0.375rem;
-                color: inherit;
+                color: var(--kb-color-font);
                 text-decoration: none;
 
                 &:hover,
@@ -112,7 +109,7 @@ body {
                 left: 50%;
                 transform: translateX(-50%) translateY(-1rem);
                 opacity: 0;
-                transition: all 100ms ease;
+                transition: all 250ms ease;
 
                 .kb-hero__link:hover & {
                     opacity: 1;
@@ -155,13 +152,13 @@ body {
 
             .kb-project--loaded & {
                 transform: none;
-                transform-origin: left center;
+                transform-origin: center;
                 opacity: 1;
             }
 
             .kb-project__link:hover & {
-                transform: scale(1.15);
-                filter: blur(5px) saturate(0.25);
+                transform: scale(1.1);
+                filter: blur(5px) saturate(0.75);
                 mix-blend-mode: screen;
             }
         }
@@ -175,20 +172,8 @@ body {
             left: 0;
             padding: 15% 35% 15% 15%;
             opacity: 0;
-            transition: opacity 200ms ease;
-
-            &::before {
-                content: '';
-                display: block;
-                pointer-events: none;
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background-color: var(--kb-color-project-background, black);
-                opacity: 0.75;
-            }
+            transition: opacity 250ms ease;
+            background-color: var(--kb-color-project-background);
     
             .kb-project__link:hover & {
                 opacity: 1;
@@ -199,13 +184,20 @@ body {
         &__year {
             display: block;
             position: relative;
-            color: var(--kb-color-project-text, white);
+            color: var(--kb-color-font);
             transform: translateX(-2rem);
-            transition: transform 200ms ease;
+            transition: all 250ms ease 150ms;
+            opacity: 0;
 
             .kb-project__link:hover & {
                 transform: none;
+                opacity: 1;
             }
+        }
+
+        &__name {
+            color: var(--kb-color-brand);
+            transition-delay: 100ms;
         }
     }
 
@@ -221,4 +213,6 @@ body {
             opacity: 1;
         }
     }
+
+    @include utility;
 }
