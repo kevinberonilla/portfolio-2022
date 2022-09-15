@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 function Carousel(props) {
 
     return (
-        <div className="kb-carousel">
+        <div className={'kb-carousel' + (props.className ? ' ' + props.className : '')}>
             <ol className="kb-carousel__slider">
                 {
                     props.images.map(image => {
@@ -32,7 +32,8 @@ function Carousel(props) {
 }
 
 Carousel.propTypes = {
-    images: PropTypes.array.isRequired
+    images: PropTypes.array.isRequired,
+    className: PropTypes.string
 }
 
 export default Carousel;

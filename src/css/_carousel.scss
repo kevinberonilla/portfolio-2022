@@ -14,6 +14,7 @@
         &__slider {
             list-style: none;
             padding: 0;
+            margin: 0;
             display: flex;
             flex-wrap: none;
         }
@@ -21,6 +22,10 @@
         &__slide {
             flex: 0 0 100%;
             scroll-snap-align: start;
+
+            img {
+                display: block;
+            }
         }
     }
 }

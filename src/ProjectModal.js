@@ -119,7 +119,7 @@ const ProjectModal = forwardRef((props, ref) => {
                             ''
                         }
                     </ul>
-                    <Carousel images={props.project.imageUrls} />
+                    <Carousel className="kb-m-top--x-large" images={props.project.imageUrls} />
                 </div>
             </div>
         </div>
@@ -127,8 +127,8 @@ const ProjectModal = forwardRef((props, ref) => {
 });
 
 ProjectModal.propTypes = {
-    className: PropTypes.string,
     project: PropTypes.object.isRequired,
+    className: PropTypes.string,
     onHidden: PropTypes.func
 }
 

@@ -735,7 +735,7 @@ a:hover {
   padding: 4rem;
   z-index: 1;
   opacity: 0;
-  transition: opacity 500ms ease 150ms;
+  transition: opacity 500ms ease 250ms;
 }
 
 .kb-project-modal__content--shown {
@@ -807,6 +807,7 @@ a:hover {
 .kb-carousel__slider {
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: none;
 }
@@ -814,6 +815,10 @@ a:hover {
 .kb-carousel__slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
+}
+
+.kb-carousel__slide img {
+  display: block;
 }
 
 .kb-text-size--small {
