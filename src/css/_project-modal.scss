@@ -4,7 +4,7 @@
         inset: 0;
         z-index: 9000;
         opacity: 0;
-        transition: opacity 100ms ease;
+        transition: opacity 250ms ease;
 
         &--shown {
             opacity: 1;
@@ -83,7 +83,7 @@
 
         &__name {
             display: block;
-            padding-right: 6rem;
+            padding-right: 4rem;
             line-height: 1.25;
             margin: -0.625rem 0 0 0;
         }
@@ -97,7 +97,7 @@
                 display: flex;
                 width: 100%;
                 list-style: none;
-                padding: 0 6rem 0 0;
+                padding: 0;
                 margin: 0;
             }
         }

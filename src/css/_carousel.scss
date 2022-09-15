@@ -50,6 +50,11 @@
             top: 50%;
             transform: translateY(-50%);
 
+            &::before {
+                display: block;
+                transform: translateX(0.125rem);
+            }
+
             &:hover,
             &:active {
                 color: var(--kb-color-brand);
@@ -65,13 +70,47 @@
         &__next {
             left: initial;
             right: -3.5rem;
+
+            &::before {
+                transform: translateX(-0.125rem);
+            }
+
         }
 
         &__nav {
+            display: flex;
+            padding: 0.5rem;
+            border-radius: 0.75rem;
             position: absolute;
-            left: 50%;
+            left: 2rem;
             top: 2rem;
-            transform: translateX(-50%);
+            background-color: var(--kb-color-carousel-nav-background);
+
+            &-item {
+                display: block;
+                cursor: pointer;
+                margin: 0 0.25rem;
+                width: 0.5rem;
+                height: 0.5rem;
+                border-radius: 0.5rem;
+                background-color: var(--kb-color-text);
+
+                &:hover {
+                    transform: scale(1.25);
+                }
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &--active {
+                    background-color: var(--kb-color-brand);
+                }
+            }
         }
     }
 }
