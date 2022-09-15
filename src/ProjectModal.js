@@ -89,37 +89,45 @@ const ProjectModal = forwardRef((props, ref) => {
                             <p className="kb-m-vertical--none">{props.project.contributions}</p>
                         </li>
                         {
-                            props.project.githubRepository
+                            props.project.githubRepository || props.project.demoSite || props.project.liveSite
                             ?
                             <li className="kb-project-modal__detail">
-                                <p className="kb-text-size--small kb-m-vertical--none"><strong>GitHub Repository</strong></p>
-                                <p className="kb-m-vertical--none"><a href={props.project.githubRepository} target="_blank" rel="noreferrer">{props.project.githubRepository}</a></p>
-                            </li>
-                            :
-                            ''
-                        }
-                        {
-                            props.project.demoSite
-                            ?
-                            <li className="kb-project-modal__detail">
-                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Demo Site</strong></p>
-                                <p className="kb-m-vertical--none"><a href={props.project.demoSite} target="_blank" rel="noreferrer">{props.project.demoSite}</a></p>
-                            </li>
-                            :
-                            ''
-                        }
-                        {
-                            props.project.liveSite
-                            ?
-                            <li className="kb-project-modal__detail">
-                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Live Site</strong></p>
-                                <p className="kb-m-vertical--none"><a href={props.project.liveSite} target="_blank" rel="noreferrer">{props.project.liveSite}</a></p>
+                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Links</strong></p>
+                                <ul className="kb-list--horizontal">
+                                    {
+                                        props.project.githubRepository
+                                        ?
+                                        <li>
+                                            <a href={props.project.githubRepository} target="_blank" rel="noreferrer">GitHub Repository</a>
+                                        </li>
+                                        :
+                                        ''
+                                    }
+                                    {
+                                        props.project.demoSite
+                                        ?
+                                        <li>
+                                            <a href={props.project.demoSite} target="_blank" rel="noreferrer">Demo Site</a>
+                                        </li>
+                                        :
+                                        ''
+                                    }
+                                    {
+                                        props.project.liveSite
+                                        ?
+                                        <li>
+                                            <a href={props.project.liveSite} target="_blank" rel="noreferrer">Live Site</a>
+                                        </li>
+                                        :
+                                        ''
+                                    }
+                                </ul>
                             </li>
                             :
                             ''
                         }
                     </ul>
-                    <Carousel className="kb-m-top--x-large" images={props.project.imageUrls} />
+                    <Carousel className="kb-m-top--x-large" images={props.project.imageUrls} videos={props.project.videos} />
                 </div>
             </div>
         </div>

@@ -37,10 +37,12 @@ function App() {
                 let projects = [];
 
                 parsedResponse.items.forEach(item => {
+                    const imageUrls = item.fields.images?.length ? item.fields.images.map(image => parsedResponse.includes.Asset.find(asset => asset.sys.id === image.sys.id).fields.file.url) : [];
+
                     projects.push({
                         id: item.sys.id,
                         thumbnailUrl: parsedResponse.includes.Asset.find(asset => asset.sys.id === item.fields.thumbnail.sys.id).fields.file.url,
-                        imageUrls: item.fields.images.map(image => parsedResponse.includes.Asset.find(asset => asset.sys.id === image.sys.id).fields.file.url),
+                        imageUrls: imageUrls,
                         hash: '#' + encodeURIComponent(item.fields.name.toLowerCase().replaceAll(' ', '-')),
                         ...item.fields
                     });
@@ -84,8 +86,8 @@ function App() {
                         window.document.querySelector('.kb-project__link[href="' + window.location.hash + '"]').click();
                     }
                 }
-            }, Math.random() * 1000);
-        } else {
+            }, Math.random() * 500);
+        } else { // Load events from filtering
             loadedImage.closest('.kb-project').classList.add('kb-project--revealed');
         }
     }

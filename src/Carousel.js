@@ -56,12 +56,29 @@ function Carousel(props) {
             <div ref={carousel} className="kb-carousel" onScroll={handleCarouselScroll}>
                 <ol className="kb-carousel__rail">
                     {
+                        props.images?.length
+                        ?
                         props.images.map(image => {
                             return (
                                 <img key={image} className="kb-carousel__image" src={image} alt="" />
-                                )
-                            })
-                        }
+                            )
+                        })
+                        :
+                        ''
+                    }
+                    {
+                        props.videos?.length
+                        ?
+                        props.videos.map((video, videoIndex) => {
+                            return (
+                                <div key={video} className="kb-carousel__video-container">
+                                    <iframe src={video} title={'Video ' + (videoIndex + 1)} frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                </div>
+                            )
+                        })
+                        :
+                        ''
+                    }
                 </ol>
             </div>
             {
@@ -88,7 +105,8 @@ function Carousel(props) {
 }
 
 Carousel.propTypes = {
-    images: PropTypes.array.isRequired,
+    images: PropTypes.array,
+    videos: PropTypes.array,
     className: PropTypes.string
 }
 
