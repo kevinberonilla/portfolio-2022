@@ -71,8 +71,7 @@ const ProjectModal = forwardRef((props, ref) => {
                 <img className="kb-project-modal__background" src={props.project.thumbnailUrl} alt={props.project.name} />
             </div>
             <div className={'kb-project-modal__content' + (shown ? ' kb-project-modal__content--shown' : '')}>
-                <div className="kb-container">
-
+                <div className="kb-container kb-position--relative">
                     <button className="kb-project-modal__close fa-solid fa-close" onClick={hideModal}></button>
                     <h2 className="kb-project-modal__name kb-text-heading--medium">{props.project.name}</h2>
                     <ul className="kb-project-modal__detail-list">

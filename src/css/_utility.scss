@@ -51,6 +51,24 @@
         }
     }
 
+    &-position {
+        &--relative {
+            position: relative;
+        }
+
+        &--sticky {
+            position: sticky;
+        }
+
+        &--absolute {
+            position: absolute;
+        }
+
+        &--fixed {
+            position: fixed;
+        }
+    }
+
     &-flex {
         &--shrink {
             flex-shrink: 1;

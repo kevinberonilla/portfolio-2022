@@ -220,7 +220,7 @@ function App() {
                     <br />
                     All featured projects are copyrighted by the respective individuals and organizations of which they are a representation of.
                     <br />
-                    This portfolio was lovingly handcrafted using React, Sass, and Contenful. Check out the <a href="https://github.com/kevinberonilla/portfolio" target="_blank" rel="noreferrer">GitHub repository</a>!
+                    This portfolio was lovingly handcrafted using <a href="https://reactjs.org" target="_blank" rel="noreferrer">React</a>, <a href="https://sass-lang.com" target="_blank" rel="noreferrer">Sass</a>, and <a href="https://www.contentful.com" target="_blank" rel="noreferrer">Contentful</a>. Check out the source code on <a href="https://github.com/kevinberonilla/portfolio" target="_blank" rel="noreferrer">GitHub</a>!
                 </p>
             </footer>
             {Object.keys(viewedProject).length ? <ProjectModal ref={projectModal} project={viewedProject} onHidden={handleProjectModalHidden} /> : ''}

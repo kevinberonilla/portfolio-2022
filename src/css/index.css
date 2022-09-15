@@ -732,7 +732,6 @@ a:hover {
   height: 100%;
   overflow-y: auto;
   padding: 4rem;
-  position: relative;
   z-index: 1;
   opacity: 0;
   transition: opacity 500ms ease 150ms;
@@ -744,6 +743,9 @@ a:hover {
 
 .kb-project-modal__close {
   display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
   cursor: pointer;
   background-color: transparent;
   color: var(--kb-tex-color);
@@ -754,9 +756,6 @@ a:hover {
   padding: 0;
   border: none;
   border-radius: 0.25rem;
-  position: fixed;
-  top: 4rem;
-  right: 4rem;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -833,6 +832,22 @@ a:hover {
 
 .kb-text-color--regular {
   color: var(--kb-color-text);
+}
+
+.kb-position--relative {
+  position: relative;
+}
+
+.kb-position--sticky {
+  position: sticky;
+}
+
+.kb-position--absolute {
+  position: absolute;
+}
+
+.kb-position--fixed {
+  position: fixed;
 }
 
 .kb-flex--shrink {
