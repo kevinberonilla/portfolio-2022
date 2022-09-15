@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Webegin for Visualforce | Demo</title>
+    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/icomoon.min.css">
+    <link rel="stylesheet" type="text/css" href="css/proximanovasoft.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.tagit.min.css">
+    <link rel="stylesheet" type="text/css" href="css/tooltipster.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.min.css">
+    <style>
+        /* ----------------------------------------
+        Demo-Specific Styles
+        ---------------------------------------- */
+        
+        #kb-logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 9997;
+            padding: 10px;
+            width: 50px;
+            height: 50px;
+            border: 1px solid #fff;
+            border-radius: 50px;
+            opacity: 0.25;
+            -webkit-transition: all 250ms ease;
+            transition: all 250ms ease;
+        }
+        
+        #kb-logo:hover {
+            opacity: 1;
+        }
+        
+        #kb-logo img {
+            width: 28px;
+            height: auto;
+            padding-top: 4px;
+            padding-left: 1px;
+        }
+        
+        #kb-logo:focus {
+            outline: none;
+        }
+        
+        #webegin-logo {
+            width: 40%;
+            height: auto;
+            margin-bottom: 40px;
+        }
+        
+        body .scope .hero:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url(https://kevinberonilla.com/hosted/visualforce-webegin-hero-image.jpg);
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+        }
+        
+        body .scope .demo-section {
+            padding: 80px 0;
+        }
+        
+        body .scope .color-chip {
+            min-height: 140px;
+        }
+        
+        @media only screen and (max-width: 1024px) {
+            #webegin-logo {
+                width: 50%;
+            }
+            body .scope .demo-section {
+                padding: 40px 0;
+            }
+        }
+        
+        @media only screen and (max-width: 480px) {
+            #webegin-logo {
+                width: 70%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="scope" class="scope">
+        <a id="kb-logo" href="https://kevinberonilla.com" target="_blank"><img src="https://kevinberonilla.com/hosted/kb-logo-reversed.svg" alt="Kevin Beronilla"></a>
+        <div id="hero-code">
+            <div class="hero">
+                <div class="container">
+                    <img id="webegin-logo" src="https://kevinberonilla.com/hosted/visualforce-webegin-logo-reversed.svg" alt="Webegin">
+                    <h3>A front-end development kit for building Salesforce1 apps (and beyond)</h3>
+                    <ul class="button-group">
+                        <li>
+                            <a class="orange inverse" href="https://github.com/kevinberonilla/visualforce-webegin" target="_blank"><span class="icon margin-right fa fa-github"></span>View on GitHub</a>
+                        </li>
+                        <li>
+                            <a class="green" href="https://github.com/kevinberonilla/visualforce-webegin/archive/master.zip" download="visualforce-webegin.zip"><span class="icon margin-right fa fa-download"></span>Download Latest</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="hero-footer grid-margin-bottom">
+            <div class="container">
+                <div>
+                    <button class="purple js-view-code js-open-modal" data-source-id="hero-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Hero Code</button>
+                </div>
+                <div class="adjust-ta-c grid-margin-top">
+                    <span class="icon fa fa-arrow-up"></span>
+                    <br>Click these buttons to view the markup of the sections above them
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Overview Section -->
+            <div class="demo-section adjust-ta-c">
+                <div id="overview-code">
+                    <div class="grid negate-padding">
+                        <div class="column padded span-4 span-12-tp adjust-p-b-16-tp">
+                            <div class="icon-container large"><span class="icon fa fa-cogs pink"></span></div>
+                            <h3 class="text-dark">Sass, Gulp, &amp; jQuery</h3>
+                            <p>Nothing beats organized, automated, and simplified code, so Webegin's source is built with the best tools for maintainable development.</p>
+                        </div>
+                        <div class="column padded span-4 span-12-tp adjust-p-b-16-tp">
+                            <div class="icon-container large"><span class="icon im im-cloud blue"></span></div>
+                            <h3 class="text-dark">Salesforce1-Ready Theme</h3>
+                            <p>Seamlessly integrate your Visualforce pages into Salesforce1 with Webegin's styled elements for a consistent user experience.</p>
+                        </div>
+                        <div class="column padded span-4 span-12-tp adjust-p-b-16-tp">
+                            <div class="icon-container large"><span class="icon fa fa-wrench green"></span></div>
+                            <h3 class="text-dark">Enhancement &amp; Customization</span></h3>
+                            <p>Meticulously developed with maintainability in mind, Webegin allows you to get down and dirty with the source code when needed.</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-margin-bottom">
+                        <div class="column padded span-4 span-12-tp adjust-p-b-16-tp">
+                            <div class="icon-container large"><span class="icon im im-insert-template light-blue"></span></div>
+                            <h3 class="text-dark">Fluid Grid Layouts</h3>
+                            <p>With Webegin's 12-column floating grid system, you are able to create intricate, responsive layouts for all sorts of content types.</p>
+                        </div>
+                        <div class="column padded span-4 span-12-tp adjust-p-b-16-tp">
+                            <div class="icon-container large"><span class="icon fa fa-sliders orange"></span></div>
+                            <h3 class="text-dark">Adjustment Classes</span></h3>
+                            <p>Need to add a <code>padding-bottom</code> of <code>3px</code>? Ditch those inline styles and fine-tune your block elements with <code>.adjust-p-b-3</code> instead.</p>
+                        </div>
+                        <div class="column padded span-4 span-12-tp adjust-p-b-16-tp">
+                            <div class="icon-container large"><span class="icon im im-mobile red"></span></div>
+                            <h3 class="text-dark">Breakpoint Affixes</h3>
+                            <p>Augment your grid and adjustment classes with the <code>-tl</code> (tablet landscape), <code>-tp</code> (tablet portrait), and <code>-p</code> (phone) class affixes.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="purple js-view-code js-open-modal grid-margin-top" data-source-id="overview-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Overview Code</button>
+            </div>
+            <!-- /Overview Section -->
+            <hr class="grid-margin-top">
+            <!-- Typography Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded float-right span-5 margin-span-1 span-12-tp margin-span-0-tp adjust-m-t-4 adjust-m-t-0-tp">
+                        <h2>Typography</h2>
+                        <p>Resembling Salesforce1, Webegin for Visualforce comes pre-styled with five headings that can be used throughout your copy. Each heading carries its own set of <code>font-size</code>, <code>line-height</code>, and <code>color</code> properties.</p>
+                        <p>Other elements, including paragraphs, unordered lists, and ordered lists are also pre-styled.</p>
+                    </div>
+                    <div class="column padded float-right span-4 margin-span-1 span-12-tp margin-span-0-tp">
+                        <div id="typography-code">
+                            <div class="grid negate-padding">
+                                <div class="column padded span-6 span-12-tl">
+                                    <h1>Header 1</h1>
+                                    <h2>Header 2</h2>
+                                    <h3>Header 3</h3>
+                                    <h4>Header 4</h4>
+                                    <h5>Header 5</h5>
+                                </div>
+                                <div class="column padded span-6 span-12-tl">
+                                    <p class="adjust-m-t-10">This is a short paragraph with a <a href="#">link</a>.</p>
+                                    <hr>
+                                    <ul>
+                                        <li>Unordered List</li>
+                                        <li><strong>Bold Text</strong></li>
+                                    </ul>
+                                    <ol>
+                                        <li>Ordered List</li>
+                                        <li><em>Italic Text</em></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="purple js-view-code js-open-modal grid-margin-top" data-source-id="typography-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Typography Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Typography Section -->
+            <hr class="grid-margin-top">
+            <!-- Colors Section -->
+            <div class="demo-section">
+                <h2 class="adjust-ta-c adjust-ta-l-p grid-margin-bottom">Colors</h2>
+                <div class="grid negate-padding">
+                    <div class="column padded span-8 margin-span-2 span-10-tl margin-span-1-tl span-12-tp margin-span-0-tp">
+                        <div id="colors-code">
+                            <div class="grid negate-padding">
+                                <div class="column padded span-3 span-6-tp span-12-p">
+                                    <article class="card">
+                                        <section class="color-chip molecular background-color blue"></section>
+                                        <section class="adjust-ta-c">
+                                            <h4 class="caps ellipsis">Blue</h4> #2a94d6
+                                        </section>
+                                    </article>
+                                </div>
+                                <div class="column padded span-3 span-6-tp span-12-p">
+                                    <article class="card">
+                                        <section class="color-chip molecular background-color light-blue"></section>
+                                        <section class="adjust-ta-c">
+                                            <h4 class="caps ellipsis">Light Blue</h4> #4eb1cb
+                                        </section>
+                                    </article>
+                                </div>
+                                <div class="column padded span-3 span-6-tp span-12-p">
+                                    <article class="card">
+                                        <section class="color-chip molecular background-color navy"></section>
+                                        <section class="adjust-ta-c">
+                                            <h4 class="caps ellipsis">Navy</h4> #34495e
+                                        </section>
+                                    </article>
+                                </div>
+                                <div class="column padded span-3 span-6-tp span-12-p">
+                                    <article class="card">
+                                        <section class="color-chip molecular background-color red"></section>
+                                        <section class="adjust-ta-c">
+                                            <h4 class="caps ellipsis">Red</h4> #cf5c60
+                                        </section>
+                                    </article>
+                                </div>
+                                <div class="column padded span-3 span-6-tp span-12-p">
+                                    <article class="card">
+                                        <section class="color-chip molecular background-color purple"></section>
+                                        <section class="adjust-ta-c">
+                                            <h4 class="caps ellipsis">Purple</h4> #717ecd
+                                        </section>
+                                    </article>
+                                </div>
+                                <div class="column padded span-3 span-6-tp span-12-p">
+                                    <article class="card">
+                                        <section class="color-chip molecular background-color green"></section>
+                                        <section class="adjust-ta-c">
+                                            <h4 class="caps ellipsis">Green</h4> #4ab471
+                                        </section>
+                                    </article>
+                                </div>
+                                <div class="column padded span-3 span-6-tp span-12-p">
+                                    <article class="card">
+                                        <section class="color-chip molecular background-color orange"></section>
+                                        <section class="adjust-ta-c">
+                                            <h4 class="caps ellipsis">Orange</h4> #f3ae4e
+                                        </section>
+                                    </article>
+                                </div>
+                                <div class="column padded span-3 span-6-tp span-12-p">
+                                    <article class="card">
+                                        <section class="color-chip molecular background-color pink"></section>
+                                        <section class="adjust-ta-c">
+                                            <h4 class="caps ellipsis">Pink</h4> #d96383
+                                        </section>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column padded adjust-ta-c adjust-ta-l-p">
+                        <button class="purple js-view-code js-open-modal grid-margin-top" data-source-id="colors-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Colors Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Colors Section -->
+            <hr class="grid-margin-top">
+            <!-- Grid Section -->
+            <div class="demo-section">
+                <div class="grid grid-margin-bottom">
+                    <div class="column padded">
+                        <h2>Responsive Grid Layouts</h2>
+                        <p>Webegin for Visualforce supports floated grids (with the <code>.grid</code> class) and flexbox grids (with the <code>.flex-grid</code> class), along with classes for managing breakpoint layouts, float direction, and column spacing. Columns require the <code>.column</code> class, and sizing is determined by an associated <code>.span-<em><strong>n</strong></em></code> class, where <em><strong>n</strong></em> represents a numerator over 12 (100% width).</p>
+                        <p>Class affixes for enabling sizing within breakpoints include <code>-tl</code> for tablet landscape, <code>-tp</code> for tablet portrait, and <code>-p</code> for phone. Adding the <code>.margin-span-<em><strong>n</strong></em></code> class will add a margin of the specified size in the same direction as the float, and accepts all breakpoint-related affixes. These margin classes, however, are not supported on flexbox grids.</p>
+                        <p>Grids with the <code>.negate-padding</code> class will negate the spacing of its descendant columns, which may be desireable when making use of the <code>.padded</code> class on columns for gutters.</p>
+                    </div>
+                </div>
+                <div id="grid-code">
+                    <article class="card">
+                        <section class="grid negate-padding">
+                            <div class="column padded span-6 span-12-p">
+                                <pre>column span-6 span-12-p</pre>
+                            </div>
+                            <div class="column padded span-4 span-12-p">
+                                <pre>column span-4 span-12-p</pre>
+                            </div>
+                            <div class="column padded span-2">
+                                <pre>column span-2</pre>
+                            </div>
+                            <div class="column padded float-right span-3 span-4-tl span-8-p">
+                                <pre>column float-right span-3 span-4-tl span-8-p</pre>
+                            </div>
+                            <div class="column padded float-right span-6 margin-span-1 span-2-tp span-1-p">
+                                <pre>column float-right span-6 margin-span-1 span-2-tp span-1-p</pre>
+                            </div>
+                            <div class="column padded float-right span-2 span-12-tl span-3-p">
+                                <pre>column float-right span-2 span-12-tl span-3-p</pre>
+                            </div>
+                            <div class="column padded span-6-tl span-4-tp span-6-p">
+                                <pre>column span-6-tl span-4-tp span-6-p</pre>
+                            </div>
+                            <div class="column padded span-6 span-8-tl span-12-tp">
+                                <pre>column span-6 span-8-tl span-12-tp</pre>
+                            </div>
+                            <div class="column padded span-6 span-4-tl span-12-tp span-6-p">
+                                <pre>column span-6 span-4-tl span-12-tp span-6-p</pre>
+                            </div>
+                        </section>
+                    </article>
+                </div>
+                <button class="purple js-view-code js-open-modal grid-margin-top" data-source-id="grid-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Grid Code</button>
+            </div>
+            <!-- /Grid Section -->
+            <hr class="grid-margin-top">
+            <!-- Buttons Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-5 margin-span-1 span-12-tp margin-span-0-tp">
+                        <h2>Buttons</h2>
+                        <p><code>&lt;button&gt;</code> tags will automatically carry Salesforce1's button styles. <code>&lt;a&gt;</code> tags with the <code>.button</code> class and <code>input[type="submit"]</code> elements extend these styles.</p>
+                        <p>Buttons can make use of the colors from the Colors Section by including a class based on the color's name (e.g., <code>.light-blue</code> for Light Blue). They can also make use of the <code>.inverse</code> class, which turns its background transparent and applies the specified color to the <code>color</code> and <code>border-color</code> CSS properties.</p>
+                        <p>Dropdown buttons can also be created by adding the <code>.dropdown</code> class to any button. A sibling <code>&lt;ul&gt;</code> element with the <code>.dropdown-options</code> class containing the options as links will need to be present for the dropdown to function.</p>
+                    </div>
+                    <div class="column padded span-5 span-12-tp margin-span-0-tp grid-margin-top adjust-p-t-16 adjust-p-t-0-tp">
+                        <div id="buttons-code" class="adjust-m-t-16 adjust-m-t-0-tp">
+                            <p><button class="green">Green Button</button><a href="#" class="button">Link with .button Class<span class="icon fa fa-user margin-left"></span></a></p>
+                            <p><button class="red inverse">Red Inverse Button</button><button class="orange small">Small Orange Button</button></p>
+                            <p><button class="light-blue full-width">Light-Blue Full-Width Button</button></p>
+                            <p><button class="navy"><span class="icon fa fa-cog margin-right"></span>Navy Button</button><a href="#" class="button purple inverse small">Small Purple Inverse Button</a></p>
+                            <div class="grid-margin-top">
+                                <a href="#" class="button pink disabled">Disabled Button</a><button class="dropdown red">Dropdown Button</button>
+                                <ul class="dropdown-options" style="min-width: 153px;">
+                                    <li><a href="#">Option 1</a></li>
+                                    <li><a href="#">Option 2</a></li>
+                                    <li><a href="#">Option 3</a></li>
+                                    <li><a href="#">Option 4</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column padded span-10 margin-span-1 span-12-tp margin-span-0-tp grid-margin-top">
+                        <button class="purple js-view-code js-open-modal" data-source-id="buttons-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Buttons Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Buttons Section -->
+            <hr class="grid-margin-top">
+            <!-- Button Groups Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-10 margin-span-1 span-12-tp margin-span-0-tp">
+                        <h2>Button Groups</h2>
+                        <p>Buttons can also be grouped to tie together related actions by use of a <code>&lt;ul&gt;</code> tag with the <code>.button-group</code> class. <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code> tags within list items will be styled like the buttons above even without the <code>.button</code> class.</p>
+                        <p>Button groups should be contained by the <code>.button-group-container</code> to ensure its inline properties match those of a normal button. This can be useful for having multiple button groups together on one line.</p>
+                        <p>Button groups can be used several ways: as a normal button group (stacks vertically on mobile), as a button with dropdown with alternative dropdown choices, or as paginate links (by substituting the <code>.button-groups</code> class with the <code>.paginate-links</code> class. A normal button group can also utilize the <code>.mobile-full-width</code> class, which gives all vertically stack buttons in the group 100% width.</p>
+                    </div>
+                    <div class="column padded span-10 margin-span-1 span-12-tp margin-span-0-tp">
+                        <div id="button-groups-code">
+                            <div class="button-group-container adjust-d-b-tl adjust-m-b-16-tl">
+                                <ul class="button-group mobile-full-width">
+                                    <li><a class="orange" href="#">Delete</a></li>
+                                    <li><a class="orange" href="#">Cancel</a></li>
+                                    <li><button class="orange">Save As</button></li>
+                                    <li><a class="orange" href="#">Save</a></li>
+                                </ul>
+                            </div>
+                            <div class="button-group-container">
+                                <ul class="button-group has-dropdown clearfix">
+                                    <li><a class="red" href="#"><span class="icon fa fa-user-plus margin-right"></span>Add Friend</a></li>
+                                    <li>
+                                        <a class="red dropdown" href="#"></a>
+                                        <ul class="dropdown-options">
+                                            <li><a href="#"><span class="icon fa fa-eye margin-right"></span>Follow</a></li>
+                                            <li><a href="#"><span class="icon fa fa-ban margin-right"></span>Block</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="button-group-container">
+                                <ul class="paginate-links">
+                                    <li><a href="#"><span class="icon fa fa-chevron-left"></span></a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><button>2</button></li>
+                                    <li><a href="#" accesskey="" class="current">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#"><span class="icon fa fa-chevron-right"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="purple js-view-code js-open-modal grid-margin-top" data-source-id="button-groups-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Button Groups Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Button Groups Section -->
+            <hr class="grid-margin-top">
+            <!-- Cards Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-5 span-12-tl">
+                        <h2>Cards</h2>
+                        <p>Cards are containers which visually separate key points of data for your app. You can use the <code>.card</code> class on any <code>&lt;article&gt;</code> or <code>&lt;div&gt;</code>, and add <code>&lt;section&gt;</code> tags within to further establish hierarchy. <code>&lt;section&gt;</code> tags can make use of the <code>.border-top</code> or <code>.border-bottom</code> classes to add lines between them.</p>
+                        <p>Sections being used as card headers have a few optional classes available to them, including the <code>.has-buttons</code> class (allows for spacing to accommodate buttons which float to the right) and the <code>.mobile-header</code> class (emulates the Salesforce1 page header on mobile).</p>
+                        <p>Using the <code>.has-buttons</code> class also allows you to use the <code>.has-subhead</code> class on a contained <code>&lt;h2&gt;</code> to override it's top margin, allowing for room to include an <code>&lt;h3&gt;</code>. The <code>.has-subhead</code> class also overrides the top margin on a sibling <code>&lt;h3&gt;</code>, which can be useful in headers with a subhead, with or without buttons.</p>
+                    </div>
+                    <div class="column padded span-7 span-12-tl">
+                        <div id="cards-code">
+                            <article class="card mobile-full-width">
+                                <section class="border-bottom has-buttons mobile-header">
+                                    <div class="corner-buttons">
+                                        <a href="#" class="button inverse red adjust-f-l-tl"><span class="icon fa fa-ban margin-right adjust-m-r-0-tl adjust-d-n adjust-d-ib-tl"></span><span class="adjust-d-n-tl">Cancel</span></a>
+                                        <a href="#" class="button adjust-f-r-tl"><span class="icon fa fa-save margin-right adjust-m-r-0-tl adjust-d-n adjust-d-ib-tl"></span><span class="adjust-d-n-tl">Save</span></a>
+                                        <a href="#" class="button red adjust-f-l-tl"><span class="icon fa fa-trash margin-right adjust-m-r-0-tl adjust-d-n adjust-d-ib-tl"></span><span class="adjust-d-n-tl">Delete</span></a>
+                                    </div>
+                                    <h3 class="has-subhead">Mobile Menu Header</h3>
+                                    <h2>Mobile Full-Width Card</h2>
+                                </section>
+                                <section>
+                                    <div class="grid negate-padding">
+                                        <div class="column padded span-4">
+                                            <div class="card transparent">
+                                                <pre class="adjust-ta-c">column span-4</pre>
+                                            </div>
+                                        </div>
+                                        <div class="column padded span-8">
+                                            <div class="card transparent">
+                                                <pre class="adjust-ta-c">column span-8</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </article>
+                            <article class="card grid-margin-top">
+                                <section class="border-bottom has-buttons">
+                                    <div class="corner-buttons">
+                                        <a href="#" class="button inverse red"><span class="icon fa fa-ban margin-right"></span>Cancel</a>
+                                        <a href="#" class="button"><span class="icon fa fa-save margin-right"></span>Save</a>
+                                    </div>
+                                    <h2>Regular Card</h2>
+                                </section>
+                                <section class="light-grey">
+                                    <h4 class="caps">This is a section header</h4>
+                                </section>
+                                <section class="border-top">
+                                    <p>You can include any type of markup within cards. Below is an example of a <code>.ribbon</code> class for buttons on a card.</p>
+                                </section>
+                                <section class="ribbon">
+                                    <ul>
+                                        <li><a href="#"><span class="icon im im-phone"></span></a></li>
+                                        <li><a href="#"><span class="icon im im-bubble"></span></a></li>
+                                        <li><a href="#"><span class="icon im im-bookmark"></span></a></li>
+                                        <li><a href="#"><span class="icon im im-user-plus"></span></a></li>
+                                    </ul>
+                                </section>
+                            </article>
+                        </div>
+                        <div class="adjust-ta-r adjust-ta-l-tp">
+                            <button class="purple js-view-code js-open-modal grid-margin-top" data-source-id="cards-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Cards Code</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Cards Section -->
+            <hr class="grid-margin-top">
+            <!-- Dialogs Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded float-right span-3 margin-span-1 span-3-tl span-12-tp margin-span-0-tp">
+                        <h2>Dialogs</h2>
+                        <p>Like cards, dialogs can contain any type of content, but are meant to be callouts or violators for your layout. You can create dialogs with the <code>.dialog</code> class.</p>
+                        <p>Each dialog consists of two parts: the <code>.left</code> container and the <code>.right</code> container. The <code>.left</code> container can be empty (to display a colored border), contain an icon, or display an image, while the <code>.right</code> container houses the content for the dialog.</p>
+                    </div>
+                    <div class="column padded float-right span-7 span-12-tp">
+                        <div id="dialogs-code">
+                            <div class="dialog">
+                                <div class="left red"></div>
+                                <div class="right">
+                                    <p>The <code>.left</code> container can utilize color classes to edit its <code>background-color</code>.</p>
+                                </div>
+                            </div>
+                            <div class="dialog">
+                                <div class="left green">
+                                    <span class="icon fa fa-usd"></span>
+                                </div>
+                                <div class="right">
+                                    <h3 class="text-dark">This Dialog is Money</h3>
+                                    <p>Icons included in the <code>.left</code> container are automatically centered vertically.</p>
+                                </div>
+                            </div>
+                            <div class="dialog">
+                                <div class="left image" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/idiot/128.jpg)"></div>
+                                <div class="right">
+                                    <h3 class="text-dark">Lazy Dialog</h3>
+                                    <p>The <code>.left</code> container can also use the <code>.image</code> class along with an inline style to define a <code>.background-image</code> to display an avatar.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adjust-ta-r adjust-ta-l-tp">
+                            <button class="purple js-view-code js-open-modal grid-margin-top" data-source-id="dialogs-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Dialogs Code</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Dialogs Section -->
+            <hr class="grid-margin-top">
+            <!-- Card Lists Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-4 span-12-tl">
+                        <h2>Card Lists</h2>
+                        <p>Card lists can be used to stylize boring-looking <code>&lt;ul&gt;</code> elements by use of the <code>.card</code> class. These elements can act purely as groups of content, or as mobile-friendly navigation.</p>
+                        <p class="grid-margin-bottom">Making card list navigation is as easy as wrapping the <code>&lt;li&gt;</code> text in an <code>&lt;a&gt;</code> tag; the styling will be applied automatically.</p>
+                    </div>
+                    <div id="card-lists-code">
+                        <div class="column padded span-4 span-12-tl">
+                            <article class="card">
+                                <section class="border-bottom">
+                                    <h2>Awesome Music</h2>
+                                </section>
+                                <section>
+                                    <ul class="card text-normal">
+                                        <li>RJD2</li>
+                                        <li>The Strokes</li>
+                                        <li>BADBADNOTGOOD</li>
+                                    </ul>
+                                </section>
+                            </article>
+                        </div>
+                        <div class="column padded span-4 span-12-tl">
+                            <article class="card">
+                                <section class="border-bottom">
+                                    <h2>Awesome Tools</h2>
+                                </section>
+                                <section>
+                                    <ul class="card">
+                                        <li><a href="http://nodejs.org" target="_blank">Node.js</a></li>
+                                        <li><a href="http://sass-lang.com" target="_blank">Sass</a></li>
+                                        <li><a href="http://gulpjs.com" target="_blank">Gulp</a></li>
+                                    </ul>
+                                </section>
+                            </article>
+                        </div>
+                        <div class="column padded adjust-ta-r adjust-ta-l-tl">
+                            <button class="purple js-view-code js-open-modal" data-source-id="card-lists-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Card Lists Code</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Card Lists Section -->
+            <hr class="grid-margin-top">
+            <!-- Loading States Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-8 margin-span-2 span-12-tp margin-span-0-tp">
+                        <h2>Loading States</h2>
+                        <p>The <code>.loading</code> class can be applied to any block-level element or contianer to add a loading state and disable click events. This can come in handy during AJAX calls.</p>
+                    </div>
+                    <div id="loading-states-code">
+                        <div class="column padded span-6 margin-span-2 span-12-tp margin-span-0-tp">
+                            <article class="card loading">
+                                <section class="border-bottom">
+                                    <h2>Loading Card</h2>
+                                </section>
+                                <section>
+                                    <p>Dynamic content incoming. Stay tuned!</p>
+                                    <p>For the sake of this demo, nothing is actually being loaded. But we can pretend something great is about to happen.</p>
+                                </section>
+                            </article>
+                        </div>
+                        <div class="column padded span-4 span-12-tp">
+                            <p><a href="#" class="button pink loading">Loading Button</a></p>
+                            <p><button class="js-loading inverse">Click Me to Load</button></p>
+                        </div>
+                        <div class="column padded span-8 margin-span-2 span-12-tp margin-span-0-tp">
+                            <button class="purple js-view-code js-open-modal" data-source-id="loading-states-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Loading States Code</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Loading States Section -->
+            <hr class="grid-margin-top">
+            <!-- Statuses Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded float-right span-5 margin-span-2 span-12-tp margin-span-0-tp">
+                        <h2>Statuses</h2>
+                        <p>Statuses are inline-block elements used to describe the state of your content. They can be created by adding the <code>.status</code> class on <code>&lt;span&gt;</code> tags.</p>
+                    </div>
+                    <div class="column padded float-right span-3 span-12-tp">
+                        <div id="statuses-code">
+                            <h2 class="ellipsis">Application <span class="status green">Accepted</span></h2>
+                            <h3 class="ellipsis">Mean People <span class="status red"><span class="icon fa fa-ban margin-right"></span>Rejected</h3>
+                            <p class="ellipsis">Boring Status <span class="status blue"><a href="#">Change Status</a></span></p>
+                        </div>
+                    </div>
+                    <div class="column padded adjust-ta-c adjust-ta-l-p">
+                        <button class="purple js-view-code js-open-modal grid-margin-top" data-source-id="statuses-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Statuses Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Statuses Section -->
+            <hr class="grid-margin-top">
+            <!-- Icons and Avatars Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-8 span-10-tl span-12-tp margin-span-2 margin-span-1-tl margin-span-0-tp adjust-ta-c adjust-ta-l-p">
+                        <h2>Avatars and Icons</h2>
+                        <p>The <code>.avatar</code> and <code>.icon-container</code> classes function similarly, though the <code>.avatar</code> class is applied directly to an <code>&lt;img&gt;</code> tag and the <code>.icon-container</code> class is used to contain a <code>&lt;span&gt;</code> with an icon font. Both classes can make use of the <code>.large</code> class for displaying larger imagery or using icons in the hero region.</p>
+                    </div>
+                    <div id="avatars-icons-code">
+                        <div class="column padded float-right span-5 margin-span-1 span-6-tl margin-span-0-tl span-12-tp grid-margin-top adjust-p-t-18 adjust-p-t-0-tp">
+                            <img src="https://placekitten.com/g/120/120" class="avatar large" />
+                            <div class="icon-container large text-light adjust-d-n-p"><span class="icon im im-volume-high text-dark"></span></div>
+                            <div class="icon-container blue"><span class="icon fa fa-server"></span></div>
+                            <div class="icon-container orange"><span class="icon im im-bell"></span></div>
+                            <div class="icon-container text-dark adjust-d-n-p"><span class="icon fa fa-spoon text-light"></span></div>
+                            <div class="icon-container pink adjust-d-n-tl"><span class="icon im im-tree"></span></div>
+                        </div>
+                        <div class="column padded float-right span-5 span-6-tl span-12-tp">
+                            <article class="card">
+                                <section class="border-bottom">
+                                    <img src="https://placekitten.com/g/45/45" class="avatar" />
+                                    <div class="title">
+                                        <div class="vertical-align">
+                                            <h3 class="has-subhead"><a href="#">Kevin Beronilla</a><span class="status green">Online</span></h3>
+                                            <h5>Visual Artist, Cat Enthusiast</h5>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section>
+                                    <p>"This framework is awesome! I plan on using it for all of my Salesforce1 apps. I like cats."</p>
+                                </section>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="adjust-ta-c adjust-ta-l-p">
+                        <button class="purple js-view-code js-open-modal grid-margin-top" data-source-id="avatars-icons-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Avatars and Icons Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Icons and Avatars Section -->
+            <hr class="grid-margin-top">
+            <!-- Accordion Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-4 margin-span-2 span-5-tl margin-span-1-tl span-12-tp margin-span-0-tp">
+                        <h2>Accordions</h2>
+                        <p>Accordions are <code>&lt;div&gt;</code> tags which can reveal relevant content following a click event. This can be achieved by adding the <code>.accordion</code> class on that <code>&lt;div&gt;</code>, and adding a sibling <code>&lt;div&gt;</code> with the class of <code>.accordion-content</code>, which will contain the content for the accordion.</p>
+                        <p>If the element with the <code>.accordion-content</code> class is not present and an accordion is clicked, an error will be logged.</p>
+                    </div>
+                    <div class="column padded span-4 span-5-tl span-12-tp">
+                        <div id="accordions-code" class="adjust-p-t-16 adjust-p-t-0-tp adjust-m-t-8 adjust-m-t-0-tp">
+                            <article class="card adjust-m-t-16 adjust-m-t-0-tp">
+                                <section class="border-bottom">
+                                    <div class="accordion">Click here to see magic</div>
+                                    <div class="accordion-content">
+                                        <h1 class="adjust-ta-c"><span class="icon fa fa-magic"></span></h1>
+                                    </div>
+                                    <div class="accordion">Click here to be social</div>
+                                    <div class="accordion-content">
+                                        <h1 class="adjust-ta-c"><span class="icon fa fa-users"></span></h1>
+                                    </div>
+                                    <div class="accordion">Click here for a beer</div>
+                                    <div class="accordion-content">
+                                        <h1 class="adjust-ta-c"><span class="icon fa fa-beer"></span></h1>
+                                    </div>
+                                </section>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="column padded adjust-ta-c adjust-ta-l-p">
+                        <button class="purple js-view-code js-open-modal" data-source-id="accordions-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Accordions Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Accordion Section -->
+            <hr class="grid-margin-top">
+            <!-- Alerts Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-10 margin-span-1 span-12-tp margin-span-0-tp">
+                        <h2>Alerts</h2>
+                        <p>Alerts are block-level elements that can be used to display an error message, show additional information, or prompt a user to take action. They are created by adding the <code>.alert</code> class to a <code>&lt;div&gt;</code>.</p>
+                        <p>Alerts can also make use of the <code>.dismissible</code> class and a <code>.close-alert</code> child element that will close the alert when clicked. An alert can also be triggered on click events by using the <code>.js-open-alert</code> class and <code>data-alert-id</code> attribute on the element that will trigger the alert.</p>
+                        <div id="alerts-code">
+                            <p><a href="#" class="js-open-alert" data-alert-id="alert-1">Click here to open an alert</a></p>
+                            <div>
+                                <div id="alert-1" class="alert text-link dismissible adjust-d-n">
+                                    <div class="close-alert"></div>This is an alert that was triggered by the link above</div>
+                                <div class="alert red dismissible">
+                                    <div class="close-alert"></div><span class="icon margin-right fa fa-exclamation-triangle"></span>This is an error alert</div>
+                                <div class="alert orange dismissible">This is a warning alert — you should probably pay attention to this</div>
+                                <div class="alert navy dismissible">This is an alert with a <a href="#">link</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column padded span-11 margin-span-1 span-12-tp margin-span-0-tp">
+                        <button class="purple js-view-code js-open-modal" data-source-id="alerts-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Alerts Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Alerts Section -->
+            <hr class="grid-margin-top">
+            <!-- Form Elements Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-12">
+                        <h2>Form Elements</h2>
+                        <p>Webegin for Visualforce has form elements themed to match Salesforce1's forms. Additional input types are also available, including date pickers, tags, and autocomplete fields. These fields display an associated icon if wrapped in special containers (<code>.date-picker-container</code> class, <code>.tags-container</code> class, and <code>.autocomplete-container</code> class). The select element also has a special container for a dropdown icon (<code>.select-container</code> class).</p>
+                        <p>Forms can also make use of the <code>.required</code> class on <code>&lt;label&gt;</code> elements to denote required fields with a red asterisk. Additionally, if the form produces an error on validation, the <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>. and <code>&lt;ul&gt;</code> (for tags, which use the <code>.js-tags</code> class) elements can make use of the <code>.error</code> class, which highlights the fields that require attention in red.</p>
+                        <div id="form-elements-code">
+                            <article class="card">
+                                <section class="border-bottom">
+                                    <h2>Example Form</h2>
+                                </section>
+                                <section class="grid negate-padding">
+                                    <div class="column padded">
+                                        <label>What type of animal do you prefer?</label>
+                                        <div class="adjust-d-ib">
+                                            <input type="radio" name="animal" value="dog" id="dog">
+                                            <label for="dog">Dogs</label>
+                                        </div>
+                                        <div class="adjust-d-ib">
+                                            <input type="radio" name="animal" value="cats" id="cats">
+                                            <label for="cats">Cats</label>
+                                        </div>
+                                        <div class="adjust-d-ib">
+                                            <input type="radio" disabled name="animal" value="unicorns" id="version-three">
+                                            <label for="unicorns">Unicorns</label>
+                                        </div>
+                                    </div>
+                                    <div class="column padded">
+                                        <label>Which tools do you use for front-end development?</label>
+                                        <div class="adjust-d-ib">
+                                            <input type="checkbox" name="tools" value="sass" id="sass">
+                                            <label for="sass">Sass</label>
+                                        </div>
+                                        <div class="adjust-d-ib">
+                                            <input type="checkbox" name="tools" value="node-js" id="node-js">
+                                            <label for="node-js">Node.js</label>
+                                        </div>
+                                        <div class="adjust-d-ib">
+                                            <input type="checkbox" name="tools" value="gulp" id="gulp">
+                                            <label for="gulp">Gulp</label>
+                                        </div>
+                                        <div class="adjust-d-ib">
+                                            <input type="checkbox" name="tools" value="grunt" id="grunt">
+                                            <label for="grut">Grunt</label>
+                                        </div>
+                                        <div class="adjust-d-ib">
+                                            <input type="checkbox" name="tools" value="jquery" id="jquery">
+                                            <label for="jquery">jQuery</label>
+                                        </div>
+                                        <div class="adjust-d-ib">
+                                            <input type="checkbox" name="tools" value="jquery" id="jquery" checked>
+                                            <label for="sass">Webegin for Visualforce</label>
+                                        </div>
+                                        <div class="adjust-d-ib">
+                                            <input type="checkbox" name="tools" value="another-framework" id="another-framework" disabled>
+                                            <label for="another-framework">Another Framework</label>
+                                        </div>
+                                    </div>
+                                    <div class="column padded span-6 span-12-tp">
+                                        <label for="full-name" class="required">Full Name</label>
+                                        <input type="text" name="name" class="error" placeholder="This is a validation error state" />
+                                        <label for="career-goals">Career Goals</label>
+                                        <textarea name="career-goals"></textarea>
+                                    </div>
+                                    <div class="column padded span-6 span-12-tp">
+                                        <label for="gender">Gender</label>
+                                        <div class="select-container">
+                                            <select name="gender">
+                                                <option value="" selected disabled hidden>--</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                        </div>
+                                        <label for="date-of-birth">Date of Birth</label>
+                                        <div class="date-picker-container">
+                                            <input type="text" name="date-of-birth" class="js-date-picker" />
+                                        </div>
+                                        <label>Favorite Artists</label>
+                                        <div class="tags-container">
+                                            <ul class="js-tags"></ul>
+                                        </div>
+                                        <label>Favorite Programming Language</label>
+                                        <div class="autocomplete-container">
+                                            <input type="text" class="js-autocomplete" id="autocomplete1" data-list="languages" />
+                                        </div>
+                                    </div>
+                                    <div class="column padded">
+                                        <label for="life-story">Your Life Story</label>
+                                        <textarea class="js-rich-text" name="life-story"></textarea>
+                                    </div>
+                                    <div class="column padded">
+                                        <button type="submit" class="full-width js-loading adjust-m-t-8">Submit</button>
+                                    </div>
+                                </section>
+                            </article>
+                            <script>
+                                var languages = [
+                                    'ActionScript',
+                                    'AppleScript',
+                                    'Asp',
+                                    'BASIC',
+                                    'C',
+                                    'C++',
+                                    'Clojure',
+                                    'COBOL',
+                                    'ColdFusion',
+                                    'Erlang',
+                                    'Fortran',
+                                    'Groovy',
+                                    'Haskell',
+                                    'Java',
+                                    'JavaScript',
+                                    'Lisp',
+                                    'Perl',
+                                    'PHP',
+                                    'Python',
+                                    'Ruby',
+                                    'Scala',
+                                    'Scheme'
+                                ];
+
+                            </script>
+                        </div>
+                    </div>
+                    <div class="column padded span-12">
+                        <button class="purple js-view-code js-open-modal" data-source-id="form-elements-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Form Elements Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Form Elements Section -->
+            <hr class="grid-margin-top">
+            <!-- Progress Bars Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-8 margin-span-2 span-12-tp margin-span-0-tp">
+                        <h2>Progress Bars</h2>
+                        <p>Progress bars help to communicate with your audience how far along they may be in a process, or current progress on a task they are involved with. They are created with the use of the <code>.progress-bar</code> class, which acts as a container to <code>&lt;span&gt;</code> tags that represent individual segments of progress.</p>
+                        <p>Each <code>&lt;span&gt;</code> tag requires both the <code>.progress</code> class and the <code>data-percentage</code> attribute, which defines how the inline-block element would be sized in relation to its container. The widths of these <code>&lt;span&gt;</code> tags are applied by jQuery via inline styles.</p>
+                        <div id="progress-bars-code">
+                            <article class="card">
+                                <section class="border-bottom">
+                                    <div class="progress-bar">
+                                        <div class="progress" data-percentage="50">50%</div>
+                                        <div class="progress red" data-percentage="20">20%</div>
+                                        <div class="progress orange" data-percentage="20">20%</div>
+                                    </div>
+                                </section>
+                                <section>
+                                    <div class="progress-bar small">
+                                        <div class="progress navy tooltip" data-percentage="30" title="70%"></div>
+                                        <div class="progress green tooltip" data-percentage="20" title="20%"></div>
+                                    </div>
+                                </section>
+                            </article>
+                        </div>
+                        <button class="purple js-view-code js-open-modal grid-margin-top" data-source-id="progress-bars-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Progress Bars Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Progress Bars Section -->
+            <hr class="grid-margin-top">
+            <!-- Tooltips Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-5 margin-span-2 span-12-tp margin-span-0-tp">
+                        <h2>Tooltips</h2>
+                        <p>Tooltips on an element can be activated with the <code>.js-tooltip</code> class and associated <code>title</code> attribute, which defines the text that is to be displayed on the tooltip.</p>
+                        <p>Mobile users will not be able to trigger tooltips by default, as the settings listen for a mouseover event.</p>
+                    </div>
+                    <div class="column padded span-3 span-12-tp adjust-m-t-6 adjust-m-t-0-tp">
+                        <div id="tooltips-code" class="adjust-m-t-16 adjust-m-t-0-tp">
+                            <button class="js-tooltip inverse pink adjust-m-t-16 adjust-m-t-0-tp" title="Just kidding, I'm pink!">I am a Blue Inverse Button</button>
+                            <br>
+                            <button class="js-tooltip navy grid-margin-top" title="Please don't use IE..."><span class="icon im im-IE margin-right"></span>Internet Explorer</button>
+                        </div>
+                    </div>
+                    <div class="column padded span-8 margin-span-2 margin-span-0-tp">
+                        <button class="purple js-view-code js-open-modal" data-source-id="tooltips-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Tooltips Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Tooltips Section -->
+            <hr class="grid-margin-top">
+            <!-- Tables Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-8 margin-span-2 span-12-tl margin-span-0-tl adjust-ta-c adjust-ta-l-p">
+                        <h2>Tables</h2>
+                        <p>Tables can be constructed with standard HTML markup, and are available in the two styles highlighted below. The first is a standard, classless table with a blue <code>&lt;thead&gt;</code> and grey alternating rows, and the second is a table with the <code>.list</code> class, which carries more simplified styling.</p>
+                        <p>You can contain tables in a <code>.table-container</code> class to control overflow when the table's widths are longer than that of the viewport or container.</p>
+                    </div>
+                    <div id="tables-code">
+                        <div class="column padded span-6 span-12-tp">
+                            <article class="card">
+                                <section>
+                                    <table class="align-center">
+                                        <thead>
+                                            <tr>
+                                                <td>Person</td>
+                                                <td>No. of Dogs</td>
+                                                <td>No. of Cats</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Kevin</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mako</td>
+                                                <td>2</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ryan</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ana</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </section>
+                            </article>
+                        </div>
+                        <div class="column padded span-6 span-12-tp">
+                            <article class="card">
+                                <section>
+                                    <div class="table-container adjust-p-t-3 adjust-p-t-0-tp adjust-p-b-3 adjust-p-b-0-tp">
+                                        <table class="list">
+                                            <thead>
+                                                <tr>
+                                                    <td>Person</td>
+                                                    <td>No. of Dogs</td>
+                                                    <td>No. of Cats</td>
+                                                    <td>No. of Plants</td>
+                                                    <td>No. of Pet Rocks</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Kevin</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>0</td>
+                                                    <td>6</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mako</td>
+                                                    <td>2</td>
+                                                    <td>1</td>
+                                                    <td>0</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ryan</td>
+                                                    <td>0</td>
+                                                    <td>0</td>
+                                                    <td>0</td>
+                                                    <td>1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ana</td>
+                                                    <td>0</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="column padded adjust-ta-c adjust-ta-l-p">
+                        <button class="purple js-view-code js-open-modal" data-source-id="tables-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Tables Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Tables Section -->
+            <hr class="grid-margin-top">
+            <!-- Revealed Elements Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded span-8 margin-span-2 span-12-tp margin-span-0-tp">
+                        <h2>Revealed Elements</h2>
+                        <p>The <code>.reveal</code> class can be added to any element that you wish to animate into the viewport after page load. The animation is triggered when the app is scrolled to a point where the element enters the viewport. The class automatically hides element on page load and would initiate the animation immediately if the page is loaded/reloaded while the element is positioned past the trigger point.</p>
+                        <div id="revealed-elements-code">
+                            <article class="card reveal">
+                                <section class="border-bottom">
+                                    <h1>Hello, world!</h1>
+                                </section>
+                                <section>
+                                    <p>Thank you for bringing me into this world!</p>
+                                </section>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="column padded span-8 margin-span-2 span-12-tp margin-span-0-tp">
+                        <button class="purple js-view-code js-open-modal" data-source-id="revealed-elements-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Revealed Elements Code</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /Revealed Elements Section -->
+            <hr class="grid-margin-top">
+            <!-- Modal Windows Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="row adjust-ta-c adjust-ta-l-p">
+                        <div class="column padded span-6 margin-span-3 span-12-tp margin-span-0-tp">
+                            <h2>Modal Windows</h2>
+                            <p>The <code>.modal</code> class can be used on a container element that you wish to reveal when a link or button is clicked, and are styles similarly to cards. In order for the modal window to trigger properly, the link or button tasked with opening the modal requires a <code>.js-open-modal</code> class and a <code>data-modal-id</code> attribute, which specifies the <code>id</code> of the target modal.</p>
+                            <div id="modal-windows-code">
+                                <div id="kitten-modal" class="modal">
+                                    <section class="border-bottom dismissible adjust-ta-l">
+                                        <a href="#" class="close-modal text-light"></a>
+                                        <h2>Sorry, we found no octokittens. Here is a kitten instead.</h2>
+                                    </section>
+                                    <section class="adjust-ta-c">
+                                        <img src="https://placekitten.com/g/860/600" class="adjust-d-b js-tooltip" title="Hi—meow! I am not an octokitten—meow, but I hope you can accept me as I am—meow!">
+                                    </section>
+                                </div>
+                                <button class="js-open-modal" data-modal-id="kitten-modal"><span class="icon fa fa-github-alt margin-right"></span>Click here to see an octokitten</button>
+                            </div>
+                        </div>
+                        <div class="column padded span-6 margin-span-3 span-12-tp margin-span-0-tp">
+                            <button class="purple js-view-code js-open-modal" data-source-id="modal-windows-code" data-modal-id="code-modal"><span class="icon margin-right fa fa-code"></span>View Modal Windows Code</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Modal Windows Section -->
+            <hr class="grid-margin-top">
+            <!-- Additional Information Section -->
+            <div class="demo-section">
+                <div class="grid negate-padding">
+                    <div class="column padded">
+                        <h2>Additional Information</h2>
+                        <h3>About Webegin</h3>
+                        <p>Webegin is developed and maintained by <a href="https://kevinberonilla.com" target="_blank">Kevin Beronilla</a>, and is a series of front-end development starting points for multiple uses. Webegin for Visualforce is a version of Webegin specifically for Salesforce1 development, and has extended styles to mimic those of the Salesforce1 app.</p>
+                        <h3>Installed Assets</h3>
+                        <ul>
+                            <li><a href="http://fontawesome.io/" target="_blank">Font Awesome v4.3.0</a> by Dave Gandy</li>
+                            <li><a href="https://icomoon.io/" target="_blank">IcoMoon Free</a> by Keyamoon</li>
+                            <li><a href="https://jquery.com/" target="_blank">jQuery v1.11.3</a> by jQuery Foundation (Google CDN)</li>
+                            <li><a href="https://jqueryui.com/" target="_blank">jQuery UI v1.11.4</a> by jQuery Foundation (Google CDN)</li>
+                            <li><a href="https://www.tiny.cloud/" target="_blank">TinyMCE v4.1</a> by Ephox (CacheFly CDN)</li>
+                            <li><a href="http://aehlke.github.io/tag-it/" target="_blank">Tag-it v2.0</a> by Levy Carneiro Jr., Martin Rehfeld, Tobias Schmidt, Skylar Challand, and Alex Ehlke</li>
+                            <li><a href="http://iamceege.github.io/tooltipster/" target="_blank">Tooltipster v3.3.0</a> by Caleb Jacob and Louis Ameline</li>
+                        </ul>
+                        <h3>Automation</h3>
+                        <p>Included is a <a href="https://nodejs.org/" target="_blank">Node.js</a> package and <a href="http://gulpjs.com/" target="_blank">Gulp</a> file for handling common watch tasks including preprocessing, minification, and vendor prefixing. Also included is a configuration file for a custom <a href="http://mixture.io/" target="_blank">Mixture</a> project for those who still have a working install of the application.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- /Additional Information Section -->
+        </div>
+        <footer class="grid-margin-top">
+            <div class="container">
+                &copy; 2015 Kevin Beronilla
+            </div>
+        </footer>
+        <div id="code-modal" class="modal">
+            <section class="border-bottom dismissible">
+                <a href="#" class="close-modal"></a>
+                <h2>Source Code</h2>
+            </section>
+            <section>
+                <pre class="js-content"></pre>
+            </section>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="js/tinymce.min.js"></script>
+    <script src="js/tag-it.min.js"></script>
+    <script src="js/jquery.tooltipster.min.js"></script>
+    <script src="js/main.min.js"></script>
+    <script>
+        /* ----------------------------------------
+        prettyPre Plugin by Tim Medora
+        ---------------------------------------- */
+        (function($) {
+            $.fn.prettyPre = function(method) {
+                var defaults = {
+                    ignoreExpression: /\s/ // what should be ignored?
+                };
+                var methods = {
+                    init: function(options) {
+                        this.each(function() {
+                            var context = $.extend({}, defaults, options);
+                            var $obj = $(this);
+                            var usingInnerText = true;
+                            var text = $obj.get(0).innerText;
+                            // some browsers support innerText...some don't...some ONLY work with innerText.
+                            if (typeof text == "undefined") {
+                                text = $obj.html();
+                                usingInnerText = false;
+                            }
+                            // use the first line as a baseline for how many unwanted leading whitespace characters are present
+                            var superfluousSpaceCount = 0;
+                            var pos = 0;
+                            var currentChar = text.substring(0, 1);
+                            while (context.ignoreExpression.test(currentChar)) {
+                                if (currentChar !== "\n") {
+                                    superfluousSpaceCount++;
+                                } else {
+                                    superfluousSpaceCount = 0;
+                                }
+                                currentChar = text.substring(++pos, pos + 1);
+                            }
+                            // split
+                            var parts = text.split("\n");
+                            var reformattedText = "";
+                            // reconstruct
+                            var length = parts.length;
+                            for (var i = 0; i < length; i++) {
+                                // remove leading whitespace (represented by an empty string)
+                                if (i === 0 && parts[0] === "") {
+                                    continue;
+                                }
+                                // cleanup, and don't append a trailing newline if we are on the last line
+                                reformattedText += parts[i].substring(superfluousSpaceCount) + (i == length - 1 ? "" : "\n");
+                            }
+                            // modify original
+                            if (usingInnerText) {
+                                $obj.get(0).innerText = reformattedText;
+                            } else {
+                                // This does not appear to execute code in any browser but the onus is on the developer to not 
+                                // put raw input from a user anywhere on a page, even if it doesn't execute!
+                                $obj.html(reformattedText);
+                            }
+                        });
+                    }
+                }
+                if (methods[method]) {
+                    return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+                } else if (typeof method === "object" || !method) {
+                    return methods.init.apply(this, arguments);
+                } else {
+                    $.error("Method " + method + " does not exist on jQuery.prettyPre.");
+                }
+            }
+        })(jQuery);
+
+        /* ----------------------------------------
+        Demo-Specific Scripts
+        ---------------------------------------- */
+        $(document).ready(function() {
+            var viewCode = $('.js-view-code'),
+                codeModalContent = $('#code-modal .js-content'),
+                emptyLinks = $('a[href="#"]');
+
+            viewCode.click(function() {
+                var sourceCode = $('#' + $(this).data('source-id')).html(),
+                    filteredCode = sourceCode.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
+
+                codeModalContent.empty().html(filteredCode).prettyPre();
+            });
+
+            emptyLinks.click(function(e) {
+                e.preventDefault();
+            });
+        });
+
+    </script>
+</body>
+
+</html>
