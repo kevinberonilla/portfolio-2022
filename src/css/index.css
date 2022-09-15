@@ -488,8 +488,7 @@ a:hover {
   transition: all 250ms ease;
 }
 
-.kb-hero__link:hover .kb-hero__link-label,
-.kb-hero__link:focus-within .kb-hero__link-label {
+.kb-hero__link:hover .kb-hero__link-label {
   opacity: 1;
   transform: translateX(-50%);
 }
@@ -704,7 +703,7 @@ a:hover {
   position: relative;
   z-index: 1;
   opacity: 0;
-  transition: opacity 250ms ease 250ms;
+  transition: opacity 500ms ease 150ms;
 }
 
 .kb-project-modal__content--shown {

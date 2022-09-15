@@ -78,6 +78,10 @@ function App() {
 
                 if (thumbnailsLoaded >= projects.length) {
                     setAllThumbnailsLoaded(true);
+                    
+                    if (window.location.hash) {
+                        window.document.querySelector('.kb-project__link[href="' + window.location.hash + '"]').click();
+                    }
                 }
             }, Math.random() * 1000);
         } else {

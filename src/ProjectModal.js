@@ -52,6 +52,7 @@ const ProjectModal = forwardRef((props, ref) => {
             });
 
             setShown(true);
+            window.document.activeElement.blur();
         }, 100);
     }
 

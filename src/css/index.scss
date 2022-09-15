@@ -131,8 +131,7 @@ a {
                 opacity: 0;
                 transition: all 250ms ease;
 
-                .kb-hero__link:hover &,
-                .kb-hero__link:focus-within & {
+                .kb-hero__link:hover & {
                     opacity: 1;
                     transform: translateX(-50%);
                 }
