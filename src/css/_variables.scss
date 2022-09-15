@@ -14,10 +14,10 @@ $kb-mq-small: only screen and (max-width: 768px);
     --kb-color-text-link: var(--kb-color-brand);
     --kb-color-text-link-hover: #d8791a;
     --kb-color-background-dark: #1e1e1e;
-    --kb-color-background-light: #f2f0f0;
+    --kb-color-background-light: #f8f6f6;
     --kb-color-background: var(--kb-color-background-dark);
-    --kb-color-project-background-dark: rgba(0, 0, 0, 0.8);
-    --kb-color-project-background-light: rgba(255, 255, 255, 0.8);
+    --kb-color-project-background-dark: rgba(0, 0, 0, 0.825);
+    --kb-color-project-background-light: rgba(255, 255, 255, 0.825);
     --kb-color-project-background: var(--kb-color-project-background-dark);
     --kb-spacing-xx-small: 0.25rem;
     --kb-spacing-x-small: 0.5rem;
@@ -27,4 +27,16 @@ $kb-mq-small: only screen and (max-width: 768px);
     --kb-spacing-x-large: 2rem;
     --kb-spacing-xx-large: 3rem;
     --kb-shadow--focus: 0 0 4px var(--kb-color-brand);
+
+    @media (prefers-color-scheme: light) {
+        --kb-color-text: var(--kb-color-text-default);
+        --kb-color-background: var(--kb-color-background-light);
+        --kb-color-project-background: var(--kb-color-project-background-light);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        --kb-color-text: var(--kb-color-text-inverse);
+        --kb-color-background: var(--kb-color-background-dark);
+        --kb-color-project-background: var(--kb-color-project-background-dark);
+    }
 }

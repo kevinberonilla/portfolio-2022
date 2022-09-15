@@ -360,10 +360,10 @@ body {
   --kb-color-text-link: var(--kb-color-brand);
   --kb-color-text-link-hover: #d8791a;
   --kb-color-background-dark: #1e1e1e;
-  --kb-color-background-light: #f2f0f0;
+  --kb-color-background-light: #f8f6f6;
   --kb-color-background: var(--kb-color-background-dark);
-  --kb-color-project-background-dark: rgba(0, 0, 0, 0.8);
-  --kb-color-project-background-light: rgba(255, 255, 255, 0.8);
+  --kb-color-project-background-dark: rgba(0, 0, 0, 0.825);
+  --kb-color-project-background-light: rgba(255, 255, 255, 0.825);
   --kb-color-project-background: var(--kb-color-project-background-dark);
   --kb-spacing-xx-small: 0.25rem;
   --kb-spacing-x-small: 0.5rem;
@@ -383,6 +383,22 @@ body {
   line-height: 1.75;
 }
 
+@media (prefers-color-scheme: light) {
+  body {
+    --kb-color-text: var(--kb-color-text-default);
+    --kb-color-background: var(--kb-color-background-light);
+    --kb-color-project-background: var(--kb-color-project-background-light);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --kb-color-text: var(--kb-color-text-inverse);
+    --kb-color-background: var(--kb-color-background-dark);
+    --kb-color-project-background: var(--kb-color-project-background-dark);
+  }
+}
+
 body.kb-freeze {
   overflow: hidden;
 }
@@ -393,6 +409,28 @@ a {
 
 a:hover {
   color: var(--kb-color-text-link-hover);
+}
+
+.kb-logo {
+  display: block;
+  width: 10rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .kb-logo {
+    display: none;
+  }
+}
+
+.kb-logo--inverse {
+  display: block;
+  width: 10rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .kb-logo--inverse {
+    display: none;
+  }
 }
 
 .kb-container {
@@ -436,11 +474,6 @@ a:hover {
 .kb-hero__sidebar {
   flex: 0 0 auto;
   padding-top: 6.75rem;
-}
-
-.kb-hero__logo {
-  display: block;
-  width: 10rem;
 }
 
 .kb-hero__link {
@@ -495,7 +528,7 @@ a:hover {
 
 .kb-hero__controls {
   padding: 0 0 0 3rem;
-  margin-top: 4.25rem;
+  margin-top: 4.3rem;
   border: none;
 }
 
@@ -548,7 +581,6 @@ a:hover {
 .kb-project__link:focus .kb-project__thumbnail {
   transform: scale(1.05);
   filter: blur(5px) saturate(0.75);
-  mix-blend-mode: screen;
 }
 
 .kb-project__hover-tile {

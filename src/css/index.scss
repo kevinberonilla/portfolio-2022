@@ -40,6 +40,24 @@ a {
 }
 
 .kb {
+    &-logo {
+        display: block;
+        width: 10rem;
+
+        @media (prefers-color-scheme: dark) {
+            display: none;
+        }
+
+        &--inverse {
+            display: block;
+            width: 10rem;
+
+            @media (prefers-color-scheme: light) {
+                display: none;
+            }
+        }
+    }
+
     &-container {
         max-width: 1280px;
         margin: 0 auto;
@@ -78,11 +96,6 @@ a {
         &__sidebar {
             flex: 0 0 auto;
             padding-top: 6.75rem;
-        }
-
-        &__logo {
-            display: block;
-            width: 10rem;
         }
 
         &__link {
@@ -140,7 +153,7 @@ a {
 
         &__controls {
             padding: 0 0 0 3rem;
-            margin-top: 4.25rem;
+            margin-top: 4.3rem;
             border: none;
         }
     }
@@ -192,7 +205,6 @@ a {
             .kb-project__link:focus & {
                 transform: scale(1.05);
                 filter: blur(5px) saturate(0.75);
-                mix-blend-mode: screen;
             }
         }
 
