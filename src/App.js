@@ -201,7 +201,7 @@ function App() {
                                                 <img className="kb-project__thumbnail" src={project.thumbnailUrl} alt={project.name} onLoad={handleThumbnailLoad} />
                                                 <span className="kb-project__hover-tile">
                                                     <span className="kb-project__name kb-m-around--none">{project.name}</span>
-                                                    <em className="kb-project__year kb-text-size--small kb-m-top--x-small kb-m-bottom--none">{project.startYear ? project.startYear + '—' + project.endYear : project.endYear}</em>
+                                                    <span className="kb-project__year kb-text-size--small kb-m-top--x-small kb-m-bottom--none">{project.startYear ? project.startYear + '—' + project.endYear : project.endYear}</span>
                                                 </span>
                                             </a>
                                         </li>

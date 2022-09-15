@@ -77,7 +77,7 @@ const ProjectModal = forwardRef((props, ref) => {
                     <h2 className="kb-project-modal__name kb-text-heading--medium">{props.project.name}</h2>
                     <ul className="kb-project-modal__detail-list">
                         <li className="kb-project-modal__detail">
-                            <p className="kb-text-size--small kb-m-vertical--none"><strong>Year</strong></p>
+                            <p className="kb-text-size--small kb-m-vertical--none"><strong>Year{props.project.startYear ? 's' : ''}</strong></p>
                             <p className="kb-m-vertical--none">{props.project.startYear ? props.project.startYear + '—' + props.project.endYear : props.project.endYear}</p>
                         </li>
                         <li className="kb-project-modal__detail">
