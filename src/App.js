@@ -1,8 +1,8 @@
-import logo from './images/logo.svg';
-import logoInverse from './images/logo-inverse.svg';
-import {useRef, useState, useEffect} from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Checkbox from './Checkbox';
 import ProjectModal from './ProjectModal';
+import logo from './images/logo.svg';
+import logoInverse from './images/logo-inverse.svg';
 
 function App() {
     const year = new Date().getFullYear();
@@ -141,8 +141,8 @@ function App() {
                 <section ref={hero} className={'kb-hero' + (allThumbnailsLoaded ? ' kb-hero--loaded' : '')}>
                     <div className="kb-hero__layout kb-container">
                         <div className="kb-hero__sidebar">
-                            <img class="kb-logo" src={logo} alt="Kevin Beronilla" />
-                            <img class="kb-logo--inverse" src={logoInverse} alt="Kevin Beronilla" />
+                            <img className="kb-logo" src={logo} alt="Kevin Beronilla" />
+                            <img className="kb-logo--inverse" src={logoInverse} alt="Kevin Beronilla" />
                             <ul className="kb-hero__link-list">
                                 <li className="kb-hero__link">
                                     <a href="./downloads/kevin-beronilla-resume.pdf" target="_blank">

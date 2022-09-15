@@ -26,10 +26,6 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.75;
-
-    &.kb-freeze {
-        overflow: hidden;
-    }
 }
 
 a {
@@ -62,6 +58,10 @@ a {
     &-container {
         max-width: 1200px;
         margin: 0 auto;
+    }
+
+    &-freeze {
+        overflow: hidden;
     }
 
     &-hero {

@@ -4,7 +4,6 @@ $kb-mq-small: only screen and (max-width: 768px);
 
 @mixin custom-properties {
     --kb-vh: 1vh;
-    --kb-mq-x-small: 'only screen and (max-width: 480px)';
     --kb-font-family-display: 'Libre Bodoni', serif;
     --kb-font-family-body: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
     --kb-color-brand: #f68b1f;

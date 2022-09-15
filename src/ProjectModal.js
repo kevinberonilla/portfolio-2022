@@ -1,4 +1,4 @@
-import {forwardRef, useImperativeHandle, useState, useEffect, useCallback} from 'react';
+import { forwardRef, useImperativeHandle, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Carousel from './Carousel';
 

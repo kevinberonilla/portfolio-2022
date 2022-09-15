@@ -1,9 +1,9 @@
 @mixin carousel {
     &-carousel {
-        position: relative;
         width: 100%;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
         -ms-overflow-style: none;
         scrollbar-width: none;
 
@@ -11,7 +11,11 @@
             display: none;
         }
 
-        &__slider {
+        &__container {
+            position: relative;
+        }
+
+        &__rail {
             list-style: none;
             padding: 0;
             margin: 0;
@@ -19,13 +23,55 @@
             flex-wrap: none;
         }
 
-        &__slide {
+        &__image {
+            display: block;
             flex: 0 0 100%;
             scroll-snap-align: start;
+        }
 
-            img {
-                display: block;
+        &__back,
+        &__next {
+            display: block;
+            cursor: pointer;
+            background-color: transparent;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            color: var(--kb-tex-color);
+            font-size: 2.5rem;
+            line-height: 0;
+            width: 3rem;
+            height: 3rem;
+            padding: 0;
+            border: none;
+            border-radius: 0.25rem;
+            position: absolute;
+            z-index: 1;
+            left: -3.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+
+            &:hover,
+            &:active {
+                color: var(--kb-color-brand);
             }
+            
+            &:focus,
+            &:active {
+                outline: none;
+                box-shadow: var(--kb-shadow--focus);
+            }
+        }
+
+        &__next {
+            left: initial;
+            right: -3.5rem;
+        }
+
+        &__nav {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            transform: translateX(-50%);
         }
     }
 }

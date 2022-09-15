@@ -350,7 +350,6 @@ img {
 
 body {
   --kb-vh: 1vh;
-  --kb-mq-x-small: 'only screen and (max-width: 480px)';
   --kb-font-family-display: 'Libre Bodoni', serif;
   --kb-font-family-body: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   --kb-color-brand: #f68b1f;
@@ -399,10 +398,6 @@ body {
   }
 }
 
-body.kb-freeze {
-  overflow: hidden;
-}
-
 a {
   color: var(--kb-color-text-link);
 }
@@ -436,6 +431,10 @@ a:hover {
 .kb-container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.kb-freeze {
+  overflow: hidden;
 }
 
 .kb-hero {
@@ -744,21 +743,21 @@ a:hover {
 
 .kb-project-modal__close {
   display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
   cursor: pointer;
   background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   color: var(--kb-tex-color);
-  font-size: 2.625rem;
+  font-size: 2.5rem;
   line-height: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   padding: 0;
   border: none;
   border-radius: 0.25rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  position: absolute;
+  top: 0.3rem;
+  right: -0.75rem;
 }
 
 .kb-project-modal__close:hover, .kb-project-modal__close:focus, .kb-project-modal__close:active {
@@ -792,10 +791,10 @@ a:hover {
 }
 
 .kb-carousel {
-  position: relative;
   width: 100%;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -804,7 +803,11 @@ a:hover {
   display: none;
 }
 
-.kb-carousel__slider {
+.kb-carousel__container {
+  position: relative;
+}
+
+.kb-carousel__rail {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -812,13 +815,52 @@ a:hover {
   flex-wrap: none;
 }
 
-.kb-carousel__slide {
+.kb-carousel__image {
+  display: block;
   flex: 0 0 100%;
   scroll-snap-align: start;
 }
 
-.kb-carousel__slide img {
+.kb-carousel__back, .kb-carousel__next {
   display: block;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: var(--kb-tex-color);
+  font-size: 2.5rem;
+  line-height: 0;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.25rem;
+  position: absolute;
+  z-index: 1;
+  left: -3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.kb-carousel__back:hover, .kb-carousel__back:active, .kb-carousel__next:hover, .kb-carousel__next:active {
+  color: var(--kb-color-brand);
+}
+
+.kb-carousel__back:focus, .kb-carousel__back:active, .kb-carousel__next:focus, .kb-carousel__next:active {
+  outline: none;
+  box-shadow: var(--kb-shadow--focus);
+}
+
+.kb-carousel__next {
+  left: initial;
+  right: -3.5rem;
+}
+
+.kb-carousel__nav {
+  position: absolute;
+  left: 50%;
+  top: 2rem;
+  transform: translateX(-50%);
 }
 
 .kb-text-size--small {
