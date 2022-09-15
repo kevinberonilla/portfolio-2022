@@ -71,52 +71,55 @@ const ProjectModal = forwardRef((props, ref) => {
                 <img className="kb-project-modal__background" src={props.project.thumbnailUrl} alt={props.project.name} />
             </div>
             <div className={'kb-project-modal__content' + (shown ? ' kb-project-modal__content--shown' : '')}>
-                <button className="kb-project-modal__close fa-solid fa-close" onClick={hideModal}></button>
-                <h2 className="kb-project-modal__name kb-text-heading--medium">{props.project.name}</h2>
-                <ul className="kb-project-modal__detail-list">
-                    <li className="kb-project-modal__detail">
-                        <p className="kb-text-size--small kb-m-vertical--none"><strong>Year</strong></p>
-                        <p className="kb-m-vertical--none">{props.project.startYear ? props.project.startYear + '—' + props.project.endYear : props.project.endYear}</p>
-                    </li>
-                    <li className="kb-project-modal__detail">
-                        <p className="kb-text-size--small kb-m-vertical--none"><strong>Project Owner</strong></p>
-                        <p className="kb-m-vertical--none">{props.project.owner}</p>
-                    </li>
-                    <li className="kb-project-modal__detail kb-flex--shrink">
-                        <p className="kb-text-size--small kb-m-vertical--none"><strong>Contributions</strong></p>
-                        <p className="kb-m-vertical--none">{props.project.contributions}</p>
-                    </li>
-                    {
-                        props.project.githubRepository
-                        ?
+                <div className="kb-container">
+
+                    <button className="kb-project-modal__close fa-solid fa-close" onClick={hideModal}></button>
+                    <h2 className="kb-project-modal__name kb-text-heading--medium">{props.project.name}</h2>
+                    <ul className="kb-project-modal__detail-list">
                         <li className="kb-project-modal__detail">
-                            <p className="kb-text-size--small kb-m-vertical--none"><strong>GitHub Repository</strong></p>
-                            <p className="kb-m-vertical--none"><a href={props.project.githubRepository} target="_blank" rel="noreferrer">{props.project.githubRepository}</a></p>
+                            <p className="kb-text-size--small kb-m-vertical--none"><strong>Year</strong></p>
+                            <p className="kb-m-vertical--none">{props.project.startYear ? props.project.startYear + '—' + props.project.endYear : props.project.endYear}</p>
                         </li>
-                        :
-                        ''
-                    }
-                    {
-                        props.project.demoSite
-                        ?
                         <li className="kb-project-modal__detail">
-                            <p className="kb-text-size--small kb-m-vertical--none"><strong>Demo Site</strong></p>
-                            <p className="kb-m-vertical--none"><a href={props.project.demoSite} target="_blank" rel="noreferrer">{props.project.demoSite}</a></p>
+                            <p className="kb-text-size--small kb-m-vertical--none"><strong>Project Owner</strong></p>
+                            <p className="kb-m-vertical--none">{props.project.owner}</p>
                         </li>
-                        :
-                        ''
-                    }
-                    {
-                        props.project.liveSite
-                        ?
-                        <li className="kb-project-modal__detail">
-                            <p className="kb-text-size--small kb-m-vertical--none"><strong>Live Site</strong></p>
-                            <p className="kb-m-vertical--none"><a href={props.project.liveSite} target="_blank" rel="noreferrer">{props.project.liveSite}</a></p>
+                        <li className="kb-project-modal__detail kb-flex--shrink">
+                            <p className="kb-text-size--small kb-m-vertical--none"><strong>Contributions</strong></p>
+                            <p className="kb-m-vertical--none">{props.project.contributions}</p>
                         </li>
-                        :
-                        ''
-                    }
-                </ul>
+                        {
+                            props.project.githubRepository
+                            ?
+                            <li className="kb-project-modal__detail">
+                                <p className="kb-text-size--small kb-m-vertical--none"><strong>GitHub Repository</strong></p>
+                                <p className="kb-m-vertical--none"><a href={props.project.githubRepository} target="_blank" rel="noreferrer">{props.project.githubRepository}</a></p>
+                            </li>
+                            :
+                            ''
+                        }
+                        {
+                            props.project.demoSite
+                            ?
+                            <li className="kb-project-modal__detail">
+                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Demo Site</strong></p>
+                                <p className="kb-m-vertical--none"><a href={props.project.demoSite} target="_blank" rel="noreferrer">{props.project.demoSite}</a></p>
+                            </li>
+                            :
+                            ''
+                        }
+                        {
+                            props.project.liveSite
+                            ?
+                            <li className="kb-project-modal__detail">
+                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Live Site</strong></p>
+                                <p className="kb-m-vertical--none"><a href={props.project.liveSite} target="_blank" rel="noreferrer">{props.project.liveSite}</a></p>
+                            </li>
+                            :
+                            ''
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     );

@@ -434,7 +434,7 @@ a:hover {
 }
 
 .kb-container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -456,7 +456,7 @@ a:hover {
   padding: 8rem;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1200px) {
   .kb-hero__layout {
     padding: 6rem;
   }

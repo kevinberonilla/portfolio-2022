@@ -216,7 +216,9 @@ function App() {
             </main>
             <footer className={'kb-footer' + (allThumbnailsLoaded ? ' kb-footer--loaded' : '')}>
                 <p className="kb-text-size--small kb-m-around--none">
-                    &copy; {year} Kevin Beronilla. All works featured are copyrighted by the respective individuals and organizations of which they are a representation of.
+                    &copy; {year} Kevin Beronilla. All rights reserved.
+                    <br />
+                    All featured projects are copyrighted by the respective individuals and organizations of which they are a representation of.
                     <br />
                     This portfolio was lovingly handcrafted using React, Sass, and Contenful. Check out the <a href="https://github.com/kevinberonilla/portfolio" target="_blank" rel="noreferrer">GitHub repository</a>!
                 </p>
