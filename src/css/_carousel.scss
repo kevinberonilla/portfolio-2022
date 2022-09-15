@@ -1,0 +1,26 @@
+@mixin carousel {
+    &-carousel {
+        position: relative;
+        width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &__slider {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: none;
+        }
+
+        &__slide {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+        }
+    }
+}

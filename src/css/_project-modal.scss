@@ -12,6 +12,7 @@
 
         &__backdrop {
             position: absolute;
+            pointer-events: none;
             overflow: hidden;
             opacity: 0;
             transition: all 250ms ease, opacity 100ms ease;

@@ -1,5 +1,6 @@
 import {forwardRef, useImperativeHandle, useState, useEffect, useCallback} from 'react';
 import PropTypes from 'prop-types';
+import Carousel from './Carousel';
 
 const ProjectModal = forwardRef((props, ref) => {
     const [backdropPosition, setBackdropPosition] = useState({});
@@ -118,6 +119,7 @@ const ProjectModal = forwardRef((props, ref) => {
                             ''
                         }
                     </ul>
+                    <Carousel images={props.project.imageUrls} />
                 </div>
             </div>
         </div>
@@ -126,7 +128,7 @@ const ProjectModal = forwardRef((props, ref) => {
 
 ProjectModal.propTypes = {
     className: PropTypes.string,
-    project: PropTypes.object,
+    project: PropTypes.object.isRequired,
     onHidden: PropTypes.func
 }
 

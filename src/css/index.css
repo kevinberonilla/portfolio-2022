@@ -704,6 +704,7 @@ a:hover {
 
 .kb-project-modal__backdrop {
   position: absolute;
+  pointer-events: none;
   overflow: hidden;
   opacity: 0;
   transition: all 250ms ease, opacity 100ms ease;
@@ -788,6 +789,31 @@ a:hover {
   list-style: none;
   padding: 0 6rem 0 0;
   margin: 0;
+}
+
+.kb-carousel {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.kb-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.kb-carousel__slider {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: none;
+}
+
+.kb-carousel__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
 }
 
 .kb-text-size--small {
