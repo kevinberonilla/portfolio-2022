@@ -37,6 +37,8 @@
         }
 
         &__content {
+            height: 100%;
+            overflow-y: auto;
             padding: 4rem;
             position: relative;
             z-index: 1;
@@ -45,6 +47,58 @@
 
             &--shown {
                 opacity: 1;
+            }
+        }
+
+        &__close {
+            display: block;
+            cursor: pointer;
+            background-color: transparent;
+            color: var(--kb-tex-color);
+            font-size: 2.625rem;
+            line-height: 0;
+            width: 2rem;
+            height: 2rem;
+            padding: 0;
+            border: none;
+            border-radius: 0.25rem;
+            position: fixed;
+            top: 4rem;
+            right: 4rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: var(--kb-color-brand);
+            }
+            
+            &:focus,
+            &:active {
+                outline: none;
+                box-shadow: var(--kb-shadow--focus);
+            }
+        }
+
+        &__name {
+            display: block;
+            padding-right: 6rem;
+            line-height: 1.25;
+            margin: -0.625rem 0 0 0;
+        }
+        
+        &__detail {
+            flex: 0 0 auto;
+            padding-right: 2rem;
+            margin-top: 1rem;
+
+            &-list {
+                display: flex;
+                width: 100%;
+                list-style: none;
+                padding: 0 6rem 0 0;
+                margin: 0;
             }
         }
     }

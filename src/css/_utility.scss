@@ -46,7 +46,25 @@
             }
             
             &--regular {
-                color: var(--kb-color-font);
+                color: var(--kb-color-text);
+            }
+        }
+    }
+
+    &-flex {
+        &--shrink {
+            flex-shrink: 1;
+
+            &-none {
+                flex-shrink: 0;
+            }
+        }
+
+        &--grow {
+            flex-grow: 1;
+
+            &-none {
+                flex-grow: 0;
             }
         }
     }

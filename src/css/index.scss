@@ -4,7 +4,7 @@
 @import 'project-modal';
 @import 'utility';
 @import 'https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital@0;1&display=swap';
-@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css';
 
 * {
     box-sizing: border-box;
@@ -20,7 +20,7 @@ body {
     min-height: calc(var(--kb-vh) * 100);
     margin: 0;
     background-color: var(--kb-color-background);
-    color: var(--kb-color-font);
+    color: var(--kb-color-text);
     font-family: var(--kb-font-family-body);
     font-size: 1rem;
     font-weight: 400;
@@ -28,6 +28,14 @@ body {
 
     &.kb-freeze {
         overflow: hidden;
+    }
+}
+
+a {
+    color: var(--kb-color-text-link);
+
+    &:hover {
+        color: var(--kb-color-text-link-hover);
     }
 }
 
@@ -80,7 +88,7 @@ body {
         &__link {
             display: block;
             position: relative;
-            color: var(--kb-color-font);
+            color: var(--kb-color-text);
             text-decoration: none;
 
             &-list {
@@ -94,7 +102,7 @@ body {
                 display: block;
                 padding: 0.5rem 0.525rem;
                 border-radius: 0.25rem;
-                color: var(--kb-color-font);
+                color: var(--kb-color-text);
                 text-decoration: none;
                 line-height: 1;
 
@@ -208,7 +216,7 @@ body {
         &__year {
             display: block;
             position: relative;
-            color: var(--kb-color-font);
+            color: var(--kb-color-text);
             transform: translateX(-1rem);
             transition: all 250ms ease 150ms;
             opacity: 0;

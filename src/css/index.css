@@ -6,7 +6,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 @import 'https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital@0;1&display=swap';
-@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css';
 html {
   line-height: 1.15;
   /* 1 */
@@ -354,9 +354,11 @@ body {
   --kb-font-family-display: 'Libre Bodoni', serif;
   --kb-font-family-body: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   --kb-color-brand: #f68b1f;
-  --kb-color-font-inverse: white;
-  --kb-color-font-default: #1e1e1e;
-  --kb-color-font: var(--kb-color-font-inverse);
+  --kb-color-text-inverse: white;
+  --kb-color-text-default: #1e1e1e;
+  --kb-color-text: var(--kb-color-text-inverse);
+  --kb-color-text-link: var(--kb-color-brand);
+  --kb-color-text-link-hover: #d8791a;
   --kb-color-background-dark: #1e1e1e;
   --kb-color-background-light: #f2f0f0;
   --kb-color-background: var(--kb-color-background-dark);
@@ -374,7 +376,7 @@ body {
   min-height: calc(var(--kb-vh) * 100);
   margin: 0;
   background-color: var(--kb-color-background);
-  color: var(--kb-color-font);
+  color: var(--kb-color-text);
   font-family: var(--kb-font-family-body);
   font-size: 1rem;
   font-weight: 400;
@@ -383,6 +385,14 @@ body {
 
 body.kb-freeze {
   overflow: hidden;
+}
+
+a {
+  color: var(--kb-color-text-link);
+}
+
+a:hover {
+  color: var(--kb-color-text-link-hover);
 }
 
 .kb-container {
@@ -436,7 +446,7 @@ body.kb-freeze {
 .kb-hero__link {
   display: block;
   position: relative;
-  color: var(--kb-color-font);
+  color: var(--kb-color-text);
   text-decoration: none;
 }
 
@@ -451,7 +461,7 @@ body.kb-freeze {
   display: block;
   padding: 0.5rem 0.525rem;
   border-radius: 0.25rem;
-  color: var(--kb-color-font);
+  color: var(--kb-color-text);
   text-decoration: none;
   line-height: 1;
 }
@@ -559,7 +569,7 @@ body.kb-freeze {
 .kb-project__name, .kb-project__year {
   display: block;
   position: relative;
-  color: var(--kb-color-font);
+  color: var(--kb-color-text);
   transform: translateX(-1rem);
   transition: all 250ms ease 150ms;
   opacity: 0;
@@ -688,6 +698,8 @@ body.kb-freeze {
 }
 
 .kb-project-modal__content {
+  height: 100%;
+  overflow-y: auto;
   padding: 4rem;
   position: relative;
   z-index: 1;
@@ -697,6 +709,55 @@ body.kb-freeze {
 
 .kb-project-modal__content--shown {
   opacity: 1;
+}
+
+.kb-project-modal__close {
+  display: block;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--kb-tex-color);
+  font-size: 2.625rem;
+  line-height: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.25rem;
+  position: fixed;
+  top: 4rem;
+  right: 4rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.kb-project-modal__close:hover, .kb-project-modal__close:focus, .kb-project-modal__close:active {
+  color: var(--kb-color-brand);
+}
+
+.kb-project-modal__close:focus, .kb-project-modal__close:active {
+  outline: none;
+  box-shadow: var(--kb-shadow--focus);
+}
+
+.kb-project-modal__name {
+  display: block;
+  padding-right: 6rem;
+  line-height: 1.25;
+  margin: -0.625rem 0 0 0;
+}
+
+.kb-project-modal__detail {
+  flex: 0 0 auto;
+  padding-right: 2rem;
+  margin-top: 1rem;
+}
+
+.kb-project-modal__detail-list {
+  display: flex;
+  width: 100%;
+  list-style: none;
+  padding: 0 6rem 0 0;
+  margin: 0;
 }
 
 .kb-text-size--small {
@@ -740,7 +801,23 @@ body.kb-freeze {
 }
 
 .kb-text-color--regular {
-  color: var(--kb-color-font);
+  color: var(--kb-color-text);
+}
+
+.kb-flex--shrink {
+  flex-shrink: 1;
+}
+
+.kb-flex--shrink-none {
+  flex-shrink: 0;
+}
+
+.kb-flex--grow {
+  flex-grow: 1;
+}
+
+.kb-flex--grow-none {
+  flex-grow: 0;
 }
 
 .kb-p-around--none {

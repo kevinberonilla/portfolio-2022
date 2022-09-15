@@ -140,25 +140,25 @@ function App() {
                             <ul className="kb-hero__link-list">
                                 <li className="kb-hero__link">
                                     <a href="./downloads/kevin-beronilla-resume.pdf" target="_blank">
-                                        <span className="icon fa fa-file-text"></span>
+                                        <span className="fa-solid fa-file-text"></span>
                                     </a>
                                     <span className="kb-hero__link-label">Resume</span>
                                 </li>
                                 <li className="kb-hero__link">
                                     <a href="https://github.com/kevinberonilla" target="_blank" rel="noreferrer">
-                                        <span className="icon fa fa-github"></span>
+                                        <span className="fa-brands fa-github"></span>
                                     </a>
                                     <span className="kb-hero__link-label">GitHub</span>
                                 </li>
                                 <li className="kb-hero__link">
                                     <a href="https://www.linkedin.com/in/kevinberonilla" target="_blank" rel="noreferrer">
-                                        <span className="icon fa fa-linkedin"></span>
+                                        <span className="fa-brands fa-linkedin"></span>
                                     </a>
                                     <span className="kb-hero__link-label">LinkedIn</span>
                                 </li>
                                 <li className="kb-hero__link">
                                     <a href="mailto:kevin.beronilla@gmail.com">
-                                        <span className="icon fa fa-envelope"></span>
+                                        <span className="fa-solid fa-envelope"></span>
                                     </a>
                                     <span className="kb-hero__link-label">Email</span>
                                 </li>
@@ -195,7 +195,7 @@ function App() {
                                                 <img className="kb-project__thumbnail" src={project.thumbnailUrl} alt={project.name} onLoad={handleThumbnailLoad} />
                                                 <span className="kb-project__hover-tile">
                                                     <span className="kb-project__name kb-m-around--none">{project.name}</span>
-                                                    <em className="kb-project__year kb-text-size--small kb-m-top--small kb-m-bottom--none">{project.startYear ? project.startYear + '—' + project.endYear : project.endYear}</em>
+                                                    <em className="kb-project__year kb-text-size--small kb-m-top--x-small kb-m-bottom--none">{project.startYear ? project.startYear + '—' + project.endYear : project.endYear}</em>
                                                 </span>
                                             </a>
                                         </li>
@@ -212,7 +212,7 @@ function App() {
                 <p className="kb-text-size--small kb-m-around--none">
                     &copy; {year} Kevin Beronilla. All works featured are copyrighted by the respective individuals and organizations of which they are a representation of.
                     <br />
-                    This portfolio was lovingly handcrafted using React, Sass, and Contenful.
+                    This portfolio was lovingly handcrafted using React, Sass, and Contenful. Check out the <a href="https://github.com/kevinberonilla/portfolio" target="_blank" rel="noreferrer">GitHub repository</a>!
                 </p>
             </footer>
             {Object.keys(viewedProject).length ? <ProjectModal ref={projectModal} project={viewedProject} onHidden={handleProjectModalHidden} /> : ''}
