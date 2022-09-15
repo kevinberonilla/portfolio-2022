@@ -1,22 +1,30 @@
-import {forwardRef, useImperativeHandle, useState, useEffect} from 'react';
+import {forwardRef, useImperativeHandle, useState, useEffect, useCallback} from 'react';
 import PropTypes from 'prop-types';
 
 const ProjectModal = forwardRef((props, ref) => {
     const [backdropPosition, setBackdropPosition] = useState({});
     const [shown, setShown] = useState(false);
+    const hideModal = useCallback(() => {
+        window.document.body.classList.remove('kb-freeze');
+        setShown(false);
+
+        if (typeof props.onHidden === 'function') {
+            window.setTimeout(() => {
+                props.onHidden();
+            }, 100);
+        }
+    }, [setShown, props]);
 
     useEffect(() => {
         function handleKeyUp(event) {
-            console.log('keyup');
             if (shown && event.key === 'Escape') {
                 hideModal();
             }
         }
-        debugger;
+
         window.addEventListener('keyup', handleKeyUp);
         
         return () => {
-            debugger;
             window.removeEventListener('keyup', handleKeyUp);
         };
     }, [shown, hideModal]);
@@ -45,17 +53,6 @@ const ProjectModal = forwardRef((props, ref) => {
 
             setShown(true);
         }, 100);
-    }
-
-    function hideModal() {
-        window.document.body.classList.remove('kb-freeze');
-        setShown(false);
-
-        if (typeof props.onHidden === 'function') {
-            window.setTimeout(() => {
-                props.onHidden();
-            }, 100);
-        }
     }
 
     useImperativeHandle(ref, () => ({
