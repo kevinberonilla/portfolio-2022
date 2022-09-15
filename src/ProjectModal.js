@@ -1,9 +1,26 @@
-import {forwardRef, useImperativeHandle, useState} from 'react';
+import {forwardRef, useImperativeHandle, useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 const ProjectModal = forwardRef((props, ref) => {
     const [backdropPosition, setBackdropPosition] = useState({});
     const [shown, setShown] = useState(false);
+
+    useEffect(() => {
+        function handleKeyUp(event) {
+            console.log('keyup');
+            if (shown && event.key === 'Escape') {
+                hideModal();
+            }
+        }
+        debugger;
+        window.addEventListener('keyup', handleKeyUp);
+        
+        return () => {
+            debugger;
+            window.removeEventListener('keyup', handleKeyUp);
+        };
+    }, [shown, hideModal]);
+
 
     function showModal() {
         window.document.body.classList.add('kb-freeze');
