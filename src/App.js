@@ -90,7 +90,6 @@ function App() {
                             window.document.querySelector('.kb-project__link[href="' + window.location.hash + '"]').click();
                         }
                     }, 1000);
-                    
                 }
             }, Math.random() * 500);
         } else { // Load events from filtering
