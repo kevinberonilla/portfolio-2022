@@ -310,6 +310,10 @@ a {
             opacity: 0;
             transition: opacity 250ms ease;
             background-color: var(--kb-color-project-background);
+
+            @media #{$kb-mq-medium} {
+                padding: 10% 30% 10% 10%;
+            }
     
             .kb-project__link:hover &,
             .kb-project__link:focus & {
@@ -326,6 +330,10 @@ a {
             transition: all 250ms ease 150ms;
             opacity: 0;
 
+            @media #{$kb-mq-small} {
+                display: none;
+            }
+
             .kb-project__link:hover &,
             .kb-project__link:focus & {
                 transform: none;
@@ -339,6 +347,10 @@ a {
             line-height: 1.25;
             color: var(--kb-color-brand);
             transition-delay: 100ms;
+
+            @media #{$kb-mq-medium} {
+                font-size: 1.125rem;
+            }
         }
     }
 

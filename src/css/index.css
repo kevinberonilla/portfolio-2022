@@ -390,6 +390,12 @@ a:hover {
   background-color: var(--kb-color-project-background);
 }
 
+@media (max-width: 1024px) {
+  .kb-project__hover-tile {
+    padding: 10% 30% 10% 10%;
+  }
+}
+
 .kb-project__link:hover .kb-project__hover-tile,
 .kb-project__link:focus .kb-project__hover-tile {
   opacity: 1;
@@ -402,6 +408,12 @@ a:hover {
   transform: translateX(-1rem);
   transition: all 250ms ease 150ms;
   opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .kb-project__name, .kb-project__year {
+    display: none;
+  }
 }
 
 .kb-project__link:hover .kb-project__name,
@@ -417,6 +429,12 @@ a:hover {
   line-height: 1.25;
   color: var(--kb-color-brand);
   transition-delay: 100ms;
+}
+
+@media (max-width: 1024px) {
+  .kb-project__name {
+    font-size: 1.125rem;
+  }
 }
 
 .kb-footer {
