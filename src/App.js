@@ -178,10 +178,10 @@ function App() {
                             </ul>
                             <fieldset className="kb-hero__controls">
                                 <legend>Filter Projects</legend>
-                                <Checkbox className="kb-m-top--x-small" label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
-                                <Checkbox className="kb-m-top--x-small" label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
-                                <Checkbox className="kb-m-top--x-small" label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
-                                <Checkbox className="kb-m-top--x-small" label="Video" name="video" checked={filters.video} onChange={handleFilterChange} />
+                                <Checkbox className="kb-m-top--xx-small" label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
+                                <Checkbox className="kb-m-top--xx-small" label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
+                                <Checkbox className="kb-m-top--xx-small" label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
+                                <Checkbox className="kb-m-top--xx-small" label="Video" name="video" checked={filters.video} onChange={handleFilterChange} />
                             </fieldset>
                         </div>
                         <div className="kb-hero__content">

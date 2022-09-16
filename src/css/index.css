@@ -676,7 +676,7 @@ a:hover {
   height: 0.25rem;
   width: 0.5rem;
   position: absolute;
-  top: 45%;
+  top: 42.5%;
   left: 50%;
   transform-origin: center;
   transform: translate3d(-50%, -50%, 0) rotate(-45deg);
