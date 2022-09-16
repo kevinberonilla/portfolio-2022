@@ -633,7 +633,7 @@ a:hover {
 
 @media (max-width: 480px) {
   .kb-project-modal__close {
-    font-size: 1.875rem;
+    font-size: 1.75rem;
     width: 2rem;
     height: 2rem;
   }
