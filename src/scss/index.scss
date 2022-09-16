@@ -243,10 +243,6 @@ a {
             flex-basis: 50%;
         }
 
-        @media #{$kb-mq-x-small} {
-            flex-basis: 100%;
-        }
-
         &-list {
             list-style: none;
             padding: 0;
