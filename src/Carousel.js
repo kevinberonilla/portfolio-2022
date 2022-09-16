@@ -54,13 +54,13 @@ function Carousel(props) {
     return (
         <div className={'kb-carousel__container' + (props.className ? ' ' + props.className : '')}>
             <div ref={carousel} className="kb-carousel" onScroll={handleCarouselScroll}>
-                <ol className="kb-carousel__rail">
+                <div className="kb-carousel__rail">
                     {
                         props.images?.length
                         ?
                         props.images.map(image => {
                             return (
-                                <img key={image} className="kb-carousel__image" src={image} alt="" />
+                                <img key={image} className="kb-carousel__image" src={image} alt="" tabIndex="0" />
                             )
                         })
                         :
@@ -71,7 +71,7 @@ function Carousel(props) {
                         ?
                         props.videos.map((video, videoIndex) => {
                             return (
-                                <div key={video} className="kb-carousel__video-container">
+                                <div key={video} className="kb-carousel__video-container" tabIndex="0">
                                     <iframe src={video} title={'Video ' + (videoIndex + 1)} frameBorder="0" allowFullScreen></iframe>
                                 </div>
                             )
@@ -79,7 +79,7 @@ function Carousel(props) {
                         :
                         ''
                     }
-                </ol>
+                </div>
             </div>
             {
                 props.images.length > 1
@@ -94,8 +94,12 @@ function Carousel(props) {
                             })
                         }
                     </div>
-                    <button className="kb-carousel__back fa-solid fa-chevron-left" onClick={back}></button>
-                    <button className="kb-carousel__next fa-solid fa-chevron-right" onClick={next}></button>
+                    <button className="kb-carousel__back fa-solid fa-chevron-left" onClick={back}>
+                        <span className="kb-text--assistive">Back</span>
+                    </button>
+                    <button className="kb-carousel__next fa-solid fa-chevron-right" onClick={next}>
+                        <span className="kb-text--assistive">Next</span>
+                    </button>
                 </>
                 :
                 ''

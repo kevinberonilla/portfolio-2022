@@ -162,6 +162,12 @@ a:hover {
   }
 }
 
+@media (max-width: 768px) {
+  .kb-hero__content h1 {
+    padding-right: 3rem;
+  }
+}
+
 .kb-hero__description {
   margin-top: 2rem;
   max-width: 27.5rem;

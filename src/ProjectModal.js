@@ -53,7 +53,9 @@ const ProjectModal = forwardRef((props, ref) => {
             });
 
             setShown(true);
-            window.setTimeout(window.document.activeElement.blur, 100);
+            window.setTimeout(() => {
+                window.document.activeElement.blur();
+            }, 100);
         }, 100);
     }
 
@@ -67,16 +69,18 @@ const ProjectModal = forwardRef((props, ref) => {
     }));
 
     return (
-        <div className={'kb-project-modal' + (shown ? ' kb-project-modal--shown' : '') + (props.className ? ' ' + props.className : '')}>
+        <div className={'kb-project-modal' + (shown ? ' kb-project-modal--shown' : '') + (props.className ? ' ' + props.className : '')} role="dialog" aria-labelledby="project-name" aria-describedby="project-details">
             <div className="kb-project-modal__backdrop" style={backdropPosition}>
                 <img className="kb-project-modal__background" src={props.project.thumbnailUrl} alt={props.project.name} />
             </div>
             <div className={'kb-project-modal__content' + (shown ? ' kb-project-modal__content--shown' : '')}>
                 <div className="kb-container kb-position--relative">
-                    <button className="kb-project-modal__close fa-solid fa-close" onClick={hideModal}></button>
-                    <h2 className="kb-project-modal__header kb-text-heading--medium">{props.project.name}</h2>
+                    <button className="kb-project-modal__close fa-solid fa-close" onClick={hideModal}>
+                        <span className="kb-text--assistive">Close</span>
+                    </button>
+                    <h2 id="project-name" className="kb-project-modal__header kb-text-heading--medium">{props.project.name}</h2>
                     <div className="kb-project-modal__body">
-                        <ul className="kb-project-modal__detail-list">
+                        <ul id="project-details" className="kb-project-modal__detail-list">
                             <li className="kb-project-modal__detail">
                                 <p className="kb-text-size--small kb-m-vertical--none"><strong>Year{props.project.startYear ? 's' : ''}</strong></p>
                                 <p className="kb-m-vertical--none">{props.project.startYear ? props.project.startYear + '—' + props.project.endYear : props.project.endYear}</p>
