@@ -53,7 +53,7 @@ const ProjectModal = forwardRef((props, ref) => {
             });
 
             setShown(true);
-            window.document.activeElement.blur();
+            window.setTimeout(window.document.activeElement.blur, 100);
         }, 100);
     }
 
@@ -88,6 +88,16 @@ const ProjectModal = forwardRef((props, ref) => {
                             <p className="kb-text-size--small kb-m-vertical--none"><strong>Contributions</strong></p>
                             <p className="kb-m-vertical--none">{props.project.contributions}</p>
                         </li>
+                        {
+                            props.project.recognition
+                            ?
+                            <li className="kb-project-modal__detail kb-flex--shrink">
+                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Recognition</strong></p>
+                                <p className="kb-m-vertical--none">{props.project.recognition}</p>
+                            </li>
+                            :
+                            ''
+                        }
                         {
                             props.project.githubRepository || props.project.demoSite || props.project.liveSite
                             ?

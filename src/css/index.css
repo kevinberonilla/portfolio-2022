@@ -375,7 +375,7 @@ a:hover {
   pointer-events: none;
   overflow: hidden;
   opacity: 0;
-  transition: all 250ms ease, opacity 100ms ease;
+  transition: all 250ms ease, opacity 50ms ease;
 }
 
 .kb-project-modal__backdrop::after {
