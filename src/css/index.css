@@ -546,12 +546,17 @@ a:hover {
   overflow: hidden;
 }
 
-.kb-project__list {
+.kb-project-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+  pointer-events: none;
+}
+
+.kb-project-list--loaded {
+  pointer-events: auto;
 }
 
 .kb-project__link {

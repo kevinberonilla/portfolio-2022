@@ -167,12 +167,17 @@ a {
         flex: 0 0 25%;
         overflow: hidden;
 
-        &__list {
+        &-list {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
             flex-wrap: wrap;
+            pointer-events: none;
+
+            &--loaded {
+                pointer-events: auto;
+            }
         }
 
         &__link {

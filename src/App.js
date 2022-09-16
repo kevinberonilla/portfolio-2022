@@ -18,6 +18,7 @@ function App() {
     const [filteredProjects, setFilteredProjects] = useState([]);
     const [viewedProject, setViewedProject] = useState({});
     const [allThumbnailsLoaded, setAllThumbnailsLoaded] = useState(false);
+    const [enableProjects, setEnableProjects] = useState(false);
     let thumbnailsLoaded = 0;
     
     useEffect(() => {
@@ -32,7 +33,7 @@ function App() {
                     redirect: 'follow'
                 };
         
-                const response = await fetch('https://cdn.contentful.com/spaces/mskeskqf4sb9/entries?order=-fields.endYear,-fields.startYear&content_type=project', requestOptions);
+                const response = await fetch('https://cdn.contentful.com/spaces/mskeskqf4sb9/entries?order=-fields.endYear,-fields.startYear,-sys.createdAt&content_type=project', requestOptions);
                 const parsedResponse = JSON.parse(await response.text());
                 let projects = [];
 
@@ -81,10 +82,15 @@ function App() {
 
                 if (thumbnailsLoaded >= projects.length) {
                     setAllThumbnailsLoaded(true);
+
+                    window.setTimeout(() => {
+                        setEnableProjects(true);
+                        
+                        if (window.location.hash) {
+                            window.document.querySelector('.kb-project__link[href="' + window.location.hash + '"]').click();
+                        }
+                    }, 1000);
                     
-                    if (window.location.hash) {
-                        window.document.querySelector('.kb-project__link[href="' + window.location.hash + '"]').click();
-                    }
                 }
             }, Math.random() * 500);
         } else { // Load events from filtering
@@ -194,7 +200,7 @@ function App() {
                     filteredProjects.length
                     ?
                     <section className="kb-gallery">
-                        <ul className="kb-project__list">
+                        <ul className={'kb-project-list' + (enableProjects ? ' kb-project-list--loaded' : '')}>
                             {
                                 filteredProjects.map((project, projectIndex) => {
                                     return (
