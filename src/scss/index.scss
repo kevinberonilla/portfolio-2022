@@ -1,10 +1,10 @@
-@import 'normalize';
 @import 'variables';
 @import 'checkbox';
 @import 'project-modal';
 @import 'carousel';
 @import 'utility';
 @import 'https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital@0;1&display=swap';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css';
 
 * {
@@ -53,15 +53,6 @@ a {
                 display: none;
             }
         }
-    }
-
-    &-container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    &-freeze {
-        overflow: hidden;
     }
 
     &-hero {
@@ -145,7 +136,7 @@ a {
                 opacity: 0;
                 transition: all 250ms ease;
 
-                .kb-hero__link:hover & {
+                .kb-hero__link > a:hover + & {
                     opacity: 1;
                     transform: translateX(-50%);
                 }
@@ -164,8 +155,12 @@ a {
     }
 
     &-project {
-        flex: 0 0 25%;
+        flex: 0 0 20%;
         overflow: hidden;
+
+        @media #{$kb-mq-x-large} {
+            flex-basis: 25%;
+        }
 
         &-list {
             list-style: none;

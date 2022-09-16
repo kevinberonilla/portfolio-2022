@@ -17,8 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compileSass": "node-sass --output-style expanded --source-map true --source-map-contents true -r ./src/css/index.scss -o ./src/css",
-    "sass": "npm run compileSass && npm run compileSass -- -w",
+    "sass": "node-sass --output-style expanded --source-map true --source-map-contents true -r ./src/scss/index.scss ./src/css/index.css | postcss --no-map -u autoprefixer -u cssnano < ./src/css/index.css > ./src/css/index.min.css",
+    "watchSass": "watch 'npm run sass' ./src/scss/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -41,7 +41,11 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.11",
+    "cssnano": "^5.1.13",
     "gh-pages": "^4.0.0",
-    "node-sass": "^7.0.3"
+    "node-sass": "^7.0.3",
+    "postcss-cli": "^10.0.0",
+    "watch": "^1.0.2"
   }
 }

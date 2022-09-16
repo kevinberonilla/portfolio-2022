@@ -150,32 +150,39 @@ function App() {
                             <img className="kb-logo--inverse" src={logoInverse} alt="Kevin Beronilla" />
                             <ul className="kb-hero__link-list">
                                 <li className="kb-hero__link">
-                                    <a href="./downloads/kevin-beronilla-resume.pdf" target="_blank">
+                                    <a href="./downloads/kevin-beronilla-resume.pdf" target="_blank" aria-describedby="github">
                                         <span className="fa-solid fa-file-text"></span>
+                                        <span className="kb-text--assistive">Resume</span>
                                     </a>
-                                    <span className="kb-hero__link-label">Resume</span>
+                                    <span id="resume" className="kb-hero__link-label" role="tooltip">Resume</span>
                                 </li>
                                 <li className="kb-hero__link">
-                                    <a href="https://github.com/kevinberonilla" target="_blank" rel="noreferrer">
+                                    <a href="https://github.com/kevinberonilla" target="_blank" rel="noreferrer" aria-describedby="github">
                                         <span className="fa-brands fa-github"></span>
+                                        <span className="kb-text--assistive">GitHub</span>
                                     </a>
-                                    <span className="kb-hero__link-label">GitHub</span>
+                                    <span id="github" className="kb-hero__link-label" role="tooltip">GitHub</span>
                                 </li>
                                 <li className="kb-hero__link">
-                                    <a href="https://www.linkedin.com/in/kevinberonilla" target="_blank" rel="noreferrer">
+                                    <a href="https://www.linkedin.com/in/kevinberonilla" target="_blank" rel="noreferrer" aria-describedby="linkedin">
                                         <span className="fa-brands fa-linkedin"></span>
+                                        <span className="kb-text--assistive">LinkedIn</span>
                                     </a>
-                                    <span className="kb-hero__link-label">LinkedIn</span>
+                                    <span id="linkedin" className="kb-hero__link-label" role="tooltip">LinkedIn</span>
                                 </li>
                                 <li className="kb-hero__link">
-                                    <a href="mailto:kevin.beronilla@gmail.com">
+                                    <a href="mailto:kevin.beronilla@gmail.com" aria-describedby="email">
                                         <span className="fa-solid fa-envelope"></span>
+                                        <span className="kb-text--assistive">Email</span>
                                     </a>
-                                    <span className="kb-hero__link-label">Email</span>
+                                    <span id="email" className="kb-hero__link-label" role="tooltip">Email</span>
                                 </li>
                             </ul>
                             <fieldset className="kb-hero__controls">
-                                <legend>Filter Projects</legend>
+                                <legend>
+                                    Filter Projects
+                                    <span className="kb-text-size--small kb-opacity--50 kb-m-left--x-small">{filteredProjects.length} of {projects.length}</span>
+                                </legend>
                                 <Checkbox className="kb-m-top--xx-small" label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
                                 <Checkbox className="kb-m-top--xx-small" label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
                                 <Checkbox className="kb-m-top--xx-small" label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
@@ -225,7 +232,7 @@ function App() {
                     <br />
                     All featured projects are copyrighted by the respective individuals and organizations of which they are a representation of.
                     <br />
-                    This portfolio was lovingly handcrafted using <a href="https://reactjs.org" target="_blank" rel="noreferrer">React</a>, <a href="https://sass-lang.com" target="_blank" rel="noreferrer">Sass</a>, and <a href="https://www.contentful.com" target="_blank" rel="noreferrer">Contentful</a>. Check out the source code on <a href="https://github.com/kevinberonilla/portfolio" target="_blank" rel="noreferrer">GitHub</a>!
+                    This portfolio site was handcrafted using <a href="https://reactjs.org" target="_blank" rel="noreferrer">React</a>, <a href="https://sass-lang.com" target="_blank" rel="noreferrer">Sass</a>, and <a href="https://www.contentful.com" target="_blank" rel="noreferrer">Contentful</a>. Check out the <a href="https://github.com/kevinberonilla/portfolio" target="_blank" rel="noreferrer">GitHub respository</a>!
                 </p>
             </footer>
             {Object.keys(viewedProject).length ? <ProjectModal ref={projectModal} project={viewedProject} onHidden={handleProjectModalHidden} /> : ''}

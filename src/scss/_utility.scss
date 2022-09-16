@@ -1,4 +1,13 @@
 @mixin utility {
+    &-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &-freeze {
+        overflow: hidden;
+    }
+
     &-text {
         &-size {
             &--small {
@@ -48,6 +57,41 @@
             &--regular {
                 color: var(--kb-color-text);
             }
+        }
+
+        &--assistive {
+            position: absolute !important;
+            margin: -1px !important;
+            border: 0 !important;
+            padding: 0 !important;
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important;
+            clip: rect(0 0 0 0) !important;
+            text-transform: none !important;
+            white-space: nowrap !important;
+        }
+    }
+
+    &-opacity {
+        &--0 {
+            opacity: 0%;
+        }
+        
+        &--25 {
+            opacity: 25%;
+        }
+
+        &--50 {
+            opacity: 50%;
+        }
+
+        &--75 {
+            opacity: 75%;
+        }
+
+        &--100 {
+            opacity: 100%;
         }
     }
 
