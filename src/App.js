@@ -19,7 +19,6 @@ function App() {
     const [viewedProject, setViewedProject] = useState({});
     const [allThumbnailsLoaded, setAllThumbnailsLoaded] = useState(false);
     const [enableProjects, setEnableProjects] = useState(false);
-    let thumbnailsLoaded = 0;
     
     useEffect(() => {
         async function getProjects() {
@@ -77,10 +76,9 @@ function App() {
 
         if (!allThumbnailsLoaded) {
             window.setTimeout(() => {
-                thumbnailsLoaded++;
                 loadedImage.closest('.kb-project').classList.add('kb-project--loaded');
 
-                if (thumbnailsLoaded >= projects.length) {
+                if (window.document.querySelectorAll('.kb-project--loaded').length === projects.length) {
                     setAllThumbnailsLoaded(true);
 
                     window.setTimeout(() => {
@@ -92,7 +90,7 @@ function App() {
                     }, 1000);
                 }
             }, Math.random() * 500);
-        } else { // Load events from filtering
+        } else { // The load event came from filtering
             loadedImage.closest('.kb-project').classList.add('kb-project--revealed');
         }
     }
