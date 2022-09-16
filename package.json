@@ -19,8 +19,7 @@
     "eject": "react-scripts eject",
     "sass": "node-sass --output-style expanded --source-map true --source-map-contents true -r ./src/scss/index.scss ./src/css/index.css | postcss ./src/css/index.css -u autoprefixer -u cssnano -o ./src/css/index.min.css",
     "watchSass": "watch 'npm run sass' ./src/scss/ --interval 1",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
