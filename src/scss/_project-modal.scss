@@ -45,6 +45,14 @@
             opacity: 0;
             transition: opacity 500ms ease 350ms;
 
+            @media #{$kb-mq-medium} {
+                padding: 3rem;
+            }
+
+            @media #{$kb-mq-x-small} {
+                padding: 2rem;
+            }
+
             &--shown {
                 opacity: 1;
             }
@@ -68,6 +76,19 @@
             top: 0.3rem;
             right: -0.75rem;
 
+            @media #{$kb-mq-medium} {
+                font-size: 2.125rem;
+                width: 2.25rem;
+                height: 2.25rem;
+                right: -0.5rem;
+            }
+
+            @media #{$kb-mq-x-small} {
+                font-size: 1.875rem;
+                width: 2rem;
+                height: 2rem;
+            }
+
             &:hover,
             &:focus,
             &:active {
@@ -81,17 +102,37 @@
             }
         }
 
-        &__name {
+        &__header {
             display: block;
             padding-right: 4rem;
             line-height: 1.25;
             margin: -0.625rem 0 0 0;
+
+            @media #{$kb-mq-medium} {
+                padding-right: 3rem;
+            }
+
+            @media #{$kb-mq-medium} {
+                padding-right: 2.25rem;
+            }
+        }
+
+        &__body {
+            @media #{$kb-mq-small} {
+                display: flex;
+                flex-direction: column-reverse;
+            }
         }
         
         &__detail {
             flex: 0 0 auto;
             padding-right: 2rem;
             margin-top: 1.5rem;
+            
+            @media #{$kb-mq-small} {
+                padding-right: 1.75rem;
+                margin-top: 1.25rem;
+            }
 
             &-list {
                 display: flex;
@@ -99,6 +140,18 @@
                 list-style: none;
                 padding: 0;
                 margin: 0;
+
+                @media #{$kb-mq-medium} {
+                    flex-wrap: wrap;
+                }
+            }
+        }
+
+        &__carousel {
+            margin-top: 2rem;
+            
+            @media #{$kb-mq-small} {
+                margin-bottom: 0.5rem;
             }
         }
     }

@@ -74,70 +74,72 @@ const ProjectModal = forwardRef((props, ref) => {
             <div className={'kb-project-modal__content' + (shown ? ' kb-project-modal__content--shown' : '')}>
                 <div className="kb-container kb-position--relative">
                     <button className="kb-project-modal__close fa-solid fa-close" onClick={hideModal}></button>
-                    <h2 className="kb-project-modal__name kb-text-heading--medium">{props.project.name}</h2>
-                    <ul className="kb-project-modal__detail-list">
-                        <li className="kb-project-modal__detail">
-                            <p className="kb-text-size--small kb-m-vertical--none"><strong>Year{props.project.startYear ? 's' : ''}</strong></p>
-                            <p className="kb-m-vertical--none">{props.project.startYear ? props.project.startYear + '—' + props.project.endYear : props.project.endYear}</p>
-                        </li>
-                        <li className="kb-project-modal__detail">
-                            <p className="kb-text-size--small kb-m-vertical--none"><strong>Project Owner</strong></p>
-                            <p className="kb-m-vertical--none">{props.project.owner}</p>
-                        </li>
-                        <li className="kb-project-modal__detail kb-flex--shrink">
-                            <p className="kb-text-size--small kb-m-vertical--none"><strong>Contributions</strong></p>
-                            <p className="kb-m-vertical--none">{props.project.contributions}</p>
-                        </li>
-                        {
-                            props.project.recognition
-                            ?
-                            <li className="kb-project-modal__detail kb-flex--shrink">
-                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Recognition</strong></p>
-                                <p className="kb-m-vertical--none">{props.project.recognition}</p>
-                            </li>
-                            :
-                            ''
-                        }
-                        {
-                            props.project.githubRepository || props.project.demoSite || props.project.liveSite
-                            ?
+                    <h2 className="kb-project-modal__header kb-text-heading--medium">{props.project.name}</h2>
+                    <div className="kb-project-modal__body">
+                        <ul className="kb-project-modal__detail-list">
                             <li className="kb-project-modal__detail">
-                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Links</strong></p>
-                                <ul className="kb-list--horizontal">
-                                    {
-                                        props.project.githubRepository
-                                        ?
-                                        <li>
-                                            <a href={props.project.githubRepository} target="_blank" rel="noreferrer">GitHub Repository</a>
-                                        </li>
-                                        :
-                                        ''
-                                    }
-                                    {
-                                        props.project.demoSite
-                                        ?
-                                        <li>
-                                            <a href={props.project.demoSite} target="_blank" rel="noreferrer">Demo Site</a>
-                                        </li>
-                                        :
-                                        ''
-                                    }
-                                    {
-                                        props.project.liveSite
-                                        ?
-                                        <li>
-                                            <a href={props.project.liveSite} target="_blank" rel="noreferrer">Live Site</a>
-                                        </li>
-                                        :
-                                        ''
-                                    }
-                                </ul>
+                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Year{props.project.startYear ? 's' : ''}</strong></p>
+                                <p className="kb-m-vertical--none">{props.project.startYear ? props.project.startYear + '—' + props.project.endYear : props.project.endYear}</p>
                             </li>
-                            :
-                            ''
-                        }
-                    </ul>
-                    <Carousel className="kb-m-top--x-large" images={props.project.imageUrls} videos={props.project.videos} />
+                            <li className="kb-project-modal__detail">
+                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Project Owner</strong></p>
+                                <p className="kb-m-vertical--none">{props.project.owner}</p>
+                            </li>
+                            <li className="kb-project-modal__detail kb-flex--shrink">
+                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Contributions</strong></p>
+                                <p className="kb-m-vertical--none">{props.project.contributions}</p>
+                            </li>
+                            {
+                                props.project.recognition
+                                ?
+                                <li className="kb-project-modal__detail kb-flex--shrink">
+                                    <p className="kb-text-size--small kb-m-vertical--none"><strong>Recognition</strong></p>
+                                    <p className="kb-m-vertical--none">{props.project.recognition}</p>
+                                </li>
+                                :
+                                ''
+                            }
+                            {
+                                props.project.githubRepository || props.project.demoSite || props.project.liveSite
+                                ?
+                                <li className="kb-project-modal__detail">
+                                    <p className="kb-text-size--small kb-m-vertical--none"><strong>Links</strong></p>
+                                    <ul className="kb-list--horizontal">
+                                        {
+                                            props.project.githubRepository
+                                            ?
+                                            <li>
+                                                <a href={props.project.githubRepository} target="_blank" rel="noreferrer">GitHub Repository</a>
+                                            </li>
+                                            :
+                                            ''
+                                        }
+                                        {
+                                            props.project.demoSite
+                                            ?
+                                            <li>
+                                                <a href={props.project.demoSite} target="_blank" rel="noreferrer">Demo Site</a>
+                                            </li>
+                                            :
+                                            ''
+                                        }
+                                        {
+                                            props.project.liveSite
+                                            ?
+                                            <li>
+                                                <a href={props.project.liveSite} target="_blank" rel="noreferrer">Live Site</a>
+                                            </li>
+                                            :
+                                            ''
+                                        }
+                                    </ul>
+                                </li>
+                                :
+                                ''
+                            }
+                        </ul>
+                        <Carousel className="kb-project-modal__carousel" images={props.project.imageUrls} videos={props.project.videos} />
+                    </div>
                 </div>
             </div>
         </div>
