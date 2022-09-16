@@ -1,5 +1,7 @@
 @mixin checkbox {
     &-checkbox {
+        line-height: 1;
+
         &__input {
             display: block;
             width: 1px;
@@ -46,14 +48,14 @@
         }
 
         &__layout {
-            display: flex;
+            display: inline-flex;
         }
 
         &__label {
             display: block;
             line-height: 1;
             margin-left: 0.375rem;
-            padding-top: 0.25rem;
+            padding-top: 0.2rem;
         }
     }
 }

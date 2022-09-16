@@ -27,10 +27,12 @@ function App() {
                 Filter Projects
                 <span className="kb-text-size--small kb-opacity--50 kb-m-left--x-small">{filteredProjects.length} of {projects.length}</span>
             </legend>
-            <Checkbox className="kb-m-top--xx-small" label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
-            <Checkbox className="kb-m-top--xx-small" label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
-            <Checkbox className="kb-m-top--xx-small" label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
-            <Checkbox className="kb-m-top--xx-small" label="Video" name="video" checked={filters.video} onChange={handleFilterChange} />
+            <div className="kb-hero__filters">
+                <Checkbox className="kb-m-top--xx-small" label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
+                <Checkbox className="kb-m-top--xx-small" label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
+                <Checkbox className="kb-m-top--xx-small" label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
+                <Checkbox className="kb-m-top--xx-small" label="Video" name="video" checked={filters.video} onChange={handleFilterChange} />
+            </div>
         </fieldset>
     );
     
@@ -94,6 +96,8 @@ function App() {
                 loadedImage.closest('.kb-project').classList.add('kb-project--loaded');
 
                 if (window.document.querySelectorAll('.kb-project--loaded').length === projects.length) {
+                    const enableProjectsTimeout = isMediumScreen ? 0 : 1000;
+
                     setAllThumbnailsLoaded(true);
 
                     window.setTimeout(() => {
@@ -102,7 +106,7 @@ function App() {
                         if (window.location.hash) {
                             window.document.querySelector('.kb-project__link[href="' + window.location.hash + '"]').click();
                         }
-                    }, 1000);
+                    }, enableProjectsTimeout);
                 }
             }, Math.random() * 500);
         } else { // The load event came from filtering
@@ -197,7 +201,7 @@ function App() {
                         </div>
                         <div className="kb-hero__content">
                             <h1 className="kb-text-heading kb-text-heading--large">
-                                Hello! My name is<br /><span className="kb-text-color--brand">Kevin Beronilla</span><br />and I am a visual artist.
+                                Hello! My name is <br /> <span className="kb-text-color--brand">Kevin Beronilla</span> <br /> and I am a visual artist.
                             </h1>
                             <div className="kb-hero__description">
                                 <p>With a multi-disciplinary background in design, development, photography, and video, my mission is to create beautiful experiences in all forms of media.</p>
@@ -234,13 +238,11 @@ function App() {
                 }
             </main>
             <footer className={'kb-footer' + (allThumbnailsLoaded ? ' kb-footer--loaded' : '')}>
-                <p className="kb-text-size--small kb-m-around--none">
-                    &copy; {year} Kevin Beronilla. All rights reserved.
-                    <br />
-                    All featured projects are copyrighted by the respective individuals and organizations of which they are a representation of.
-                    <br />
-                    This portfolio site was handcrafted using <a href="https://reactjs.org" target="_blank" rel="noreferrer">React</a>, <a href="https://sass-lang.com" target="_blank" rel="noreferrer">Sass</a>, and <a href="https://www.contentful.com" target="_blank" rel="noreferrer">Contentful</a>. Check out the <a href="https://github.com/kevinberonilla/portfolio" target="_blank" rel="noreferrer">GitHub respository</a>!
-                </p>
+                <div className="kb-text-size--small kb-m-around--none">
+                    <p>&copy; {year} Kevin Beronilla. All rights reserved.</p>
+                    <p>All featured projects are copyrighted by the respective individuals and organizations of which they are a representation of.</p>
+                    <p>This portfolio site was handcrafted using <a href="https://reactjs.org" target="_blank" rel="noreferrer">React</a>, <a href="https://sass-lang.com" target="_blank" rel="noreferrer">Sass</a>, and <a href="https://www.contentful.com" target="_blank" rel="noreferrer">Contentful</a>. Check out the <a href="https://github.com/kevinberonilla/portfolio" target="_blank" rel="noreferrer">GitHub respository</a>!</p>
+                </div>
             </footer>
             {Object.keys(viewedProject).length ? <ProjectModal ref={projectModal} project={viewedProject} onHidden={handleProjectModalHidden} /> : ''}
         </>
