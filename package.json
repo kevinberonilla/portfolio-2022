@@ -17,8 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sass": "node-sass --output-style expanded --source-map true --source-map-contents true -r ./src/scss/index.scss ./src/css/index.css | postcss --no-map -u autoprefixer -u cssnano < ./src/css/index.css > ./src/css/index.min.css",
-    "watchSass": "watch 'npm run sass' ./src/scss/",
+    "sass": "node-sass --output-style expanded --source-map true --source-map-contents true -r ./src/scss/index.scss ./src/css/index.css | postcss ./src/css/index.css -u autoprefixer -u cssnano -o ./src/css/index.min.css",
+    "watchSass": "watch 'npm run sass' ./src/scss/ --interval 1",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
