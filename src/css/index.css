@@ -101,6 +101,13 @@ a:hover {
   opacity: 0;
 }
 
+@media (max-width: 1024px) {
+  .kb-hero {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
 .kb-hero--loaded {
   margin-top: 0;
   opacity: 1;
@@ -214,6 +221,12 @@ a:hover {
   pointer-events: none;
 }
 
+@media (max-width: 1024px) {
+  .kb-project-list {
+    pointer-events: auto;
+  }
+}
+
 .kb-project-list--loaded {
   pointer-events: auto;
 }
@@ -233,6 +246,13 @@ a:hover {
   margin-top: 100%;
   opacity: 0;
   transition: all 250ms ease;
+}
+
+@media (max-width: 1024px) {
+  .kb-project__thumbnail {
+    margin-top: 0;
+    opacity: 1;
+  }
 }
 
 .kb-project--loaded .kb-project__thumbnail,
@@ -296,6 +316,12 @@ a:hover {
   padding: 0 4rem 4rem;
   opacity: 0;
   transition: opacity 500ms ease 750ms;
+}
+
+@media (max-width: 1024px) {
+  .kb-footer {
+    opacity: 1;
+  }
 }
 
 .kb-footer--loaded {

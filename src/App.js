@@ -14,11 +14,25 @@ function App() {
         photography: true,
         video: true
     });
+    const [isMediumScreen, setIsMediumScreen] = useState(true);
     const [projects, setProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
     const [viewedProject, setViewedProject] = useState({});
     const [allThumbnailsLoaded, setAllThumbnailsLoaded] = useState(false);
     const [enableProjects, setEnableProjects] = useState(false);
+
+    const filterFieldset = (
+        <fieldset className="kb-hero__controls">
+            <legend>
+                Filter Projects
+                <span className="kb-text-size--small kb-opacity--50 kb-m-left--x-small">{filteredProjects.length} of {projects.length}</span>
+            </legend>
+            <Checkbox className="kb-m-top--xx-small" label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
+            <Checkbox className="kb-m-top--xx-small" label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
+            <Checkbox className="kb-m-top--xx-small" label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
+            <Checkbox className="kb-m-top--xx-small" label="Video" name="video" checked={filters.video} onChange={handleFilterChange} />
+        </fieldset>
+    );
     
     useEffect(() => {
         async function getProjects() {
@@ -56,6 +70,7 @@ function App() {
         }
 
         function handleWindowResize() {
+            setIsMediumScreen(window.innerWidth <= 1024);
             window.document.body.style.setProperty('--kb-vh', window.innerHeight / 100 + 'px');
             hero.current.style.setProperty('--kb-hero-height', hero.current.clientHeight + 'px');
         }
@@ -178,16 +193,7 @@ function App() {
                                     <span id="email" className="kb-hero__link-label" role="tooltip">Email</span>
                                 </li>
                             </ul>
-                            <fieldset className="kb-hero__controls">
-                                <legend>
-                                    Filter Projects
-                                    <span className="kb-text-size--small kb-opacity--50 kb-m-left--x-small">{filteredProjects.length} of {projects.length}</span>
-                                </legend>
-                                <Checkbox className="kb-m-top--xx-small" label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
-                                <Checkbox className="kb-m-top--xx-small" label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
-                                <Checkbox className="kb-m-top--xx-small" label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
-                                <Checkbox className="kb-m-top--xx-small" label="Video" name="video" checked={filters.video} onChange={handleFilterChange} />
-                            </fieldset>
+                            {!isMediumScreen ? filterFieldset : ''}
                         </div>
                         <div className="kb-hero__content">
                             <h1 className="kb-text-heading kb-text-heading--large">
@@ -198,6 +204,7 @@ function App() {
                                 <p>When I'm not in front of a laptop, you can find me tinkering on cars or petting fluffy animals.</p>
                             </div>
                         </div>
+                        {isMediumScreen ? filterFieldset : ''}
                     </div>
                 </section>
                 {

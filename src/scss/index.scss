@@ -58,6 +58,11 @@ a {
     &-hero {
         margin-top: calc(var(--kb-hero-height) * -1);
         opacity: 0;
+
+        @media #{$kb-mq-medium} {
+            margin-top: 0;
+            opacity: 1;
+        }
         
         &--loaded {
             margin-top: 0;
@@ -170,6 +175,10 @@ a {
             flex-wrap: wrap;
             pointer-events: none;
 
+            @media #{$kb-mq-medium} {
+                pointer-events: auto;
+            }
+
             &--loaded {
                 pointer-events: auto;
             }
@@ -190,6 +199,11 @@ a {
             margin-top: 100%;
             opacity: 0;
             transition: all 250ms ease;
+
+            @media #{$kb-mq-medium} {
+                margin-top: 0;
+                opacity: 1;
+            }
 
             .kb-project--loaded &,
             .kb-project--revealed & {
@@ -255,6 +269,10 @@ a {
         padding: 0 4rem 4rem;
         opacity: 0;
         transition: opacity 500ms ease 750ms;
+
+        @media #{$kb-mq-medium} {
+            opacity: 1;
+        }
 
         &--loaded {
             opacity: 1;
