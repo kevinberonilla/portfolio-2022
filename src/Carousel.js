@@ -72,7 +72,7 @@ function Carousel(props) {
                         props.videos.map((video, videoIndex) => {
                             return (
                                 <div key={video} className="kb-carousel__video-container">
-                                    <iframe src={video} title={'Video ' + (videoIndex + 1)} frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    <iframe src={video} title={'Video ' + (videoIndex + 1)} frameBorder="0" allowFullScreen></iframe>
                                 </div>
                             )
                         })

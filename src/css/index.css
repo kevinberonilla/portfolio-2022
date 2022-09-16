@@ -403,7 +403,7 @@ a:hover {
   padding: 4rem;
   z-index: 1;
   opacity: 0;
-  transition: opacity 500ms ease 250ms;
+  transition: opacity 500ms ease 350ms;
 }
 
 .kb-project-modal__content--shown {
