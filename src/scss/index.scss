@@ -253,6 +253,7 @@ a {
             margin: 0;
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             pointer-events: none;
 
             @media #{$kb-mq-medium} {
