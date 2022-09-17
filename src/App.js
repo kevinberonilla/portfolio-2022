@@ -104,7 +104,12 @@ function App() {
                         setEnableProjects(true);
                         
                         if (window.location.hash) {
-                            window.document.querySelector('.kb-project__link[href="' + window.location.hash + '"]').click();
+                            const hash = window.location.hash.replace('#!/', '#'); // Update legacy hashes
+                            const project = window.document.querySelector('.kb-project__link[href="' + hash + '"]');
+
+                            if (project) {
+                                project.click();
+                            }
                         }
                     }, enableProjectsTimeout);
                 }
