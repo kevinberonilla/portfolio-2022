@@ -739,7 +739,7 @@ a:hover {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: none;
+  flex-wrap: nowrap;
 }
 
 .kb-carousel__video-container {
@@ -747,9 +747,11 @@ a:hover {
   position: relative;
   padding-top: 56.25%;
   overflow: hidden;
+  flex: 0 0 100%;
   width: 100%;
   max-width: 100%;
   height: auto;
+  scroll-snap-align: start;
 }
 
 .kb-carousel__video-container iframe {

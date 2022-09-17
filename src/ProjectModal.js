@@ -54,7 +54,9 @@ const ProjectModal = forwardRef((props, ref) => {
 
             setShown(true);
             window.setTimeout(() => {
-                window.document.activeElement.blur();
+                if (window.document.activeElement) {
+                    window.document.activeElement.blur();
+                }
             }, 100);
         }, 100);
     }

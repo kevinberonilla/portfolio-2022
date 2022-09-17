@@ -80,7 +80,7 @@ function App() {
         window.addEventListener('resize', handleWindowResize, {
             passive: true
         });
-        handleWindowResize();
+        handleWindowResize(); // Set initial values
         getProjects();
 
         return () => {
@@ -96,7 +96,7 @@ function App() {
                 loadedImage.closest('.kb-project').classList.add('kb-project--loaded');
 
                 if (window.document.querySelectorAll('.kb-project--loaded').length === projects.length) {
-                    const enableProjectsTimeout = isMediumScreen ? 0 : 1000;
+                    const enableProjectsTimeout = isMediumScreen ? 0 : 750;
 
                     setAllThumbnailsLoaded(true);
 

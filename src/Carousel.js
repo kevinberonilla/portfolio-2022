@@ -7,19 +7,19 @@ function Carousel(props) {
 
     const back = useCallback(() => {
         if (activeIndex === 0) {
-            carousel.current.scrollLeft = carousel.current.clientWidth * (props.images.length - 1);
+            carousel.current.scrollLeft = carousel.current.clientWidth * ((props.images?.length || 0) + (props.videos?.length || 0) - 1);
         } else {
             carousel.current.scrollLeft -= carousel.current.clientWidth;
         }
-    }, [activeIndex, props.images.length]);
+    }, [activeIndex, props.images?.length, props.videos?.length]);
 
     const next = useCallback(() => {
-        if (activeIndex === props.images.length - 1) {
+        if (activeIndex === (props.images?.length || 0) + (props.videos?.length || 0) - 1) {
             carousel.current.scrollLeft = 0;
         } else {
             carousel.current.scrollLeft += carousel.current.clientWidth;
         }
-    }, [activeIndex, props.images.length]);
+    }, [activeIndex, props.images?.length, props.videos?.length]);
 
     useEffect(() => {
         function handleKeyup(event) {
@@ -40,15 +40,11 @@ function Carousel(props) {
     function handleCarouselScroll() {
         setActiveIndex(Math.round(carousel.current.scrollLeft / carousel.current.clientWidth));
     }
-    
-    function goToIndex(index) {
-        carousel.current.scrollLeft = carousel.current.clientWidth * index;
-    }
 
     function handleNavigationClick(event) {
         const index = parseInt(event.currentTarget.dataset.index, 10);
-        
-        goToIndex(index);
+
+        carousel.current.scrollLeft = carousel.current.clientWidth * index;
     }
 
     return (
@@ -82,14 +78,14 @@ function Carousel(props) {
                 </div>
             </div>
             {
-                props.images.length > 1
+                (props.images?.length || 0) + (props.videos?.length || 0) > 1
                 ?
                 <>
                     <div className="kb-carousel__nav">
                         {
-                            props.images.map((image, imageIndex) => {
+                            (props.images || []).concat((props.videos || [])).map((slide, slideIndex) => {
                                 return (
-                                    <div key={image} className={'kb-carousel__nav-item' + (imageIndex === activeIndex ? ' kb-carousel__nav-item--active' : '')} data-index={imageIndex} onClick={handleNavigationClick}></div>
+                                    <div key={slide} className={'kb-carousel__nav-item' + (slideIndex === activeIndex ? ' kb-carousel__nav-item--active' : '')} data-index={slideIndex} onClick={handleNavigationClick}></div>
                                 )
                             })
                         }
