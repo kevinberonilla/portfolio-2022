@@ -131,16 +131,20 @@
             padding: 0.5rem;
             border-radius: 0.75rem;
             position: absolute;
-            left: 1.125rem;
             top: 1.125rem;
+            left: 1.125rem;
             background-color: var(--kb-color-carousel-nav-background);            
 
             @media #{$kb-mq-small} {
+                top: 1rem;
+                left: 1rem;
                 transform-origin: left top;
                 transform: scale(0.8);
             }
 
             @media #{$kb-mq-x-small} {
+                top: 0.5rem;
+                left: 0.5rem;
                 transform: scale(0.6);
             }
 

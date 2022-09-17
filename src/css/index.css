@@ -858,13 +858,15 @@ a:hover {
   padding: 0.5rem;
   border-radius: 0.75rem;
   position: absolute;
-  left: 1.125rem;
   top: 1.125rem;
+  left: 1.125rem;
   background-color: var(--kb-color-carousel-nav-background);
 }
 
 @media (max-width: 768px) {
   .kb-carousel__nav {
+    top: 1rem;
+    left: 1rem;
     transform-origin: left top;
     transform: scale(0.8);
   }
@@ -872,6 +874,8 @@ a:hover {
 
 @media (max-width: 480px) {
   .kb-carousel__nav {
+    top: 0.5rem;
+    left: 0.5rem;
     transform: scale(0.6);
   }
 }
