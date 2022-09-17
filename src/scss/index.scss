@@ -116,15 +116,7 @@ a {
 
         &__description {
             margin-top: 2rem;
-            max-width: 27.5rem;            
-
-            @media #{$kb-mq-medium} {
-                max-width: calc(100% - 10.5rem);
-            }
-
-            @media #{$kb-mq-small} {
-                max-width: none;
-            }
+            max-width: 25rem;
         }
 
         &__sidebar {

@@ -170,19 +170,7 @@ a:hover {
 
 .kb-hero__description {
   margin-top: 2rem;
-  max-width: 27.5rem;
-}
-
-@media (max-width: 1024px) {
-  .kb-hero__description {
-    max-width: calc(100% - 10.5rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .kb-hero__description {
-    max-width: none;
-  }
+  max-width: 25rem;
 }
 
 .kb-hero__sidebar {
