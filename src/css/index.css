@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import 'https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital@0;1&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Libre+Bodoni:ital@0;1&display=swap';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css';
 * {
@@ -14,7 +14,7 @@ img {
 body {
   --kb-vh: 1vh;
   --kb-font-family-display: 'Libre Bodoni', serif;
-  --kb-font-family-body: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  --kb-font-family-body: 'Inter', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
   --kb-color-brand: #f68b1f;
   --kb-color-text-inverse: white;
   --kb-color-text-default: #1e1e1e;
@@ -389,6 +389,12 @@ a:hover {
   opacity: 0;
   transition: opacity 250ms ease;
   background-color: var(--kb-color-project-background);
+}
+
+@media (max-width: 1280px) {
+  .kb-project__hover-tile {
+    padding: 13.25% 30% 13.25% 13.25%;
+  }
 }
 
 @media (max-width: 1024px) {

@@ -7,7 +7,7 @@ $kb-mq-x-small: only screen and (max-width: 480px);
 @mixin custom-properties {
     --kb-vh: 1vh;
     --kb-font-family-display: 'Libre Bodoni', serif;
-    --kb-font-family-body: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    --kb-font-family-body: 'Inter', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
     --kb-color-brand: #f68b1f;
     --kb-color-text-inverse: white;
     --kb-color-text-default: #1e1e1e;
