@@ -3,6 +3,9 @@
 # macOS
 .DS_Store
 
+# design
+/design
+
 # environment
 .env
 
