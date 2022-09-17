@@ -1,50 +1,50 @@
 {
-  "name": "portfolio-v2",
-  "version": "0.1.0",
-  "homepage": "https://kevinberonilla.github.io/portfolio-v2",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "sass": "node-sass --output-style expanded --source-map true --source-map-contents true -r ./src/scss/index.scss ./src/css/index.css | postcss ./src/css/index.css -u autoprefixer -u cssnano -o ./src/css/index.min.css",
-    "watchSass": "watch 'npm run sass' ./src/scss/ --interval 1",
-    "deploy": "npm run build && gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.11",
-    "cssnano": "^5.1.13",
-    "gh-pages": "^4.0.0",
-    "node-sass": "^7.0.3",
-    "postcss-cli": "^10.0.0",
-    "watch": "^1.0.2"
-  }
+    "name": "portfolio-v2",
+    "version": "0.1.0",
+    "homepage": "https://kevinberonilla.github.io/portfolio-v2",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-scripts": "5.0.1",
+        "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "sass": "node-sass --output-style expanded --source-map true --source-map-contents true -r ./src/scss/index.scss ./src/css/index.css | postcss ./src/css/index.css -u autoprefixer -u cssnano -o ./src/css/index.min.css",
+        "watchSass": "watch 'npm run sass' ./src/scss/ --interval 1",
+        "deploy": "npm run build && gh-pages -d build"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.11",
+        "cssnano": "^5.1.13",
+        "gh-pages": "^4.0.0",
+        "node-sass": "^7.0.3",
+        "postcss-cli": "^10.0.0",
+        "watch": "^1.0.2"
+    }
 }
