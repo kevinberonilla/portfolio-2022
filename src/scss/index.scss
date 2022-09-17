@@ -37,25 +37,17 @@ a {
 }
 
 .kb {
+    &-freeze {
+        overflow: hidden;
+    }
+
     &-logo {
         display: block;
         width: 10rem;
-
-        @media (prefers-color-scheme: dark) {
-            display: none;
-        }
-
-        &--inverse {
-            display: block;
-            width: 10rem;
-
-            @media (prefers-color-scheme: light) {
-                display: none;
-            }
-        }
     }
 
     &-hero {
+        position: relative;
         margin-top: calc(var(--kb-hero-height) * -1);
         opacity: 0;
 
@@ -74,10 +66,10 @@ a {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            padding: 7.75rem 8rem 8rem;
+            padding: 8rem;
     
             @media #{$kb-mq-large} {
-                padding: 5.75rem 6rem 6rem;
+                padding: 6rem;
             }
 
             @media #{$kb-mq-medium} {
@@ -86,11 +78,11 @@ a {
             }
 
             @media #{$kb-mq-small} {
-                padding: 2.75rem 3rem 3rem;
+                padding: 3rem;
             }
 
             @media #{$kb-mq-x-small} {
-                padding: 1.75rem 2rem 2rem;
+                padding: 2rem;
             }
         }
 

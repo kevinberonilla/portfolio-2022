@@ -65,8 +65,8 @@
             border-radius: 0.25rem;
             position: absolute;
             z-index: 1;
-            left: -3.5rem;
             top: 50%;
+            left: -3.5rem;
             transform: translateY(-50%);
 
             @media #{$kb-mq-medium} {
@@ -151,7 +151,7 @@
             &-item {
                 display: block;
                 cursor: pointer;
-                margin: 0 0.25rem;
+                margin: 0 0.125rem;
                 width: 0.5rem;
                 height: 0.5rem;
                 border-radius: 0.5rem;
