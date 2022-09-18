@@ -19,7 +19,6 @@ function App() {
     const [viewedProject, setViewedProject] = useState({});
     const [allThumbnailsLoaded, setAllThumbnailsLoaded] = useState(false);
     const [enableProjects, setEnableProjects] = useState(false);
-
     const filterFieldset = (
         <fieldset className="kb-hero__controls">
             <legend>
@@ -46,7 +45,6 @@ function App() {
                     headers: projectsHeaders,
                     redirect: 'follow'
                 };
-        
                 const response = await fetch('https://cdn.contentful.com/spaces/mskeskqf4sb9/entries?order=-fields.endYear,-fields.startYear,-sys.createdAt&content_type=project', requestOptions);
                 const parsedResponse = JSON.parse(await response.text());
                 let projects = [];
