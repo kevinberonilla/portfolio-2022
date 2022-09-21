@@ -58,22 +58,18 @@ a:hover {
 }
 
 .kb-hero {
-  position: relative;
-  margin-top: calc(var(--kb-hero-height) * -1);
   opacity: 0;
 }
 
 @media (max-width: 1024px) {
   .kb-hero {
-    margin-top: 0;
     opacity: 1;
   }
 }
 
 .kb-hero--loaded {
-  margin-top: 0;
   opacity: 1;
-  transition: margin-top 500ms ease 500ms, opacity 500ms ease 750ms;
+  transition: opacity 500ms ease 750ms;
 }
 
 .kb-hero__layout {
@@ -247,6 +243,21 @@ a:hover {
   .kb-hero__filters .kb-checkbox {
     margin-right: 0;
   }
+}
+
+.kb-gallery {
+  transform: translateY(calc(var(--kb-hero-height) * -1));
+}
+
+@media (max-width: 1024px) {
+  .kb-gallery {
+    transform: none;
+  }
+}
+
+.kb-hero--loaded + .kb-gallery {
+  transform: none;
+  transition: transform 500ms ease 500ms;
 }
 
 .kb-project {

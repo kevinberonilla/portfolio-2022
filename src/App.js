@@ -71,7 +71,7 @@ function App() {
         function handleWindowResize() {
             setIsMediumScreen(window.innerWidth <= 1024);
             window.document.body.style.setProperty('--kb-vh', window.innerHeight / 100 + 'px');
-            hero.current.style.setProperty('--kb-hero-height', hero.current.clientHeight + 'px');
+            window.document.body.style.setProperty('--kb-hero-height', hero.current.clientHeight + 'px');
         }
 
         window.addEventListener('resize', handleWindowResize, {

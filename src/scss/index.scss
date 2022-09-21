@@ -47,19 +47,15 @@ a {
     }
 
     &-hero {
-        position: relative;
-        margin-top: calc(var(--kb-hero-height) * -1);
         opacity: 0;
 
         @media #{$kb-mq-medium} {
-            margin-top: 0;
             opacity: 1;
         }
         
         &--loaded {
-            margin-top: 0;
             opacity: 1;
-            transition: margin-top 500ms ease 500ms, opacity 500ms ease 750ms;
+            transition: opacity 500ms ease 750ms;
         }
 
         &__layout {
@@ -214,6 +210,19 @@ a {
                     margin-right: 0;
                 }
             }
+        }
+    }
+
+    &-gallery {
+        transform: translateY(calc(var(--kb-hero-height) * -1));
+
+        @media #{$kb-mq-medium} {
+            transform: none;
+        }
+
+        .kb-hero--loaded + & {
+            transform: none;
+            transition: transform 500ms ease 500ms;
         }
     }
 
