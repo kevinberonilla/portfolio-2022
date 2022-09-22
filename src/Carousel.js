@@ -108,6 +108,6 @@ Carousel.propTypes = {
     images: PropTypes.array,
     videos: PropTypes.array,
     className: PropTypes.string
-}
+};
 
 export default Carousel;

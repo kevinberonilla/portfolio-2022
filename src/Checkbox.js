@@ -19,6 +19,6 @@ Checkbox.propTypes = {
     name: PropTypes.string,
     checked: PropTypes.bool,
     onChange: PropTypes.func
-}
+};
 
 export default Checkbox;

@@ -156,6 +156,6 @@ ProjectModal.propTypes = {
     project: PropTypes.object.isRequired,
     className: PropTypes.string,
     onHidden: PropTypes.func
-}
+};
 
 export default ProjectModal;
