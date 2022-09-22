@@ -521,6 +521,7 @@ a:hover {
 }
 
 .kb-project-modal--shown {
+  transition-duration: 50ms;
   opacity: 1;
 }
 
