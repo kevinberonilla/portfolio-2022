@@ -322,12 +322,12 @@ a {
         }
             
         &__name,
-        &__categories {
+        &__tags {
             display: block;
             position: relative;
             color: var(--kb-color-text);
             transform: translateX(-1rem);
-            transition: all 250ms ease 200ms;
+            transition: all 250ms ease 150ms;
             opacity: 0;
 
             .kb-project__link:hover &,
@@ -355,21 +355,20 @@ a {
             }
         }
 
-        &__categories {
+        &__tags {
             list-style: none;
             padding: 0;
             margin: 0.375rem 0 0;
             display: flex;
-            transition-delay: 150ms;
 
             @media #{$kb-mq-small} {
                 display: none;
             }
 
             > li {
-                font-size: 0.7rem;
-                padding: 0.3rem 0.3rem 0.25rem;
-                margin-right: 0.125rem;
+                font-size: 0.75rem;
+                padding: 0.25rem;
+                margin-right: 0.25rem;
                 line-height: 1;
                 border: thin solid var(--kb-color-tag-border);
                 border-radius: 0.25rem;

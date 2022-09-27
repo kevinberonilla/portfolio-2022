@@ -225,7 +225,7 @@ function App() {
                                                 <img className="kb-project__thumbnail" src={project.thumbnailUrl} alt={project.name} onLoad={handleThumbnailLoad} />
                                                 <span className="kb-project__hover-tile">
                                                     <span className="kb-project__name kb-m-around--none">{project.name}</span>
-                                                    <ul className="kb-project__categories kb-text-transform--capitalize">
+                                                    <ul className="kb-project__tags kb-text-transform--capitalize">
                                                         {
                                                             project.categories.map(category => {
                                                                 return (
