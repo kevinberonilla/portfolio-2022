@@ -20,7 +20,7 @@
             width: 1.125rem;
             height: 1.125rem;
             border-radius: 0.25rem;
-            border: thin solid rgba(136, 136, 136, 0.5);
+            border: thin solid var(--kb-color-checkbox-border);
             position: relative;
 
             .kb-checkbox__input:focus + .kb-checkbox__layout &,
