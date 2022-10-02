@@ -1,13 +1,12 @@
 import { useRef, useState, useEffect } from 'react';
-import Checkbox from './Checkbox';
+import Hero from './Hero';
 import ProjectModal from './ProjectModal';
-import logo from './images/logo-inverse.svg';
 
 function App() {
     const year = new Date().getFullYear();
     const hero = useRef();
     const projectModal = useRef();
-    const [filters] = useState({
+    const [filters, setFilters] = useState({
         design: true,
         development: true,
         photography: true,
@@ -19,20 +18,6 @@ function App() {
     const [viewedProject, setViewedProject] = useState({});
     const [allThumbnailsLoaded, setAllThumbnailsLoaded] = useState(false);
     const [enableProjects, setEnableProjects] = useState(false);
-    const filterFieldset = (
-        <fieldset className="kb-hero__controls">
-            <legend>
-                Filter Projects
-                <span className="kb-text-size--small kb-opacity--50 kb-m-left--x-small">{filteredProjects.length} of {projects.length}</span>
-            </legend>
-            <div className="kb-hero__filters">
-                <Checkbox className="kb-m-top--xx-small" label="Design" name="design" checked={filters.design} onChange={handleFilterChange} />
-                <Checkbox className="kb-m-top--xx-small" label="Development" name="development" checked={filters.development} onChange={handleFilterChange} />
-                <Checkbox className="kb-m-top--xx-small" label="Photography" name="photography" checked={filters.photography} onChange={handleFilterChange} />
-                <Checkbox className="kb-m-top--xx-small" label="Video" name="video" checked={filters.video} onChange={handleFilterChange} />
-            </div>
-        </fieldset>
-    );
     
     useEffect(() => {
         async function getProjects() {
@@ -68,20 +53,20 @@ function App() {
             }
         }
 
-        function handleWindowResize() {
+        function getDimensions() {
             setIsMediumScreen(window.innerWidth <= 1024);
             window.document.body.style.setProperty('--kb-vh', window.innerHeight / 100 + 'px');
             window.document.body.style.setProperty('--kb-hero-height', hero.current.clientHeight + 'px');
         }
 
-        window.addEventListener('resize', handleWindowResize, {
+        getProjects();
+        getDimensions(); // Set initial values
+        window.addEventListener('resize', getDimensions, {
             passive: true
         });
-        handleWindowResize(); // Set initial values
-        getProjects();
 
-        return () => {
-            window.removeEventListener('resize', handleWindowResize);
+        return () => { // Clean up window
+            window.removeEventListener('resize', getDimensions);
         };
     }, []);
 
@@ -119,10 +104,12 @@ function App() {
     function handleFilterChange(event) {
         const category = event.currentTarget.name;
         const value = event.currentTarget.checked;
+        const updatedFilters = {...filters};
 
-        filters[category] = value;
+        updatedFilters[category] = value;
+        setFilters(updatedFilters);
 
-        const enabledCategories = Object.keys(filters).filter(key => filters[key]);
+        const enabledCategories = Object.keys(updatedFilters).filter(key => updatedFilters[key]);
         
         setFilteredProjects(
             projects.filter(project => {
@@ -165,52 +152,12 @@ function App() {
         <>
             <main>
                 <section ref={hero} className={'kb-hero' + (allThumbnailsLoaded ? ' kb-hero--loaded' : '')}>
-                    <div className="kb-hero__layout kb-container">
-                        <div className="kb-hero__sidebar">
-                            <img className="kb-logo" src={logo} alt="Kevin Beronilla" />
-                            <ul className="kb-hero__link-list">
-                                <li className="kb-hero__link">
-                                    <a href="./downloads/kevin-beronilla-resume.pdf" target="_blank" aria-describedby="github">
-                                        <span className="fa-solid fa-file-text"></span>
-                                        <span className="kb-text--assistive">Resume</span>
-                                    </a>
-                                    <span id="resume" className="kb-hero__link-label" role="tooltip">Resume</span>
-                                </li>
-                                <li className="kb-hero__link">
-                                    <a href="https://github.com/kevinberonilla" target="_blank" rel="noreferrer" aria-describedby="github">
-                                        <span className="fa-brands fa-github"></span>
-                                        <span className="kb-text--assistive">GitHub</span>
-                                    </a>
-                                    <span id="github" className="kb-hero__link-label" role="tooltip">GitHub</span>
-                                </li>
-                                <li className="kb-hero__link">
-                                    <a href="https://www.linkedin.com/in/kevinberonilla" target="_blank" rel="noreferrer" aria-describedby="linkedin">
-                                        <span className="fa-brands fa-linkedin"></span>
-                                        <span className="kb-text--assistive">LinkedIn</span>
-                                    </a>
-                                    <span id="linkedin" className="kb-hero__link-label" role="tooltip">LinkedIn</span>
-                                </li>
-                                <li className="kb-hero__link">
-                                    <a href="mailto:kevin.beronilla@gmail.com" aria-describedby="email">
-                                        <span className="fa-solid fa-envelope"></span>
-                                        <span className="kb-text--assistive">Email</span>
-                                    </a>
-                                    <span id="email" className="kb-hero__link-label" role="tooltip">Email</span>
-                                </li>
-                            </ul>
-                            {!isMediumScreen ? filterFieldset : ''}
-                        </div>
-                        <div className="kb-hero__content">
-                            <h1 className="kb-text-heading kb-text-heading--large">
-                                Hello! My name is <br /> <span className="kb-text-color--brand">Kevin Beronilla</span> <br /> and I am a visual artist.
-                            </h1>
-                            <div className="kb-hero__description">
-                                <p>With a multi-disciplinary background in design, development, photography, and video, my mission is to create beautiful experiences in all forms of media.</p>
-                                <p>When I'm not in front of a laptop, you can find me tinkering on cars or petting fluffy animals.</p>
-                            </div>
-                        </div>
-                        {isMediumScreen ? filterFieldset : ''}
-                    </div>
+                    <Hero
+                        isMediumScreen={isMediumScreen}
+                        filters={filters}
+                        filteredProjectCount={filteredProjects.length}
+                        totalProjectCount={projects.length}
+                        onFilterChange={handleFilterChange} />
                 </section>
                 {
                     filteredProjects.length
@@ -253,7 +200,16 @@ function App() {
                     <p>This portfolio site was handcrafted using <a href="https://reactjs.org" target="_blank" rel="noreferrer">React</a>, <a href="https://sass-lang.com" target="_blank" rel="noreferrer">Sass</a>, and <a href="https://www.contentful.com" target="_blank" rel="noreferrer">Contentful</a>. Check out the <a href="https://github.com/kevinberonilla/portfolio-2022" target="_blank" rel="noreferrer">GitHub respository</a>!</p>
                 </div>
             </footer>
-            {Object.keys(viewedProject).length ? <ProjectModal ref={projectModal} project={viewedProject} onHidden={handleProjectModalHidden} /> : ''}
+            {
+                Object.keys(viewedProject).length
+                ?
+                <ProjectModal
+                    ref={projectModal}
+                    project={viewedProject}
+                    onHidden={handleProjectModalHidden} />
+                :
+                ''
+            }
         </>
     );
 }

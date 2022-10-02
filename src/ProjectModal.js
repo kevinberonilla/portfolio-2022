@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useState, useEffect, useCallback } from 'react';
+import { forwardRef, useState, useCallback, useEffect, useImperativeHandle  } from 'react';
 import PropTypes from 'prop-types';
 import Carousel from './Carousel';
 
@@ -144,7 +144,10 @@ const ProjectModal = forwardRef((props, ref) => {
                                 ''
                             }
                         </ul>
-                        <Carousel className="kb-project-modal__carousel" images={props.project.imageUrls} videos={props.project.videos} />
+                        <Carousel
+                            className="kb-project-modal__carousel"
+                            images={props.project.imageUrls}
+                            videos={props.project.videos} />
                     </div>
                 </div>
             </div>

@@ -105,9 +105,9 @@ function Carousel(props) {
 }
 
 Carousel.propTypes = {
+    className: PropTypes.string,
     images: PropTypes.array,
-    videos: PropTypes.array,
-    className: PropTypes.string
+    videos: PropTypes.array
 };
 
 export default Carousel;
