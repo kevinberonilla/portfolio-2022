@@ -16,30 +16,18 @@ function Hero(props) {
                 <span className="kb-text-size--small kb-opacity--50 kb-m-left--x-small">{props.filteredProjectCount} of {props.totalProjectCount}</span>
             </legend>
             <div className="kb-hero__filters">
-                <Checkbox
-                    className="kb-m-top--xx-small"
-                    label="Design"
-                    name="design"
-                    checked={props.filters.design}
-                    onChange={handleFilterChange} />
-                <Checkbox
-                    className="kb-m-top--xx-small"
-                    label="Development"
-                    name="development"
-                    checked={props.filters.development}
-                    onChange={handleFilterChange} />
-                <Checkbox
-                    className="kb-m-top--xx-small"
-                    label="Photography"
-                    name="photography"
-                    checked={props.filters.photography}
-                    onChange={handleFilterChange} />
-                <Checkbox
-                    className="kb-m-top--xx-small"
-                    label="Video"
-                    name="video"
-                    checked={props.filters.video}
-                    onChange={handleFilterChange} />
+                {
+                    Object.keys(props.filters).map(key => {
+                        return (
+                            <Checkbox
+                                className="kb-m-top--xx-small"
+                                label={key.charAt(0).toUpperCase() + key.slice(1)}
+                                name={key}
+                                checked={props.filters[key]}
+                                onChange={handleFilterChange} />
+                        )
+                    })
+                }
             </div>
         </fieldset>
     );
@@ -78,7 +66,7 @@ function Hero(props) {
                         <span id="email" className="kb-hero__link-label" role="tooltip">Email</span>
                     </li>
                 </ul>
-                {!props.isMediumScreen ? filterFieldset : ''}
+                {props.filters && !props.isMediumScreen ? filterFieldset : ''}
             </div>
             <div className="kb-hero__content">
                 <h1 className="kb-text-heading kb-text-heading--large">
@@ -89,7 +77,7 @@ function Hero(props) {
                     <p>When I'm not in front of a laptop, you can find me tinkering on cars or petting fluffy animals.</p>
                 </div>
             </div>
-            {props.isMediumScreen ? filterFieldset : ''}
+            {props.filters && props.isMediumScreen ? filterFieldset : ''}
         </div>
     );
 }
