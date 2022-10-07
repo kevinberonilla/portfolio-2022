@@ -20,6 +20,7 @@ function Hero(props) {
                     Object.keys(props.filters).map(key => {
                         return (
                             <Checkbox
+                                key={key}
                                 className="kb-m-top--xx-small"
                                 label={key.charAt(0).toUpperCase() + key.slice(1)}
                                 name={key}

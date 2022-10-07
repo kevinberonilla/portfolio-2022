@@ -20,7 +20,7 @@ function App() {
     const [enableProjects, setEnableProjects] = useState(false);
     
     useEffect(() => {
-        async function getProjects() {
+        async function getProjectsAndFilters() {
             try {
                 const projectsHeaders = new Headers({
                     'Authorization': 'Bearer ' + process.env.REACT_APP_CONTENTFUL_API_KEY
@@ -33,6 +33,9 @@ function App() {
                 const response = await fetch('https://cdn.contentful.com/spaces/mskeskqf4sb9/entries?order=-fields.endYear,-fields.startYear,-sys.createdAt&content_type=project', requestOptions);
                 const parsedResponse = JSON.parse(await response.text());
                 let projects = [];
+                let categorySet = new Set();
+                let categoryArray = [];
+                let categoryFilters = {};
 
                 parsedResponse.items.forEach(item => {
                     const imageUrls = item.fields.images?.length ? item.fields.images.map(image => parsedResponse.includes.Asset.find(asset => asset.sys.id === image.sys.id).fields.file.url) : [];
@@ -44,10 +47,16 @@ function App() {
                         hash: '#' + encodeURIComponent(item.fields.name.toLowerCase().replaceAll(' ', '-')),
                         ...item.fields
                     });
+
+                    item.fields.categories.forEach(category => categorySet.add(category));
                 });
+
+                categoryArray = Array.from(categorySet).sort();
+                categoryArray.forEach(category => categoryFilters[category] = true);
 
                 setProjects(projects);
                 setFilteredProjects(projects);
+                setFilters(categoryFilters);
             } catch (error) {
                 console.error(error);
             }
@@ -59,7 +68,7 @@ function App() {
             window.document.body.style.setProperty('--kb-hero-height', hero.current.clientHeight + 'px');
         }
 
-        getProjects();
+        getProjectsAndFilters();
         getDimensions(); // Set initial values
         window.addEventListener('resize', getDimensions, {
             passive: true
