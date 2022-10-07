@@ -308,7 +308,7 @@ a:hover {
 .kb-project__link {
   display: block;
   position: relative;
-  padding-bottom: 66.666%;
+  aspect-ratio: 6 /4;
 }
 
 .kb-project__thumbnail {
@@ -744,8 +744,8 @@ a:hover {
 
 .kb-carousel__video-container {
   background-color: black;
+  aspect-ratio: 16 / 9;
   position: relative;
-  padding-top: 56.25%;
   overflow: hidden;
   flex: 0 0 100%;
   width: 100%;
@@ -763,6 +763,7 @@ a:hover {
 
 .kb-carousel__image {
   display: block;
+  aspect-ratio: 12 / 8;
   flex: 0 0 100%;
   scroll-snap-align: start;
 }

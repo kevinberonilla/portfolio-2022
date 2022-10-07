@@ -25,8 +25,8 @@
 
         &__video-container {
             background-color: black;
+            aspect-ratio: 16 / 9;
             position: relative;
-            padding-top: 56.25%;
             overflow: hidden;
             flex: 0 0 100%;
             width: 100%;
@@ -44,6 +44,7 @@
 
         &__image {
             display: block;
+            aspect-ratio: 12 / 8;
             flex: 0 0 100%;
             scroll-snap-align: start;
         }
