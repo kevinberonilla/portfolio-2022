@@ -31,18 +31,18 @@ function App() {
                     redirect: 'follow'
                 };
                 const response = await fetch('https://cdn.contentful.com/spaces/mskeskqf4sb9/entries?order=-fields.endYear,-fields.startYear,-sys.createdAt&content_type=project', requestOptions);
-                const parsedResponse = JSON.parse(await response.text());
+                const responseJson = await response.json();
                 let projects = [];
                 let categorySet = new Set();
                 let categoryArray = [];
                 let categoryFilters = {};
 
-                parsedResponse.items.forEach(item => {
-                    const imageUrls = item.fields.images?.length ? item.fields.images.map(image => parsedResponse.includes.Asset.find(asset => asset.sys.id === image.sys.id).fields.file.url) : [];
+                responseJson.items.forEach(item => {
+                    const imageUrls = item.fields.images?.length ? item.fields.images.map(image => responseJson.includes.Asset.find(asset => asset.sys.id === image.sys.id).fields.file.url) : [];
 
                     projects.push({
                         id: item.sys.id,
-                        thumbnailUrl: parsedResponse.includes.Asset.find(asset => asset.sys.id === item.fields.thumbnail.sys.id).fields.file.url,
+                        thumbnailUrl: responseJson.includes.Asset.find(asset => asset.sys.id === item.fields.thumbnail.sys.id).fields.file.url,
                         imageUrls: imageUrls,
                         hash: '#' + encodeURIComponent(item.fields.name.toLowerCase().replaceAll(' ', '-')),
                         ...item.fields
