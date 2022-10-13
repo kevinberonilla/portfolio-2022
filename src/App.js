@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { getContentfulProjects } from './Utilities'; 
 import Hero from './Hero';
 import ProjectModal from './ProjectModal';
 
@@ -21,28 +22,21 @@ function App() {
     
     useEffect(() => {
         async function getProjectsAndFilters() {
-            try {
-                const projectsHeaders = new Headers({
-                    'Authorization': 'Bearer ' + process.env.REACT_APP_CONTENTFUL_API_KEY
-                });
-                const requestOptions = {
-                    method: 'GET',
-                    headers: projectsHeaders,
-                    redirect: 'follow'
-                };
-                const response = await fetch('https://cdn.contentful.com/spaces/mskeskqf4sb9/entries?order=-fields.endYear,-fields.startYear,-sys.createdAt&content_type=project', requestOptions);
-                const responseJson = await response.json();
+            const projectsResponse = await getContentfulProjects();
+            
+            if (projectsResponse.data && !projectsResponse.error) {
+                const responseData = projectsResponse.data;
                 let projects = [];
                 let categorySet = new Set();
                 let categoryArray = [];
                 let categoryFilters = {};
 
-                responseJson.items.forEach(item => {
-                    const imageUrls = item.fields.images?.length ? item.fields.images.map(image => responseJson.includes.Asset.find(asset => asset.sys.id === image.sys.id).fields.file.url) : [];
+                responseData.items.forEach(item => {
+                    const imageUrls = item.fields.images?.length ? item.fields.images.map(image => responseData.includes.Asset.find(asset => asset.sys.id === image.sys.id).fields.file.url) : [];
 
                     projects.push({
                         id: item.sys.id,
-                        thumbnailUrl: responseJson.includes.Asset.find(asset => asset.sys.id === item.fields.thumbnail.sys.id).fields.file.url,
+                        thumbnailUrl: responseData.includes.Asset.find(asset => asset.sys.id === item.fields.thumbnail.sys.id).fields.file.url,
                         imageUrls: imageUrls,
                         hash: '#' + encodeURIComponent(item.fields.name.toLowerCase().replaceAll(' ', '-')),
                         ...item.fields
@@ -57,8 +51,8 @@ function App() {
                 setProjects(projects);
                 setFilteredProjects(projects);
                 setFilters(categoryFilters);
-            } catch (error) {
-                console.error(error);
+            } else {
+                console.error(projectsResponse.error);
             }
         }
 
