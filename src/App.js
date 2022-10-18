@@ -24,7 +24,7 @@ function App() {
         async function getProjectsAndFilters() {
             const projectsResponse = await getContentfulProjects();
             
-            if (projectsResponse.data && !projectsResponse.error) {
+            if (!projectsResponse.error) {
                 const responseData = projectsResponse.data;
                 let projects = [];
                 let categorySet = new Set();
