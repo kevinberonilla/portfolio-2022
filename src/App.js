@@ -7,12 +7,7 @@ function App() {
     const year = new Date().getFullYear();
     const hero = useRef();
     const projectModal = useRef();
-    const [filters, setFilters] = useState({
-        design: true,
-        development: true,
-        photography: true,
-        video: true
-    });
+    const [filters, setFilters] = useState({});
     const [isMediumScreen, setIsMediumScreen] = useState(true);
     const [projects, setProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
