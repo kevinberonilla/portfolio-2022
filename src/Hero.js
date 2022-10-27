@@ -74,8 +74,8 @@ function Hero(props) {
                     Hello! My name is <br /> <span className="kb-text-color--brand">Kevin Beronilla</span> <br /> and I am a visual artist.
                 </h1>
                 <div className="kb-hero__description">
-                    <p>With a multi-disciplinary background in design, development, photography, and video, my mission is to create beautiful experiences in all forms of media.</p>
-                    <p>When I'm not in front of a laptop, you can find me tinkering on cars or petting fluffy animals.</p>
+                    <p>With a multi-disciplinary background in design, development, photography, and video, my mission is to create beautiful experiences in many forms of media. When I'm not in front of a laptop, you can find me tinkering on cars or snuggling with animals.</p>
+                    <p>This portfolio site was created with <a href="https://reactjs.org" target="_blank" rel="noreferrer">React</a>, <a href="https://sass-lang.com" target="_blank" rel="noreferrer">Sass</a>, and <a href="https://www.contentful.com" target="_blank" rel="noreferrer">Contentful</a>. Check out the <a href="https://github.com/kevinberonilla/portfolio-2022" target="_blank" rel="noreferrer">GitHub respository</a>!</p>
                 </div>
             </div>
             {props.filters && props.isMediumScreen ? filterFieldset : ''}

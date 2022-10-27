@@ -195,7 +195,6 @@ function App() {
                 <div className="kb-text-size--small kb-m-around--none">
                     <p>&copy; {year} Kevin Beronilla. All rights reserved.</p>
                     <p>All featured projects are copyrighted by the respective individuals and organizations of which they are a representation of.</p>
-                    <p>This portfolio site was handcrafted using <a href="https://reactjs.org" target="_blank" rel="noreferrer">React</a>, <a href="https://sass-lang.com" target="_blank" rel="noreferrer">Sass</a>, and <a href="https://www.contentful.com" target="_blank" rel="noreferrer">Contentful</a>. Check out the <a href="https://github.com/kevinberonilla/portfolio-2022" target="_blank" rel="noreferrer">GitHub respository</a>!</p>
                 </div>
             </footer>
             {
