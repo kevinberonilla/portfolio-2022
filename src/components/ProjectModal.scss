@@ -141,6 +141,10 @@
                 margin-top: 1.25rem;
             }
 
+            &--shrink {
+                flex-shrink: 1;
+            }
+
             &-list {
                 display: flex;
                 width: 100%;

@@ -92,14 +92,14 @@ const ProjectModal = forwardRef((props, ref) => {
                                 <p className="kb-text-size--small kb-m-vertical--none"><strong>Project Owner</strong></p>
                                 <p className="kb-m-vertical--none">{props.project.owner}</p>
                             </li>
-                            <li className="kb-project-modal__detail kb-flex--shrink">
+                            <li className="kb-project-modal__detail kb-project-modal__detail--shrink">
                                 <p className="kb-text-size--small kb-m-vertical--none"><strong>Contributions</strong></p>
                                 <p className="kb-m-vertical--none">{props.project.contributions}</p>
                             </li>
                             {
                                 props.project.recognition
                                 ?
-                                <li className="kb-project-modal__detail kb-flex--shrink">
+                                <li className="kb-project-modal__detail kb-project-modal__detail--shrink">
                                     <p className="kb-text-size--small kb-m-vertical--none"><strong>Recognition</strong></p>
                                     <p className="kb-m-vertical--none">{props.project.recognition}</p>
                                 </li>
