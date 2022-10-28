@@ -1,0 +1,170 @@
+@import './variables';
+
+.#{$kb-prefix} {
+    &-hero {
+        opacity: 0;
+
+        @media #{$kb-mq-medium} {
+            opacity: 1;
+        }
+        
+        &--loaded {
+            opacity: 1;
+            transition: opacity 500ms ease 750ms;
+        }
+
+        &__layout {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 8rem;
+    
+            @media #{$kb-mq-large} {
+                padding: 6rem;
+            }
+
+            @media #{$kb-mq-medium} {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+
+            @media #{$kb-mq-small} {
+                padding: 3rem;
+            }
+
+            @media #{$kb-mq-x-small} {
+                padding: 2rem;
+            }
+        }
+
+        &__content {
+            flex: 0 0 auto;
+
+            @media #{$kb-mq-medium} {
+                flex: 0 0 100%;
+            }
+            
+            br {
+                @media #{$kb-mq-x-small} {
+                    display: none;
+                }
+            }
+
+            h1 {
+                @media #{$kb-mq-small} {
+                    padding-right: 3rem;
+                }
+            }
+        }
+
+        &__description {
+            margin-top: 2rem;
+            max-width: 25rem;
+        }
+
+        &__sidebar {
+            flex: 0 0 auto;
+            padding-top: 6.75rem;
+
+            @media #{$kb-mq-medium} {
+                padding-top: 0;
+                margin-bottom: 2rem;
+            }
+
+            @media #{$kb-mq-x-small} {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        &__link {
+            display: block;
+            position: relative;
+            color: var(--kb-color-text);
+            text-decoration: none;
+
+            &-list {
+                list-style: none;
+                padding-left: 2.75rem;
+                display: flex;
+                margin: 1.25rem 0 0;
+            }
+
+            a {
+                display: block;
+                padding: 0.5rem 0.525rem;
+                border-radius: 0.25rem;
+                color: var(--kb-color-text);
+                text-decoration: none;
+                line-height: 1;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: var(--kb-color-brand);
+                }
+            
+                &:focus,
+                &:active {
+                    outline: none;
+                    box-shadow: var(--kb-shadow--focus);
+                }
+            }
+
+            &-label {
+                display: block;
+                font-size: 0.8rem;
+                color: var(--kb-color-brand);
+                pointer-events: none;
+                position: absolute;
+                top: calc(100% - 0.125rem);
+                left: 50%;
+                transform: translateX(-50%) translateY(-0.5rem);
+                opacity: 0;
+                transition: all 250ms ease;
+
+                .#{$kb-prefix}-hero__link > a:hover + & {
+                    opacity: 1;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+
+        &__controls {
+            padding: 0 0 0 3rem;
+            margin-top: 4.3rem;
+            border: none;
+
+            @media #{$kb-mq-medium} {
+                padding: 0;
+                margin-top: 4rem;
+                width: 100%;
+                flex: 1 1 100%;
+            }
+
+            @media #{$kb-mq-small} {
+                margin-top: 1.25rem;
+            }
+        }
+
+        &__filters {
+            @media #{$kb-mq-medium} {
+                display: flex;
+            }
+
+            @media #{$kb-mq-x-small} {
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
+            .#{$kb-prefix}-checkbox {
+                @media #{$kb-mq-medium} {
+                    margin-right: 0.5rem;
+                }
+
+                @media #{$kb-mq-x-small} {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

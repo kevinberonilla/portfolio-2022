@@ -1,3 +1,4 @@
+import './Checkbox.scss';
 import PropTypes from 'prop-types';
 
 function Checkbox(props) {

@@ -1,4 +1,6 @@
-@mixin project-modal {
+@import './variables';
+
+.#{$kb-prefix} {
     &-project-modal {
         position: fixed;
         inset: 0;

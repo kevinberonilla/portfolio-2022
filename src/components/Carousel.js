@@ -1,3 +1,4 @@
+import './Carousel.scss';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 

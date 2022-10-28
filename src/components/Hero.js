@@ -1,6 +1,7 @@
+import './Hero.scss';
 import PropTypes from 'prop-types';
 import Checkbox from './Checkbox';
-import logo from './images/logo-inverse.svg';
+import logo from '../images/logo-inverse.svg';
 
 function Hero(props) {
     function handleFilterChange(event) {

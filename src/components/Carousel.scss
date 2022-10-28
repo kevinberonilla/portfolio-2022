@@ -1,4 +1,6 @@
-@mixin carousel {
+@import './variables';
+
+.#{$kb-prefix} {
     &-carousel {
         width: 100%;
         overflow-x: auto;

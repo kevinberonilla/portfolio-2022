@@ -1,4 +1,6 @@
-@mixin checkbox {
+@import './variables';
+
+.#{$kb-prefix} {
     &-checkbox {
         line-height: 1;
 
@@ -23,8 +25,8 @@
             border: thin solid var(--kb-color-checkbox-border);
             position: relative;
 
-            .kb-checkbox__input:focus + .kb-checkbox__layout &,
-            .kb-checkbox__input:active + .kb-checkbox__layout & {
+            .#{$kb-prefix}-checkbox__input:focus + .#{$kb-prefix}-checkbox__layout &,
+            .#{$kb-prefix}-checkbox__input:active + .#{$kb-prefix}-checkbox__layout & {
                 box-shadow: var(--kb-shadow--focus);
             }
 
@@ -41,7 +43,7 @@
                 border-left: 2px solid var(--kb-color-brand);
                 border-bottom: 2px solid var(--kb-color-brand);
 
-                .kb-checkbox__input:checked + .kb-checkbox__layout & {
+                .#{$kb-prefix}-checkbox__input:checked + .#{$kb-prefix}-checkbox__layout & {
                     display: block;
                 }
             }

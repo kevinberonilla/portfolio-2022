@@ -1,5 +1,6 @@
+import './App.scss';
 import { useRef, useState, useEffect } from 'react';
-import { getContentfulProjects } from './Utilities'; 
+import { getContentfulProjects } from './Utilities';
 import Hero from './Hero';
 import ProjectModal from './ProjectModal';
 

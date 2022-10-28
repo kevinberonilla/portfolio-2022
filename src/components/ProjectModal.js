@@ -1,3 +1,4 @@
+import './ProjectModal.scss';
 import { forwardRef, useState, useCallback, useEffect, useImperativeHandle  } from 'react';
 import PropTypes from 'prop-types';
 import Carousel from './Carousel';
