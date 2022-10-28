@@ -1,9 +1,9 @@
-$kb-prefix: kb;
-$kb-mq-x-large: only screen and (max-width: 1440px);
-$kb-mq-large: only screen and (max-width: 1280px);
-$kb-mq-medium: only screen and (max-width: 1024px);
-$kb-mq-small: only screen and (max-width: 768px);
-$kb-mq-x-small: only screen and (max-width: 480px);
+$kb-prefix: 'kb';
+$kb-mq-x-large: 'only screen and (max-width: 1440px)';
+$kb-mq-large: 'only screen and (max-width: 1280px)';
+$kb-mq-medium: 'only screen and (max-width: 1024px)';
+$kb-mq-small: 'only screen and (max-width: 768px)';
+$kb-mq-x-small: 'only screen and (max-width: 480px)';
 
 @mixin custom-properties {
     --kb-vh: 1vh;
