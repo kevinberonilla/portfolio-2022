@@ -1,6 +1,6 @@
 import './App.scss';
 import { useRef, useState, useEffect } from 'react';
-import { getContentfulProjects } from './Utilities';
+import { getContentfulProjects } from '../utilities/requests';
 import Hero from './Hero';
 import ProjectModal from './ProjectModal';
 
@@ -13,7 +13,7 @@ function App() {
     const [projects, setProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
     const [viewedProject, setViewedProject] = useState({});
-    const [, setTotalThumbnailsLoaded] = useState(0);
+    const [_totalThumbnailsLoaded, setTotalThumbnailsLoaded] = useState(0);
     const [allThumbnailsLoaded, setAllThumbnailsLoaded] = useState(false);
     const [enableProjects, setEnableProjects] = useState(false);
     
