@@ -13,6 +13,7 @@ function App() {
     const [projects, setProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
     const [viewedProject, setViewedProject] = useState({});
+    const [, setTotalThumbnailsLoaded] = useState(0);
     const [allThumbnailsLoaded, setAllThumbnailsLoaded] = useState(false);
     const [enableProjects, setEnableProjects] = useState(false);
     
@@ -76,24 +77,30 @@ function App() {
             window.setTimeout(() => {
                 loadedImage.closest('.kb-project').classList.add('kb-project--loaded');
 
-                if (window.document.querySelectorAll('.kb-project--loaded').length === projects.length) {
-                    const enableProjectsTimeout = isMediumScreen ? 0 : 750;
+                setTotalThumbnailsLoaded(previousTotal => {
+                    const newTotal = previousTotal + 1;
 
-                    setAllThumbnailsLoaded(true);
-
-                    window.setTimeout(() => {
-                        setEnableProjects(true);
-                        
-                        if (window.location.hash) {
-                            const hash = window.location.hash.replace('#!/', '#'); // Update legacy hashes
-                            const project = window.document.querySelector('.kb-project__link[href="' + hash + '"]');
-
-                            if (project) {
-                                project.click();
+                    if (newTotal === projects.length) {
+                        const enableProjectsTimeout = isMediumScreen ? 0 : 750;
+        
+                        setAllThumbnailsLoaded(true);
+        
+                        window.setTimeout(() => {
+                            setEnableProjects(true);
+                            
+                            if (window.location.hash) {
+                                const hash = window.location.hash.replace('#!/', '#'); // Update legacy hashes
+                                const project = window.document.querySelector('.kb-project__link[href="' + hash + '"]');
+        
+                                if (project) {
+                                    project.click();
+                                }
                             }
-                        }
-                    }, enableProjectsTimeout);
-                }
+                        }, enableProjectsTimeout);
+                    }
+
+                    return newTotal;
+                });
             }, Math.random() * 500);
         } else { // The load event came from filtering
             loadedImage.closest('.kb-project').classList.add('kb-project--revealed');
