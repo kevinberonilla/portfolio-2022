@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import Checkbox from './Checkbox';
 import logo from '../images/logo-inverse.svg';
 
-function Hero(props) {
+function Hero({ isMediumScreen, filters, filteredProjectCount, totalProjectCount, onFilterChange }) {
     function handleFilterChange(event) {
-        if (typeof props.onFilterChange === 'function') {
-            props.onFilterChange(event);
+        if (typeof onFilterChange === 'function') {
+            onFilterChange(event);
         }
     }
 
@@ -14,18 +14,18 @@ function Hero(props) {
         <fieldset className="kb-hero__controls">
             <legend>
                 Filter Projects
-                <span className="kb-text-size--small kb-opacity--50 kb-m-left--x-small">{props.filteredProjectCount} of {props.totalProjectCount}</span>
+                <span className="kb-text-size--small kb-opacity--50 kb-m-left--x-small">{filteredProjectCount} of {totalProjectCount}</span>
             </legend>
             <div className="kb-hero__filters">
                 {
-                    Object.keys(props.filters).map(key => {
+                    Object.keys(filters).map(key => {
                         return (
                             <Checkbox
                                 key={key}
                                 className="kb-m-top--xx-small"
                                 label={key.charAt(0).toUpperCase() + key.slice(1)}
                                 name={key}
-                                checked={props.filters[key]}
+                                checked={filters[key]}
                                 onChange={handleFilterChange} />
                         )
                     })
@@ -68,7 +68,7 @@ function Hero(props) {
                         <span id="email" className="kb-hero__link-label" role="tooltip">Email</span>
                     </li>
                 </ul>
-                {props.filters && !props.isMediumScreen ? filterFieldset : ''}
+                {filters && !isMediumScreen ? filterFieldset : ''}
             </div>
             <div className="kb-hero__content">
                 <h1 className="kb-text-heading kb-text-heading--large">
@@ -79,7 +79,7 @@ function Hero(props) {
                     <p>This portfolio site was created with <a href="https://reactjs.org" target="_blank" rel="noreferrer">React</a>, <a href="https://sass-lang.com" target="_blank" rel="noreferrer">Sass</a>, and <a href="https://www.contentful.com" target="_blank" rel="noreferrer">Contentful</a>. Check out the <a href="https://github.com/kevinberonilla/portfolio-2022" target="_blank" rel="noreferrer">GitHub respository</a>!</p>
                 </div>
             </div>
-            {props.filters && props.isMediumScreen ? filterFieldset : ''}
+            {filters && isMediumScreen ? filterFieldset : ''}
         </div>
     );
 }

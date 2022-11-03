@@ -3,19 +3,19 @@ import { forwardRef, useState, useCallback, useEffect, useImperativeHandle  } fr
 import PropTypes from 'prop-types';
 import Carousel from './Carousel';
 
-const ProjectModal = forwardRef((props, ref) => {
+const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
     const [backdropPosition, setBackdropPosition] = useState({});
     const [shown, setShown] = useState(false);
     const hideModal = useCallback(() => {
         window.document.body.classList.remove('kb-freeze');
         setShown(false);
 
-        if (typeof props.onHidden === 'function') {
+        if (typeof onHidden === 'function') {
             window.setTimeout(() => {
-                props.onHidden();
+                onHidden();
             }, 100);
         }
-    }, [setShown, props]);
+    }, [setShown, onHidden]);
 
     useEffect(() => {
         function handleKeyUp(event) {
@@ -34,7 +34,7 @@ const ProjectModal = forwardRef((props, ref) => {
 
     function showModal() {
         window.document.body.classList.add('kb-freeze');
-        const projectLinkBounds = window.document.querySelector('.kb-project__link[href="' + props.project.hash + '"]').getBoundingClientRect();
+        const projectLinkBounds = window.document.querySelector('.kb-project__link[href="' + project.hash + '"]').getBoundingClientRect();
 
         setBackdropPosition({
             top: projectLinkBounds.top + 'px',
@@ -72,69 +72,69 @@ const ProjectModal = forwardRef((props, ref) => {
     }));
 
     return (
-        <div className={'kb-project-modal' + (shown ? ' kb-project-modal--shown' : '') + (props.className ? ' ' + props.className : '')} role="dialog" aria-labelledby="project-name" aria-describedby="project-details">
+        <div className={'kb-project-modal' + (shown ? ' kb-project-modal--shown' : '') + (className ? ' ' + className : '')} role="dialog" aria-labelledby="project-name" aria-describedby="project-details">
             <div className="kb-project-modal__backdrop" style={backdropPosition}>
-                <img className="kb-project-modal__background" src={props.project.thumbnailUrl} alt={props.project.name} />
+                <img className="kb-project-modal__background" src={project.thumbnailUrl} alt={project.name} />
             </div>
             <div className={'kb-project-modal__content' + (shown ? ' kb-project-modal__content--shown' : '')}>
                 <div className="kb-container kb-position--relative">
                     <button className="kb-project-modal__close fa-solid fa-close" onClick={hideModal}>
                         <span className="kb-text--assistive">Close</span>
                     </button>
-                    <h2 id="project-name" className="kb-project-modal__header kb-text-heading--medium">{props.project.name}</h2>
+                    <h2 id="project-name" className="kb-project-modal__header kb-text-heading--medium">{project.name}</h2>
                     <div className="kb-project-modal__body">
                         <ul id="project-details" className="kb-project-modal__detail-list">
                             <li className="kb-project-modal__detail">
-                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Year{props.project.startYear ? 's' : ''}</strong></p>
-                                <p className="kb-m-vertical--none">{props.project.startYear ? props.project.startYear + '—' + props.project.endYear : props.project.endYear}</p>
+                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Year{project.startYear ? 's' : ''}</strong></p>
+                                <p className="kb-m-vertical--none">{project.startYear ? project.startYear + '—' + project.endYear : project.endYear}</p>
                             </li>
                             <li className="kb-project-modal__detail">
                                 <p className="kb-text-size--small kb-m-vertical--none"><strong>Project Owner</strong></p>
-                                <p className="kb-m-vertical--none">{props.project.owner}</p>
+                                <p className="kb-m-vertical--none">{project.owner}</p>
                             </li>
                             <li className="kb-project-modal__detail kb-project-modal__detail--shrink">
                                 <p className="kb-text-size--small kb-m-vertical--none"><strong>Contributions</strong></p>
-                                <p className="kb-m-vertical--none">{props.project.contributions}</p>
+                                <p className="kb-m-vertical--none">{project.contributions}</p>
                             </li>
                             {
-                                props.project.recognition
+                                project.recognition
                                 ?
                                 <li className="kb-project-modal__detail kb-project-modal__detail--shrink">
                                     <p className="kb-text-size--small kb-m-vertical--none"><strong>Recognition</strong></p>
-                                    <p className="kb-m-vertical--none">{props.project.recognition}</p>
+                                    <p className="kb-m-vertical--none">{project.recognition}</p>
                                 </li>
                                 :
                                 ''
                             }
                             {
-                                props.project.githubRepository || props.project.demoSite || props.project.liveSite
+                                project.githubRepository || project.demoSite || project.liveSite
                                 ?
                                 <li className="kb-project-modal__detail">
                                     <p className="kb-text-size--small kb-m-vertical--none"><strong>Links</strong></p>
                                     <ul className="kb-list--horizontal">
                                         {
-                                            props.project.githubRepository
+                                            project.githubRepository
                                             ?
                                             <li>
-                                                <a href={props.project.githubRepository} target="_blank" rel="noreferrer">GitHub Repository</a>
+                                                <a href={project.githubRepository} target="_blank" rel="noreferrer">GitHub Repository</a>
                                             </li>
                                             :
                                             ''
                                         }
                                         {
-                                            props.project.demoSite
+                                            project.demoSite
                                             ?
                                             <li>
-                                                <a href={props.project.demoSite} target="_blank" rel="noreferrer">Demo Site</a>
+                                                <a href={project.demoSite} target="_blank" rel="noreferrer">Demo Site</a>
                                             </li>
                                             :
                                             ''
                                         }
                                         {
-                                            props.project.liveSite
+                                            project.liveSite
                                             ?
                                             <li>
-                                                <a href={props.project.liveSite} target="_blank" rel="noreferrer">Live Site</a>
+                                                <a href={project.liveSite} target="_blank" rel="noreferrer">Live Site</a>
                                             </li>
                                             :
                                             ''
@@ -147,8 +147,8 @@ const ProjectModal = forwardRef((props, ref) => {
                         </ul>
                         <Carousel
                             className="kb-project-modal__carousel"
-                            images={props.project.imageUrls}
-                            videos={props.project.videos} />
+                            images={project.imageUrls}
+                            videos={project.videos} />
                     </div>
                 </div>
             </div>

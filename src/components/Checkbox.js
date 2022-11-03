@@ -1,21 +1,21 @@
 import './Checkbox.scss';
 import PropTypes from 'prop-types';
 
-function Checkbox(props) {
+function Checkbox({ className, label, name, checked, onChange }) {
     const randomId = 'checkbox-' + Math.random().toString().replace('.', '');
 
     function handleCheckboxChange(event) {
-        if (typeof props.onChange === 'function') {
-            props.onChange(event);
+        if (typeof onChange === 'function') {
+            onChange(event);
         }
     }
 
     return (
-        <div className={'kb-checkbox' + (props.className ? ' ' + props.className : '')}>
-            <input id={randomId} className="kb-checkbox__input" type="checkbox" name={props.name} checked={props.checked} onChange={handleCheckboxChange} />
+        <div className={'kb-checkbox' + (className ? ' ' + className : '')}>
+            <input id={randomId} className="kb-checkbox__input" type="checkbox" name={name} checked={checked} onChange={handleCheckboxChange} />
             <label className="kb-checkbox__layout" htmlFor={randomId}>
                 <div className="kb-checkbox__faux"></div>
-                <div className="kb-checkbox__label kb-text-size--small">{props.label}</div>
+                <div className="kb-checkbox__label kb-text-size--small">{label}</div>
             </label>
         </div>
     );

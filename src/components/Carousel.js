@@ -2,25 +2,25 @@ import './Carousel.scss';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
-function Carousel(props) {
+function Carousel({ className, images, videos }) {
     const carousel = useRef();
     const [activeIndex, setActiveIndex] = useState(0);
 
     const back = useCallback(() => {
         if (activeIndex === 0) {
-            carousel.current.scrollLeft = carousel.current.clientWidth * ((props.images?.length || 0) + (props.videos?.length || 0) - 1);
+            carousel.current.scrollLeft = carousel.current.clientWidth * ((Array.isArray(images) ? images.length : 0) + (Array.isArray(videos ? videos.length : 0)) - 1);
         } else {
             carousel.current.scrollLeft -= carousel.current.clientWidth;
         }
-    }, [activeIndex, props.images?.length, props.videos?.length]);
+    }, [activeIndex, images, videos]);
 
     const next = useCallback(() => {
-        if (activeIndex === (props.images?.length || 0) + (props.videos?.length || 0) - 1) {
+        if (activeIndex === (Array.isArray(images) ? images.length : 0) + (Array.isArray(videos ? videos.length : 0)) - 1) {
             carousel.current.scrollLeft = 0;
         } else {
             carousel.current.scrollLeft += carousel.current.clientWidth;
         }
-    }, [activeIndex, props.images?.length, props.videos?.length]);
+    }, [activeIndex, images, videos]);
 
     useEffect(() => {
         function handleKeyup(event) {
@@ -49,13 +49,13 @@ function Carousel(props) {
     }
 
     return (
-        <div className={'kb-carousel__container' + (props.className ? ' ' + props.className : '')}>
+        <div className={'kb-carousel__container' + (className ? ' ' + className : '')}>
             <div ref={carousel} className="kb-carousel" onScroll={handleCarouselScroll}>
                 <div className="kb-carousel__rail">
                     {
-                        props.images?.length
+                        Array.isArray(images) && images.length
                         ?
-                        props.images.map(image => {
+                        images.map(image => {
                             return (
                                 <img key={image} className="kb-carousel__image" src={image} alt="" tabIndex="0" />
                             )
@@ -64,9 +64,9 @@ function Carousel(props) {
                         ''
                     }
                     {
-                        props.videos?.length
+                        Array.isArray(videos) && videos.length
                         ?
-                        props.videos.map((video, videoIndex) => {
+                        videos.map((video, videoIndex) => {
                             return (
                                 <div key={video} className="kb-carousel__video-container" tabIndex="0">
                                     <iframe src={video} title={'Video ' + (videoIndex + 1)} frameBorder="0" allowFullScreen></iframe>
@@ -79,12 +79,12 @@ function Carousel(props) {
                 </div>
             </div>
             {
-                (props.images?.length || 0) + (props.videos?.length || 0) > 1
+                (Array.isArray(images) ? images.length : 0) + (Array.isArray(videos) ? videos.length : 0) > 1
                 ?
                 <>
                     <div className="kb-carousel__nav">
                         {
-                            (props.images || []).concat((props.videos || [])).map((slide, slideIndex) => {
+                            (images || []).concat((videos || [])).map((slide, slideIndex) => {
                                 return (
                                     <div key={slide} className={'kb-carousel__nav-item' + (slideIndex === activeIndex ? ' kb-carousel__nav-item--active' : '')} data-index={slideIndex} onClick={handleNavigationClick}></div>
                                 )
