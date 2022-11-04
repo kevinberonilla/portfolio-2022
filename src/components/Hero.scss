@@ -77,9 +77,14 @@
                 }
             }
 
-            h1 {
+            h1,
+            p {
                 @media #{$kb-mq-small} {
-                    padding-right: 3rem;
+                    padding-right: 4rem;
+                }
+
+                @media #{$kb-mq-x-small} {
+                    padding-right: 0;
                 }
             }
         }
