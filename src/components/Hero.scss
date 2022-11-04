@@ -35,12 +35,14 @@
         opacity: 0;
     
         @media #{$kb-mq-large} {
-            padding: 6rem;
+            justify-content: space-evenly;
+            padding: 6rem 0;
         }
 
         @media #{$kb-mq-medium} {
             flex-wrap: wrap;
             justify-content: flex-end;
+            padding: 6rem;
             opacity: 1;
         }
 
@@ -98,6 +100,14 @@
         &__description {
             margin-top: 2rem;
             max-width: 30rem;
+
+            @media #{$kb-mq-medium} {
+                max-width: 36rem;
+            }
+
+            @media #{$kb-mq-small} {
+                max-width: none;
+            }
         }
 
         &__sidebar {
