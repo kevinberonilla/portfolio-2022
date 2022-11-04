@@ -13,8 +13,8 @@ function Hero({ isMediumScreen, filters, filteredProjectCount, totalProjectCount
     const filterFieldset = (
         <fieldset className="kb-hero__controls">
             <legend>
-                Filter Projects
-                <span className="kb-text-size--small kb-opacity--50 kb-m-left--x-small">{filteredProjectCount} of {totalProjectCount}</span>
+                Projects
+                <span className="kb-text-size--small kb-opacity--50 kb-m-left--x-small">{filteredProjectCount} / {totalProjectCount}</span>
             </legend>
             <div className="kb-hero__filters">
                 {
@@ -72,10 +72,10 @@ function Hero({ isMediumScreen, filters, filteredProjectCount, totalProjectCount
             </div>
             <div className="kb-hero__content">
                 <h1 className="kb-text-heading kb-text-heading--large">
-                    Hello! My name is <br /> <span className="kb-text-color--brand">Kevin Beronilla</span> <br /> and I am a visual artist.
+                    <span className="kb-hero__wave">👋</span> Hi! My name is <br /> <span className="kb-text-color--brand">Kevin Beronilla</span> and I<br /> craft visual experiences.
                 </h1>
                 <div className="kb-hero__description">
-                    <p>With a multi-disciplinary background in design, development, photography, and video, my mission is to create beautiful experiences in many forms of media. When I'm not in front of a laptop, you can find me tinkering on cars or snuggling with animals.</p>
+                    <p>With a multi-disciplinary background in design, development, photography, and video, my mission is to help others share knowledge through visual media. When I'm not in front of a laptop, you can find me tinkering on cars or snuggling with animals.</p>
                     <p>This portfolio site was created with <a href="https://reactjs.org" target="_blank" rel="noreferrer">React</a>, <a href="https://sass-lang.com" target="_blank" rel="noreferrer">Sass</a>, and <a href="https://www.contentful.com" target="_blank" rel="noreferrer">Contentful</a>. Check out the <a href="https://github.com/kevinberonilla/portfolio-2022" target="_blank" rel="noreferrer">GitHub respository</a>!</p>
                 </div>
             </div>

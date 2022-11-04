@@ -1,5 +1,31 @@
 @import '../utilities/variables';
 
+@keyframes wave {
+    0% {
+        transform: none;
+    }
+
+    20% {
+        transform: rotate(15deg);
+    }
+
+    40% {
+        transform: rotate(-15deg);
+    }
+
+    60% {
+        transform: rotate(15deg);
+    }
+
+    80% {
+        transform: rotate(-15deg);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
 .#{$kb-prefix} {
     &-hero {
         opacity: 0;
@@ -45,7 +71,7 @@
             }
             
             br {
-                @media #{$kb-mq-x-small} {
+                @media #{$kb-mq-small} {
                     display: none;
                 }
             }
@@ -53,6 +79,19 @@
             h1 {
                 @media #{$kb-mq-small} {
                     padding-right: 3rem;
+                }
+            }
+        }
+
+        &__wave {
+            display: inline-block;
+            transform-origin: bottom right;
+
+            .#{$kb-prefix}-hero--loaded & {
+                animation: wave 500ms ease 1s;
+
+                @media #{$kb-mq-medium} {
+                    animation-delay: 0ms;
                 }
             }
         }
