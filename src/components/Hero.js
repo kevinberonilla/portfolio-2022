@@ -37,7 +37,7 @@ function Hero({ isMediumScreen, shown, filters, filteredProjectCount, totalProje
     return (
         <div className={'kb-hero kb-container' + (shown ? ' kb-hero--shown' : '')}>
             <div className="kb-hero__sidebar">
-                <img className="kb-logo" src={logo} alt="Kevin Beronilla" />
+                <img className="kb-hero__logo" src={logo} alt="Kevin Beronilla" />
                 <ul className="kb-hero__link-list">
                     <li className="kb-hero__link">
                         <a href="./downloads/kevin-beronilla-resume.pdf" target="_blank" aria-describedby="github">

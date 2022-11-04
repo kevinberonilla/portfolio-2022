@@ -38,11 +38,6 @@ a {
         overflow: hidden;
     }
 
-    &-logo {
-        display: block;
-        width: 10rem;
-    }
-
     &-gallery {
         transform: translateY(calc(var(--kb-hero-height) * -1));
 

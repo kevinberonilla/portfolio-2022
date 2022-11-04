@@ -57,6 +57,11 @@
             transition: opacity 500ms ease 750ms;
         }
 
+        &__logo {
+            display: block;
+            width: 10rem;
+        }
+
         &__content {
             flex: 0 0 auto;
 
