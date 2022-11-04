@@ -28,39 +28,33 @@
 
 .#{$kb-prefix} {
     &-hero {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 8rem;
         opacity: 0;
+    
+        @media #{$kb-mq-large} {
+            padding: 6rem;
+        }
 
         @media #{$kb-mq-medium} {
+            flex-wrap: wrap;
+            justify-content: flex-end;
             opacity: 1;
+        }
+
+        @media #{$kb-mq-small} {
+            padding: 3rem;
+        }
+
+        @media #{$kb-mq-x-small} {
+            padding: 2rem;
         }
         
-        &--loaded {
+        &--shown {
             opacity: 1;
             transition: opacity 500ms ease 750ms;
-        }
-
-        &__layout {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 8rem;
-    
-            @media #{$kb-mq-large} {
-                padding: 6rem;
-            }
-
-            @media #{$kb-mq-medium} {
-                flex-wrap: wrap;
-                justify-content: flex-end;
-            }
-
-            @media #{$kb-mq-small} {
-                padding: 3rem;
-            }
-
-            @media #{$kb-mq-x-small} {
-                padding: 2rem;
-            }
         }
 
         &__content {
@@ -87,7 +81,7 @@
             display: inline-block;
             transform-origin: bottom right;
 
-            .#{$kb-prefix}-hero--loaded & {
+            .#{$kb-prefix}-hero--shown & {
                 animation: wave 500ms ease 1s;
 
                 @media #{$kb-mq-medium} {

@@ -50,7 +50,7 @@ a {
             transform: none;
         }
 
-        .#{$kb-prefix}-hero--loaded + & {
+        &--shifted {
             transform: none;
             transition: transform 500ms ease 500ms;
         }
@@ -85,7 +85,7 @@ a {
                 pointer-events: auto;
             }
 
-            &--loaded {
+            &--enabled {
                 pointer-events: auto;
             }
         }
@@ -112,12 +112,12 @@ a {
             }
 
             .#{$kb-prefix}-project--loaded &,
-            .#{$kb-prefix}-project--revealed & {
+            .#{$kb-prefix}-project--shown & {
                 margin-top: 0;
                 opacity: 1;
             }
 
-            .#{$kb-prefix}-project--revealed & {
+            .#{$kb-prefix}-project--shown & {
                 transition-property: transform, filter;
             }
 
@@ -230,7 +230,7 @@ a {
             padding: 2rem;
         }
 
-        &--loaded {
+        &--shown {
             opacity: 1;
         }
 

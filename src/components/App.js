@@ -6,7 +6,7 @@ import ProjectModal from './ProjectModal';
 
 function App() {
     const year = new Date().getFullYear();
-    const hero = useRef();
+    const heroContainer = useRef();
     const projectModal = useRef();
     const [filters, setFilters] = useState({});
     const [isMediumScreen, setIsMediumScreen] = useState(true);
@@ -56,7 +56,7 @@ function App() {
         function getDimensions() {
             setIsMediumScreen(window.innerWidth <= 1024);
             window.document.body.style.setProperty('--kb-vh', window.innerHeight / 100 + 'px');
-            window.document.body.style.setProperty('--kb-hero-height', hero.current.clientHeight + 'px');
+            window.document.body.style.setProperty('--kb-hero-height', heroContainer.current.clientHeight + 'px');
         }
 
         getProjectsAndFilters();
@@ -103,7 +103,7 @@ function App() {
                 });
             }, Math.random() * 500);
         } else { // The load event came from filtering
-            loadedImage.closest('.kb-project').classList.add('kb-project--revealed');
+            loadedImage.closest('.kb-project').classList.add('kb-project--shown');
         }
     }
 
@@ -157,9 +157,10 @@ function App() {
     return (
         <>
             <main>
-                <section ref={hero} className={'kb-hero' + (allThumbnailsLoaded ? ' kb-hero--loaded' : '')}>
+                <section ref={heroContainer}>
                     <Hero
                         isMediumScreen={isMediumScreen}
+                        shown={allThumbnailsLoaded}
                         filters={filters}
                         filteredProjectCount={filteredProjects.length}
                         totalProjectCount={projects.length}
@@ -168,8 +169,8 @@ function App() {
                 {
                     filteredProjects.length
                     ?
-                    <section className="kb-gallery">
-                        <ul className={'kb-project-list' + (enableProjects ? ' kb-project-list--loaded' : '')}>
+                    <section className={'kb-gallery' + (allThumbnailsLoaded ? ' kb-gallery--shifted' : '')}>
+                        <ul className={'kb-project-list' + (enableProjects ? ' kb-project-list--enabled' : '')}>
                             {
                                 filteredProjects.map((project, projectIndex) => {
                                     return (
@@ -199,7 +200,7 @@ function App() {
                     ''
                 }
             </main>
-            <footer className={'kb-footer' + (allThumbnailsLoaded ? ' kb-footer--loaded' : '')}>
+            <footer className={'kb-footer' + (allThumbnailsLoaded ? ' kb-footer--shown' : '')}>
                 <div className="kb-text-size--small kb-m-around--none">
                     <p>&copy; {year} Kevin Beronilla. All rights reserved.</p>
                     <p>All featured projects are copyrighted by the respective individuals and organizations of which they are a representation of.</p>

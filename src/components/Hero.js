@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Checkbox from './Checkbox';
 import logo from '../images/logo-inverse.svg';
 
-function Hero({ isMediumScreen, filters, filteredProjectCount, totalProjectCount, onFilterChange }) {
+function Hero({ isMediumScreen, shown, filters, filteredProjectCount, totalProjectCount, onFilterChange }) {
     function handleFilterChange(event) {
         if (typeof onFilterChange === 'function') {
             onFilterChange(event);
@@ -35,7 +35,7 @@ function Hero({ isMediumScreen, filters, filteredProjectCount, totalProjectCount
     );
 
     return (
-        <div className="kb-hero__layout kb-container">
+        <div className={'kb-hero kb-container' + (shown ? ' kb-hero--shown' : '')}>
             <div className="kb-hero__sidebar">
                 <img className="kb-logo" src={logo} alt="Kevin Beronilla" />
                 <ul className="kb-hero__link-list">
@@ -86,6 +86,7 @@ function Hero({ isMediumScreen, filters, filteredProjectCount, totalProjectCount
 
 Hero.propTypes = {
     isMediumScreen: PropTypes.bool,
+    shown: PropTypes.bool,
     filters: PropTypes.object,
     filteredProjectCount: PropTypes.number,
     totalProjectCount: PropTypes.number,
