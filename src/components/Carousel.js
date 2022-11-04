@@ -6,16 +6,20 @@ function Carousel({ className, images, videos }) {
     const carousel = useRef();
     const [activeIndex, setActiveIndex] = useState(0);
 
+    function enforceArray(value) {
+        return Array.isArray(value) ? value : [];
+    }
+
     const back = useCallback(() => {
         if (activeIndex === 0) {
-            carousel.current.scrollLeft = carousel.current.clientWidth * ((Array.isArray(images) ? images.length : 0) + (Array.isArray(videos ? videos.length : 0)) - 1);
+            carousel.current.scrollLeft = carousel.current.clientWidth * (enforceArray(images).length + enforceArray(videos).length - 1);
         } else {
             carousel.current.scrollLeft -= carousel.current.clientWidth;
         }
     }, [activeIndex, images, videos]);
 
     const next = useCallback(() => {
-        if (activeIndex === (Array.isArray(images) ? images.length : 0) + (Array.isArray(videos ? videos.length : 0)) - 1) {
+        if (activeIndex === enforceArray(images).length + enforceArray(videos).length - 1) {
             carousel.current.scrollLeft = 0;
         } else {
             carousel.current.scrollLeft += carousel.current.clientWidth;
@@ -23,18 +27,20 @@ function Carousel({ className, images, videos }) {
     }, [activeIndex, images, videos]);
 
     useEffect(() => {
-        function handleKeyup(event) {
+        function handleKeydown(event) {
             if (event.key === 'ArrowLeft') {
+                event.preventDefault();
                 back();
             } else if (event.key === 'ArrowRight') {
+                event.preventDefault();
                 next();
             }
         }
 
-        window.addEventListener('keyup', handleKeyup);
+        window.addEventListener('keydown', handleKeydown);
 
         return () => {
-            window.removeEventListener('keyup', handleKeyup);
+            window.removeEventListener('keydown', handleKeydown);
         }
     }, [back, next]);
 
@@ -53,7 +59,7 @@ function Carousel({ className, images, videos }) {
             <div ref={carousel} className="kb-carousel" onScroll={handleCarouselScroll}>
                 <div className="kb-carousel__rail">
                     {
-                        Array.isArray(images) && images.length
+                        enforceArray(images).length
                         ?
                         images.map(image => {
                             return (
@@ -64,7 +70,7 @@ function Carousel({ className, images, videos }) {
                         ''
                     }
                     {
-                        Array.isArray(videos) && videos.length
+                        enforceArray(videos).length
                         ?
                         videos.map((video, videoIndex) => {
                             return (
@@ -79,7 +85,7 @@ function Carousel({ className, images, videos }) {
                 </div>
             </div>
             {
-                (Array.isArray(images) ? images.length : 0) + (Array.isArray(videos) ? videos.length : 0) > 1
+                enforceArray(images).length + enforceArray(videos).length > 1
                 ?
                 <>
                     <div className="kb-carousel__nav">
