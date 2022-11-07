@@ -39,15 +39,14 @@ a {
     }
 
     &-gallery {
-        transform: translateY(calc(var(--kb-hero-height) * -1));
-
-        @media #{$kb-mq-medium} {
-            transform: none;
-        }
+        transition: transform 500ms ease 500ms;
 
         &--shifted {
-            transform: none;
-            transition: transform 500ms ease 500ms;
+            transform: translateY(calc(var(--kb-hero-height) * -1));
+
+            @media #{$kb-mq-medium} {
+                transform: none;
+            }
         }
     }
 

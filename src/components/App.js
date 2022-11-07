@@ -169,7 +169,7 @@ function App() {
                 {
                     filteredProjects.length
                     ?
-                    <section className={'kb-gallery' + (allThumbnailsLoaded ? ' kb-gallery--shifted' : '')}>
+                    <section className={'kb-gallery' + (allThumbnailsLoaded ? '' : ' kb-gallery--shifted')}>
                         <ul className={'kb-project-list' + (enableProjects ? ' kb-project-list--enabled' : '')}>
                             {
                                 filteredProjects.map((project, projectIndex) => {
