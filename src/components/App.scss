@@ -75,6 +75,13 @@ a {
             justify-content: center;
             pointer-events: none;
 
+            &::before,
+            &::after {
+                content: '';
+                display: block;
+                flex: auto;
+            }
+
             @media #{$kb-mq-medium} {
                 pointer-events: auto;
             }
