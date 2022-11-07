@@ -56,7 +56,10 @@ function App() {
         function getDimensions() {
             setIsMediumScreen(window.innerWidth <= 1024);
             window.document.body.style.setProperty('--kb-vh', window.innerHeight / 100 + 'px');
-            window.document.body.style.setProperty('--kb-hero-height', heroContainer.current.clientHeight + 'px');
+            
+            window.setTimeout(() => { // Timeout fixes a Safari issue with initial render spacing
+                window.document.body.style.setProperty('--kb-hero-height', heroContainer.current.clientHeight + 'px');
+            }, 0);
         }
 
         getProjectsAndFilters();
