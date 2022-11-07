@@ -5,19 +5,15 @@
         transform: none;
     }
 
-    20% {
-        transform: rotate(15deg);
-    }
-
-    40% {
+    25% {
         transform: rotate(-15deg);
     }
 
-    60% {
-        transform: rotate(15deg);
+    50% {
+        transform: none;
     }
 
-    80% {
+    75% {
         transform: rotate(-15deg);
     }
 
@@ -91,13 +87,22 @@
 
         &__wave {
             display: inline-block;
-            transform-origin: bottom right;
+            transform-origin: right bottom;
 
             .#{$kb-prefix}-hero--shown & {
-                animation: wave 500ms ease 1s;
+                animation: wave 500ms linear 1s;
 
                 @media #{$kb-mq-medium} {
                     animation-delay: 0ms;
+                }
+            }
+
+            &-container {
+                display: inline-block;
+                cursor: grab;
+
+                &:hover .#{$kb-prefix}-hero__wave {
+                    animation-iteration-count: infinite;
                 }
             }
         }
