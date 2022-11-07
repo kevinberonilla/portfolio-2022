@@ -62,6 +62,19 @@
         &__logo {
             display: block;
             width: 10rem;
+
+            @media (prefers-color-scheme: dark) {
+                display: none;
+            }
+    
+            &--inverse {
+                display: block;
+                width: 10rem;
+    
+                @media (prefers-color-scheme: light) {
+                    display: none;
+                }
+            }
         }
 
         &__content {

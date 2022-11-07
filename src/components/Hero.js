@@ -1,7 +1,8 @@
 import './Hero.scss';
 import PropTypes from 'prop-types';
 import Checkbox from './Checkbox';
-import logo from '../images/logo-inverse.svg';
+import logo from '../images/logo.svg';
+import logoInverse from '../images/logo-inverse.svg';
 
 function Hero({ isMediumScreen, shown, filters, filteredProjectCount, totalProjectCount, onFilterChange }) {
     function handleFilterChange(event) {
@@ -38,6 +39,7 @@ function Hero({ isMediumScreen, shown, filters, filteredProjectCount, totalProje
         <div className={'kb-hero kb-container' + (shown ? ' kb-hero--shown' : '')}>
             <div className="kb-hero__sidebar">
                 <img className="kb-hero__logo" src={logo} alt="Kevin Beronilla" />
+                <img className="kb-hero__logo--inverse" src={logoInverse} alt="Kevin Beronilla" />
                 <ul className="kb-hero__link-list">
                     <li className="kb-hero__link">
                         <a href="./downloads/kevin-beronilla-resume.pdf" target="_blank" aria-describedby="github">
