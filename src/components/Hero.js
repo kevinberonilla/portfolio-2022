@@ -77,7 +77,7 @@ function Hero({ isMediumScreen, shown, filters, filteredProjectCount, totalProje
                             👋&nbsp;
                         </span>
                     </span>
-                    Hi! My name is <br /> <span className="kb-text-color--brand">Kevin Beronilla</span> and I <br /> craft visual experiences.
+                    Hi! My name is <br /> <span className="kb-text-color--brand">Kevin Beronilla</span> and I <br /> create visual experiences.
                 </h1>
                 <div className="kb-hero__description">
                     <p>With a multi-disciplinary background in design, development, photography, and video, my mission is to help others share knowledge and tell stories through visual media. When I'm not in front of a computer, you can find me tinkering on cars or relaxing with animals.</p>
