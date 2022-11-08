@@ -81,7 +81,7 @@ function Hero({ isMediumScreen, shown, filters, filteredProjectCount, totalProje
                 </h1>
                 <div className="kb-hero__description">
                     <p>With a multi-disciplinary background in design, development, photography, and video, my mission is to help others share knowledge and tell stories through visual media. When I'm not in front of a computer, you can find me tinkering on cars or relaxing with animals.</p>
-                    <p>This portfolio site was created with <a href="https://reactjs.org" target="_blank" rel="noreferrer">React</a>, <a href="https://sass-lang.com" target="_blank" rel="noreferrer">Sass</a>, and <a href="https://www.contentful.com" target="_blank" rel="noreferrer">Contentful</a>. Check out the <a href="https://github.com/kevinberonilla/portfolio-2022" target="_blank" rel="noreferrer">GitHub respository</a>!</p>
+                    <p>This portfolio site was created with React, Sass, and Contentful. Check out the <a href="https://github.com/kevinberonilla/portfolio-2022" target="_blank" rel="noreferrer">GitHub respository</a>!</p>
                 </div>
             </div>
             {filters && isMediumScreen ? filterFieldset : ''}
