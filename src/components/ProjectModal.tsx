@@ -1,7 +1,7 @@
 import './ProjectModal.scss';
 import { forwardRef, useState, useCallback, useEffect, useImperativeHandle  } from 'react';
 import PropTypes from 'prop-types';
-import Carousel from './Carousel.tsx';
+import Carousel from './Carousel';
 
 const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
     const [backdropPosition, setBackdropPosition] = useState({});

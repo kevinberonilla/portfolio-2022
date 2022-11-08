@@ -3,7 +3,7 @@ import { useRef, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 function Carousel({ className, images, videos }) {
-    const carousel = useRef();
+    const carousel = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
 
     function enforceArray(value) {

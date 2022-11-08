@@ -1,13 +1,13 @@
 import './App.scss';
 import { useRef, useState, useEffect } from 'react';
 import { getContentfulProjects } from '../utilities/requests';
-import Hero from './Hero.tsx';
-import ProjectModal from './ProjectModal.tsx';
+import Hero from './Hero';
+import ProjectModal from './ProjectModal';
 
 function App() {
     const year = new Date().getFullYear();
-    const heroContainer = useRef();
-    const projectModal = useRef();
+    const heroContainer = useRef(null);
+    const projectModal = useRef(null);
     const [filters, setFilters] = useState({});
     const [isMediumScreen, setIsMediumScreen] = useState(true);
     const [projects, setProjects] = useState([]);
