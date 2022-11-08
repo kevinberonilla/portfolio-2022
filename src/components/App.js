@@ -9,7 +9,7 @@ function App() {
     const heroContainer = useRef();
     const projectModal = useRef();
     const [filters, setFilters] = useState({});
-    const [isMediumScreen, setIsMediumScreen] = useState(true);
+    const [isMediumScreen, setIsMediumScreen] = useState(false);
     const [projects, setProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
     const [viewedProject, setViewedProject] = useState({});
