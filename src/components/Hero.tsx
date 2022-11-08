@@ -1,6 +1,6 @@
 import './Hero.scss';
 import PropTypes from 'prop-types';
-import Checkbox from './Checkbox';
+import Checkbox from './Checkbox.tsx';
 import logo from '../images/logo-inverse.svg';
 
 function Hero({ isMediumScreen, shown, filters, filteredProjectCount, totalProjectCount, onFilterChange }) {

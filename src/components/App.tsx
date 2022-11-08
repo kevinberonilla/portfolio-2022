@@ -1,8 +1,8 @@
 import './App.scss';
 import { useRef, useState, useEffect } from 'react';
 import { getContentfulProjects } from '../utilities/requests';
-import Hero from './Hero';
-import ProjectModal from './ProjectModal';
+import Hero from './Hero.tsx';
+import ProjectModal from './ProjectModal.tsx';
 
 function App() {
     const year = new Date().getFullYear();
