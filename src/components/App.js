@@ -6,8 +6,8 @@ import ProjectModal from './ProjectModal';
 
 function App() {
     const year = new Date().getFullYear();
-    const heroContainer = useRef();
-    const projectModal = useRef();
+    const heroContainer = useRef(null);
+    const projectModal = useRef(null);
     const [filters, setFilters] = useState({});
     const [isMediumScreen, setIsMediumScreen] = useState(false);
     const [projects, setProjects] = useState([]);
