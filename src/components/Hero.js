@@ -41,7 +41,7 @@ function Hero({ isMediumScreen, shown, filters, filteredProjectCount, totalProje
                 <ul className="kb-hero__link-list">
                     <li className="kb-hero__link">
                         <a href="./downloads/kevin-beronilla-resume.pdf" target="_blank" aria-describedby="github">
-                            <span className="fa-solid fa-file-text"></span>
+                            <span className="fa-solid fa-file-lines"></span>
                             <span className="kb-text--assistive">Resume</span>
                         </a>
                         <span id="resume" className="kb-hero__link-label" role="tooltip">Resume</span>
