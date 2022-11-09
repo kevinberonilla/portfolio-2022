@@ -8,7 +8,7 @@ export async function getContentfulProjects() {
             headers: projectsHeaders,
             redirect: 'follow'
         };
-        const response = await fetch('https://cdn.contentful.com/spaces/mskeskqf4sb9/entries?order=-fields.endYear,-fields.startYear,-sys.createdAt&content_type=project', requestOptions);
+        const response = await fetch('https://cdn.contentful.com/spaces/mskeskqf4sb9/entries?order=-fields.endYear,fields.endYearOrder,-fields.startYear,-sys.createdAt&content_type=project', requestOptions);
         const responseJson = await response.json();
         
         return {
