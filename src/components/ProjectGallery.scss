@@ -12,23 +12,6 @@
             }
         }
 
-        &__project {
-            flex: 0 0 20%;
-            overflow: hidden;
-    
-            @media #{$kb-mq-x-large} {
-                flex-basis: 25%;
-            }
-    
-            @media #{$kb-mq-medium} {
-                flex-basis: 33.333%;
-            }
-    
-            @media #{$kb-mq-small} {
-                flex-basis: 50%;
-            }
-        }
-
         &__list {
             list-style: none;
             padding: 0;
@@ -51,6 +34,23 @@
 
             &--enabled {
                 pointer-events: auto;
+            }
+        }
+
+        &__project {
+            flex: 0 0 20%;
+            overflow: hidden;
+    
+            @media #{$kb-mq-x-large} {
+                flex-basis: 25%;
+            }
+    
+            @media #{$kb-mq-medium} {
+                flex-basis: 33.333%;
+            }
+    
+            @media #{$kb-mq-small} {
+                flex-basis: 50%;
             }
         }
 
@@ -85,8 +85,8 @@
                 transition-property: transform, filter;
             }
 
-            .#{$kb-prefix}-project-gallery__project__link:hover &,
-            .#{$kb-prefix}-project-gallery__project__link:focus & {
+            .#{$kb-prefix}-project-gallery__link:hover &,
+            .#{$kb-prefix}-project-gallery__link:focus & {
                 transform: scale(1.05);
                 filter: blur(5px) saturate(0.75);
             }
@@ -109,8 +109,8 @@
                 padding: 10%;
             }
     
-            .#{$kb-prefix}-project-gallery__project__link:hover &,
-            .#{$kb-prefix}-project-gallery__project__link:focus & {
+            .#{$kb-prefix}-project-gallery__link:hover &,
+            .#{$kb-prefix}-project-gallery__link:focus & {
                 opacity: 1;
             }
         }
@@ -124,8 +124,8 @@
             transition: all 250ms ease 150ms;
             opacity: 0;
 
-            .#{$kb-prefix}-project-gallery__project__link:hover &,
-            .#{$kb-prefix}-project-gallery__project__link:focus & {
+            .#{$kb-prefix}-project-gallery__link:hover &,
+            .#{$kb-prefix}-project-gallery__link:focus & {
                 transform: none;
                 opacity: 1;
             }
