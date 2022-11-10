@@ -3,7 +3,7 @@ import { useRef, useState  } from 'react';
 import PropTypes from 'prop-types';
 import ProjectModal from './ProjectModal';
 
-function ProjectGallery({ projects, isMediumScreen, allThumbnailsLoaded, onAllThumbnailsLoaded }) {
+function ProjectGallery({ projects, isMediumScreen, loaded, onThumbnailsLoaded }) {
     const projectModal = useRef(null);
     const [_totalThumbnailsLoaded, setTotalThumbnailsLoaded] = useState(0);
     const [enableProjects, setEnableProjects] = useState(false);
@@ -12,7 +12,7 @@ function ProjectGallery({ projects, isMediumScreen, allThumbnailsLoaded, onAllTh
     function handleThumbnailLoad(event) {
         const loadedImage = event.currentTarget;
 
-        if (!allThumbnailsLoaded) {
+        if (!loaded) {
             window.setTimeout(() => {
                 loadedImage.closest('.kb-project-gallery__project').classList.add('kb-project-gallery__project--loaded');
 
@@ -22,8 +22,8 @@ function ProjectGallery({ projects, isMediumScreen, allThumbnailsLoaded, onAllTh
                     if (newTotal === projects.length) {
                         const enableProjectsTimeout = isMediumScreen ? 0 : 750;
         
-                        if (typeof onAllThumbnailsLoaded === 'function') {
-                            onAllThumbnailsLoaded();
+                        if (typeof onThumbnailsLoaded === 'function') {
+                            onThumbnailsLoaded();
                         }
         
                         window.setTimeout(() => {
@@ -74,7 +74,7 @@ function ProjectGallery({ projects, isMediumScreen, allThumbnailsLoaded, onAllTh
 
     return (
         <>
-            <div className={'kb-project-gallery' + (allThumbnailsLoaded ? '' : ' kb-project-gallery--shifted')}>
+            <div className={'kb-project-gallery' + (loaded ? '' : ' kb-project-gallery--shifted')}>
                 <ul className={'kb-project-gallery__list' + (enableProjects ? ' kb-project-gallery__list--enabled' : '')}>
                     {
                         projects.map((project, projectIndex) => {
@@ -118,8 +118,8 @@ function ProjectGallery({ projects, isMediumScreen, allThumbnailsLoaded, onAllTh
 ProjectGallery.propTypes = {
     projects: PropTypes.array.isRequired,
     isMediumScreen: PropTypes.bool,
-    allThumbnailsLoaded: PropTypes.bool,
-    onAllThumbnailsLoaded: PropTypes.func
+    loaded: PropTypes.bool,
+    onThumbnailsLoaded: PropTypes.func
 };
 
 export default ProjectGallery;

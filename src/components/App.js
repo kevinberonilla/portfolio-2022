@@ -11,7 +11,7 @@ function App() {
     const [isMediumScreen, setIsMediumScreen] = useState(false);
     const [projects, setProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
-    const [allThumbnailsLoaded, setAllThumbnailsLoaded] = useState(false);
+    const [galleryLoaded, setGalleryLoaded] = useState(false);
     
     useEffect(() => {
         async function getProjectsAndFilters() {
@@ -66,8 +66,8 @@ function App() {
         };
     }, []);
 
-    function handleAllThumbnailsLoaded() {
-        setAllThumbnailsLoaded(true);
+    function handleThumbnailsLoaded() {
+        setGalleryLoaded(true);
     }
 
     function handleFilterChange(event) {
@@ -99,7 +99,7 @@ function App() {
                 <section ref={heroContainer}>
                     <Hero
                         isMediumScreen={isMediumScreen}
-                        shown={allThumbnailsLoaded}
+                        shown={galleryLoaded}
                         filters={filters}
                         filteredProjectCount={filteredProjects.length}
                         totalProjectCount={projects.length}
@@ -112,14 +112,14 @@ function App() {
                         <ProjectGallery
                             projects={filteredProjects}
                             isMediumScreen={isMediumScreen}
-                            allThumbnailsLoaded={allThumbnailsLoaded}
-                            onAllThumbnailsLoaded={handleAllThumbnailsLoaded} />
+                            loaded={galleryLoaded}
+                            onThumbnailsLoaded={handleThumbnailsLoaded} />
                     </section>
                     :
                     ''
                 }
             </main>
-            <footer className={'kb-footer' + (allThumbnailsLoaded ? ' kb-footer--shown' : '')}>
+            <footer className={'kb-footer' + (galleryLoaded ? ' kb-footer--shown' : '')}>
                 <div className="kb-text-size--small kb-m-around--none">
                     <p>&copy; {year} Kevin Beronilla. All rights reserved.</p>
                     <p>All featured projects are copyrighted by the respective individuals and organizations of which they are a representation of.</p>
