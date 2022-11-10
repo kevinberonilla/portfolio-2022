@@ -23,7 +23,7 @@ function ProjectGallery({ projects, isMediumScreen, loaded, onThumbnailsLoaded }
                         const enableProjectsTimeout = isMediumScreen ? 0 : 750;
         
                         if (typeof onThumbnailsLoaded === 'function') {
-                            onThumbnailsLoaded();
+                            window.setTimeout(onThumbnailsLoaded, 0);
                         }
         
                         window.setTimeout(() => {
