@@ -34,7 +34,7 @@ const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
 
     function showModal() {
         window.document.body.classList.add('kb-freeze');
-        const projectLinkBounds = window.document.querySelector('.kb-project__link[href="' + project.hash + '"]').getBoundingClientRect();
+        const projectLinkBounds = window.document.querySelector('.kb-project-gallery__link[href="' + project.hash + '"]').getBoundingClientRect();
 
         setBackdropPosition({
             top: projectLinkBounds.top + 'px',
