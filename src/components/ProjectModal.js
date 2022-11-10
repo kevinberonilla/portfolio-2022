@@ -1,9 +1,11 @@
 import './ProjectModal.scss';
 import { forwardRef, useState, useCallback, useEffect, useImperativeHandle  } from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Carousel from './Carousel';
 
 const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
+    const appRoot = document.getElementById('root');
     const [backdropPosition, setBackdropPosition] = useState({});
     const [shown, setShown] = useState(false);
     const hideModal = useCallback(() => {
@@ -71,7 +73,7 @@ const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
         }
     }));
 
-    return (
+    return ReactDOM.createPortal(
         <div className={'kb-project-modal' + (shown ? ' kb-project-modal--shown' : '') + (className ? ' ' + className : '')} role="dialog" aria-labelledby="project-name" aria-describedby="project-details">
             <div className="kb-project-modal__backdrop" style={backdropPosition}>
                 <img className="kb-project-modal__background" src={project.thumbnailUrl} alt={project.name} />
@@ -153,7 +155,7 @@ const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
                 </div>
             </div>
         </div>
-    );
+    , appRoot);
 });
 
 ProjectModal.propTypes = {
