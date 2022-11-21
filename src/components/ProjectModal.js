@@ -94,14 +94,10 @@ const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
                                 <p className="kb-text-size--small kb-m-vertical--none"><strong>Project Owner</strong></p>
                                 <p className="kb-m-vertical--none">{project.owner}</p>
                             </li>
-                            <li className="kb-project-modal__detail kb-project-modal__detail--shrink">
-                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Contributions</strong></p>
-                                <p className="kb-m-vertical--none">{project.contributions}</p>
-                            </li>
                             {
                                 project.recognition
                                 ?
-                                <li className="kb-project-modal__detail kb-project-modal__detail--shrink">
+                                <li className="kb-project-modal__detail">
                                     <p className="kb-text-size--small kb-m-vertical--none"><strong>Recognition</strong></p>
                                     <p className="kb-m-vertical--none">{project.recognition}</p>
                                 </li>
@@ -109,7 +105,7 @@ const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
                                 ''
                             }
                             {
-                                project.githubRepository || project.demoSite || project.liveSite
+                                project.githubRepository || project.demoSite || project.liveSite || project.appExchangeListing
                                 ?
                                 <li className="kb-project-modal__detail">
                                     <p className="kb-text-size--small kb-m-vertical--none"><strong>Links</strong></p>
@@ -141,11 +137,24 @@ const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
                                             :
                                             ''
                                         }
+                                        {
+                                            project.appExchangeListing
+                                            ?
+                                            <li>
+                                                <a href={project.appExchangeListing} target="_blank" rel="noreferrer">AppExchange Listing</a>
+                                            </li>
+                                            :
+                                            ''
+                                        }
                                     </ul>
                                 </li>
                                 :
                                 ''
                             }
+                            <li className="kb-project-modal__detail">
+                                <p className="kb-text-size--small kb-m-vertical--none"><strong>Contributions</strong></p>
+                                <p className="kb-m-vertical--none">{project.contributions}</p>
+                            </li>
                         </ul>
                         <Carousel
                             className="kb-project-modal__carousel"
