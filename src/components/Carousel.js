@@ -1,6 +1,6 @@
-import './Carousel.scss';
-import { useRef, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import './Carousel.scss';
 
 function Carousel({ className, images, videos }) {
     const carousel = useRef(null);
@@ -12,7 +12,9 @@ function Carousel({ className, images, videos }) {
 
     const back = useCallback(() => {
         if (activeIndex === 0) {
-            carousel.current.scrollLeft = carousel.current.clientWidth * (enforceArray(images).length + enforceArray(videos).length - 1);
+            carousel.current.scrollLeft =
+                carousel.current.clientWidth *
+                (enforceArray(images).length + enforceArray(videos).length - 1);
         } else {
             carousel.current.scrollLeft -= carousel.current.clientWidth;
         }
@@ -41,7 +43,7 @@ function Carousel({ className, images, videos }) {
 
         return () => {
             window.removeEventListener('keydown', handleKeydown);
-        }
+        };
     }, [back, next]);
 
     function handleCarouselScroll() {
@@ -58,44 +60,57 @@ function Carousel({ className, images, videos }) {
         <div className={'kb-carousel__container' + (className ? ' ' + className : '')}>
             <div ref={carousel} className="kb-carousel" onScroll={handleCarouselScroll}>
                 <div className="kb-carousel__rail">
-                    {
-                        enforceArray(images).length
-                        ?
-                        images.map(image => {
-                            return (
-                                <img key={image} className="kb-carousel__image" src={image} alt="" tabIndex="0" />
-                            )
-                        })
-                        :
-                        ''
-                    }
-                    {
-                        enforceArray(videos).length
-                        ?
-                        videos.map((video, videoIndex) => {
-                            return (
-                                <div key={video} className="kb-carousel__video-container" tabIndex="0">
-                                    <iframe src={video} title={'Video ' + (videoIndex + 1)} frameBorder="0" allowFullScreen></iframe>
-                                </div>
-                            )
-                        })
-                        :
-                        ''
-                    }
+                    {enforceArray(images).length
+                        ? images.map(image => {
+                              return (
+                                  <img
+                                      key={image}
+                                      className="kb-carousel__image"
+                                      src={image}
+                                      alt=""
+                                      tabIndex="0"
+                                  />
+                              );
+                          })
+                        : ''}
+                    {enforceArray(videos).length
+                        ? videos.map((video, videoIndex) => {
+                              return (
+                                  <div
+                                      key={video}
+                                      className="kb-carousel__video-container"
+                                      tabIndex="0"
+                                  >
+                                      <iframe
+                                          src={video}
+                                          title={'Video ' + (videoIndex + 1)}
+                                          frameBorder="0"
+                                          allowFullScreen
+                                      ></iframe>
+                                  </div>
+                              );
+                          })
+                        : ''}
                 </div>
             </div>
-            {
-                enforceArray(images).length + enforceArray(videos).length > 1
-                ?
+            {enforceArray(images).length + enforceArray(videos).length > 1 ? (
                 <>
                     <div className="kb-carousel__nav">
-                        {
-                            (images || []).concat((videos || [])).map((slide, slideIndex) => {
-                                return (
-                                    <div key={slide} className={'kb-carousel__nav-item' + (slideIndex === activeIndex ? ' kb-carousel__nav-item--active' : '')} data-index={slideIndex} onClick={handleNavigationClick}></div>
-                                )
-                            })
-                        }
+                        {(images || []).concat(videos || []).map((slide, slideIndex) => {
+                            return (
+                                <div
+                                    key={slide}
+                                    className={
+                                        'kb-carousel__nav-item' +
+                                        (slideIndex === activeIndex
+                                            ? ' kb-carousel__nav-item--active'
+                                            : '')
+                                    }
+                                    data-index={slideIndex}
+                                    onClick={handleNavigationClick}
+                                ></div>
+                            );
+                        })}
                     </div>
                     <button className="kb-carousel__back fa-solid fa-chevron-left" onClick={back}>
                         <span className="kb-text--assistive">Back</span>
@@ -104,9 +119,9 @@ function Carousel({ className, images, videos }) {
                         <span className="kb-text--assistive">Next</span>
                     </button>
                 </>
-                :
+            ) : (
                 ''
-            }
+            )}
         </div>
     );
 }
@@ -114,7 +129,7 @@ function Carousel({ className, images, videos }) {
 Carousel.propTypes = {
     className: PropTypes.string,
     images: PropTypes.array,
-    videos: PropTypes.array
+    videos: PropTypes.array,
 };
 
 export default Carousel;

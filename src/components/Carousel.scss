@@ -100,7 +100,7 @@
             &:active {
                 color: var(--kb-color-brand);
             }
-            
+
             &:focus,
             &:active {
                 outline: none;
@@ -113,7 +113,7 @@
             right: -3.5rem;
 
             @media #{$kb-mq-medium} {
-                right: -2.6rem;  
+                right: -2.6rem;
             }
 
             @media #{$kb-mq-x-small} {
@@ -127,7 +127,6 @@
                     transform: translateX(-0.05rem);
                 }
             }
-
         }
 
         &__nav {
@@ -137,7 +136,7 @@
             position: absolute;
             top: 1.125rem;
             left: 1.125rem;
-            background-color: var(--kb-color-carousel-nav-background);            
+            background-color: var(--kb-color-carousel-nav-background);
 
             @media #{$kb-mq-small} {
                 top: 1rem;

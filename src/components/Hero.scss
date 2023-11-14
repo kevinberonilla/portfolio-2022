@@ -29,7 +29,7 @@
         justify-content: space-between;
         padding: 8rem;
         opacity: 0;
-    
+
         @media #{$kb-mq-large} {
             justify-content: space-evenly;
             padding: 6rem 0;
@@ -49,7 +49,7 @@
         @media #{$kb-mq-x-small} {
             padding: 2rem;
         }
-        
+
         &--shown {
             opacity: 1;
             transition: opacity 500ms ease 750ms;
@@ -66,7 +66,7 @@
             @media #{$kb-mq-medium} {
                 flex: 0 0 100%;
             }
-            
+
             br {
                 @media #{$kb-mq-small} {
                     display: none;
@@ -160,7 +160,7 @@
                 &:active {
                     color: var(--kb-color-brand);
                 }
-            
+
                 &:focus,
                 &:active {
                     outline: none;

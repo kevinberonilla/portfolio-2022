@@ -45,7 +45,7 @@ a {
         padding: 4rem;
         opacity: 0;
         transition: opacity 500ms ease 750ms;
-        
+
         @media #{$kb-mq-large} {
             padding: 6rem;
         }

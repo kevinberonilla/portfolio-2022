@@ -40,15 +40,15 @@
         &__project {
             flex: 0 0 20%;
             overflow: hidden;
-    
+
             @media #{$kb-mq-x-large} {
                 flex-basis: 25%;
             }
-    
+
             @media #{$kb-mq-medium} {
                 flex-basis: 33.333%;
             }
-    
+
             @media #{$kb-mq-small} {
                 flex-basis: 50%;
             }
@@ -92,7 +92,6 @@
             }
         }
 
-        
         &__hover-tile {
             position: absolute;
             inset: 0;
@@ -108,13 +107,13 @@
             @media #{$kb-mq-medium} {
                 padding: 10%;
             }
-    
+
             .#{$kb-prefix}-project-gallery__link:hover &,
             .#{$kb-prefix}-project-gallery__link:focus & {
                 opacity: 1;
             }
         }
-            
+
         &__name,
         &__tags {
             display: block;
