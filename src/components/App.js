@@ -121,7 +121,7 @@ function App() {
                         onFilterChange={handleFilterChange}
                     />
                 </section>
-                {filteredProjects.length ? (
+                {filteredProjects.length > 0 && (
                     <section>
                         <ProjectGallery
                             projects={filteredProjects}
@@ -130,11 +130,9 @@ function App() {
                             onThumbnailsLoaded={handleThumbnailsLoaded}
                         />
                     </section>
-                ) : (
-                    ''
                 )}
             </main>
-            <footer className={'kb-footer' + (galleryLoaded ? ' kb-footer--shown' : '')}>
+            <footer className={`kb-footer ${galleryLoaded ? 'kb-footer--shown' : ''}`}>
                 <div className="kb-text-size--small kb-m-around--none">
                     <p>&copy; {year} Kevin Beronilla. All rights reserved.</p>
                     <p>

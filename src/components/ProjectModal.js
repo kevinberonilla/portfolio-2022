@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Carousel from './Carousel';
 import './ProjectModal.scss';
 
-const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
+const ProjectModal = forwardRef(({ project, className = '', onHidden }, ref) => {
     const appRoot = document.getElementById('root');
     const [backdropPosition, setBackdropPosition] = useState({});
     const [shown, setShown] = useState(false);
@@ -76,11 +76,7 @@ const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
 
     return ReactDOM.createPortal(
         <div
-            className={
-                'kb-project-modal' +
-                (shown ? ' kb-project-modal--shown' : '') +
-                (className ? ' ' + className : '')
-            }
+            className={`kb-project-modal ${shown ? 'kb-project-modal--shown' : ''} ${className}`}
             role="dialog"
             aria-labelledby="project-name"
             aria-describedby="project-details"
@@ -138,10 +134,10 @@ const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
                             ) : (
                                 ''
                             )}
-                            {project.githubRepository ||
-                            project.demoSite ||
-                            project.liveSite ||
-                            project.appExchangeListing ? (
+                            {(project.githubRepository ||
+                                project.demoSite ||
+                                project.liveSite ||
+                                project.appExchangeListing) && (
                                 <li className="kb-project-modal__detail">
                                     <p className="kb-text-size--small kb-m-vertical--none">
                                         <strong>Links</strong>
@@ -201,8 +197,6 @@ const ProjectModal = forwardRef(({ project, className, onHidden }, ref) => {
                                         )}
                                     </ul>
                                 </li>
-                            ) : (
-                                ''
                             )}
                             <li className="kb-project-modal__detail">
                                 <p className="kb-text-size--small kb-m-vertical--none">

@@ -3,10 +3,10 @@ import { useRef, useState } from 'react';
 import './ProjectGallery.scss';
 import ProjectModal from './ProjectModal';
 
-function ProjectGallery({ projects, isMediumScreen, loaded, onThumbnailsLoaded }) {
+function ProjectGallery({ projects, isMediumScreen = false, loaded = false, onThumbnailsLoaded }) {
     const projectModal = useRef(null);
     const [_totalThumbnailsLoaded, setTotalThumbnailsLoaded] = useState(0);
-    const [enableProjects, setEnableProjects] = useState(false);
+    const [enableProjects, setEnableProjects] = useState(loaded);
     const [viewedProject, setViewedProject] = useState({});
 
     function handleThumbnailLoad(event) {
@@ -34,7 +34,7 @@ function ProjectGallery({ projects, isMediumScreen, loaded, onThumbnailsLoaded }
                             if (window.location.hash) {
                                 const hash = window.location.hash.replace('#!/', '#'); // Update legacy hashes
                                 const project = window.document.querySelector(
-                                    '.kb-project-gallery__link[href="' + hash + '"]',
+                                    `.kb-project-gallery__link[href="${hash}"]`,
                                 );
 
                                 if (project) {
@@ -60,7 +60,7 @@ function ProjectGallery({ projects, isMediumScreen, loaded, onThumbnailsLoaded }
 
         const projectIndex = parseInt(event.currentTarget.dataset.index, 10);
         const targetProject = projects[projectIndex];
-        const newDocumentTitle = targetProject.name + ' | Kevin Beronilla';
+        const newDocumentTitle = `${targetProject.name} | Kevin Beronilla`;
 
         setViewedProject(targetProject);
         window.document.title = newDocumentTitle;
@@ -85,12 +85,11 @@ function ProjectGallery({ projects, isMediumScreen, loaded, onThumbnailsLoaded }
 
     return (
         <>
-            <div className={'kb-project-gallery' + (loaded ? '' : ' kb-project-gallery--shifted')}>
+            <div className={`kb-project-gallery ${loaded ? '' : 'kb-project-gallery--shifted'}`}>
                 <ul
-                    className={
-                        'kb-project-gallery__list' +
-                        (enableProjects ? ' kb-project-gallery__list--enabled' : '')
-                    }
+                    className={`kb-project-gallery__list ${
+                        enableProjects ? 'kb-project-gallery__list--enabled' : ''
+                    }`}
                 >
                     {projects.map((project, projectIndex) => {
                         return (
@@ -123,14 +122,12 @@ function ProjectGallery({ projects, isMediumScreen, loaded, onThumbnailsLoaded }
                     })}
                 </ul>
             </div>
-            {Object.keys(viewedProject).length ? (
+            {Object.keys(viewedProject).length > 1 && (
                 <ProjectModal
                     ref={projectModal}
                     project={viewedProject}
                     onHidden={handleProjectModalHidden}
                 />
-            ) : (
-                ''
             )}
         </>
     );

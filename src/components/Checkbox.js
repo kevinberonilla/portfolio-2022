@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 import './Checkbox.scss';
 
-function Checkbox({ className, label, name, checked, onChange }) {
-    const randomId =
-        'checkbox-' +
-        Math.random()
-            .toString()
-            .replace('.', '');
+function Checkbox({ className = '', label, name, checked, onChange }) {
+    const randomId = `checkbox-${Math.random()
+        .toString()
+        .replace('.', '')}`;
 
     function handleCheckboxChange(event) {
         if (typeof onChange === 'function') {
@@ -15,7 +13,7 @@ function Checkbox({ className, label, name, checked, onChange }) {
     }
 
     return (
-        <div className={'kb-checkbox' + (className ? ' ' + className : '')}>
+        <div className={`kb-checkbox ${className}`}>
             <input
                 id={randomId}
                 className="kb-checkbox__input"

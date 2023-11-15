@@ -43,7 +43,7 @@ function Hero({
     );
 
     return (
-        <div className={'kb-hero kb-container' + (shown ? ' kb-hero--shown' : '')}>
+        <div className={`kb-hero kb-container ${shown ? 'kb-hero--shown' : ''}`}>
             <div className="kb-hero__sidebar">
                 <img className="kb-hero__logo" src={logo} alt="Kevin Beronilla" />
                 <ul className="kb-hero__link-list">
@@ -98,7 +98,7 @@ function Hero({
                         </span>
                     </li>
                 </ul>
-                {filters && !isMediumScreen ? filterFieldset : ''}
+                {filters && !isMediumScreen && filterFieldset}
             </div>
             <div className="kb-hero__content">
                 <h1 className="kb-text-heading kb-text-heading--large">
@@ -130,7 +130,7 @@ function Hero({
                     </p>
                 </div>
             </div>
-            {filters && isMediumScreen ? filterFieldset : ''}
+            {filters && isMediumScreen && filterFieldset}
         </div>
     );
 }
