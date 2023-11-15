@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { getContentfulProjects } from '../utilities/requests';
 import './App.scss';
 import Hero from './Hero';
@@ -19,10 +19,9 @@ function App() {
 
             if (!projectsResponse.error) {
                 const responseData = projectsResponse.data;
-                let projects = [];
-                let categorySet = new Set();
-                let categoryArray = [];
-                let categoryFilters = {};
+                const projects = [];
+                const categorySet = new Set();
+                const categoryFilters = {};
 
                 responseData.items.forEach(item => {
                     const imageUrls = item.fields.images?.length
@@ -49,8 +48,7 @@ function App() {
                     item.fields.categories.forEach(category => categorySet.add(category));
                 });
 
-                categoryArray = Array.from(categorySet).sort();
-                categoryArray.forEach(category => (categoryFilters[category] = true));
+                Array.from(categorySet).forEach(category => (categoryFilters[category] = true));
 
                 setProjects(projects);
                 setFilteredProjects(projects);

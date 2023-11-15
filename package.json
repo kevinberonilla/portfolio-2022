@@ -50,6 +50,8 @@
         ]
     },
     "devDependencies": {
+        "eslint": ">=5.16.0",
+        "eslint-plugin-react": "^7.33.2",
         "gh-pages": "^4.0.0",
         "prettier": "^1.17.0"
     }

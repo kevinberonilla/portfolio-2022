@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from 'react';
+import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Carousel from './Carousel';
 import './ProjectModal.scss';
 
-const ProjectModal = forwardRef(({ project, className = '', onHidden }, ref) => {
+const ProjectModal = forwardRef(({ project = {}, className = '', onHidden }, ref) => {
     const appRoot = document.getElementById('root');
     const [backdropPosition, setBackdropPosition] = useState({});
     const [shown, setShown] = useState(false);
@@ -223,5 +223,7 @@ ProjectModal.propTypes = {
     className: PropTypes.string,
     onHidden: PropTypes.func,
 };
+
+ProjectModal.displayName = 'ProjectModal';
 
 export default ProjectModal;

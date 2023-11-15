@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 import './Checkbox.scss';
 
-function Checkbox({ className = '', label, name, checked, onChange }) {
+function Checkbox({ className = '', label = '', name = '', checked = false, onChange }) {
     const randomId = `checkbox-${Math.random()
         .toString()
         .replace('.', '')}`;

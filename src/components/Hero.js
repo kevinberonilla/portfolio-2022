@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 import logo from '../images/logo-inverse.svg';
 import Checkbox from './Checkbox';
 import './Hero.scss';
 
 function Hero({
-    isMediumScreen,
-    shown,
-    filters,
-    filteredProjectCount,
-    totalProjectCount,
+    isMediumScreen = false,
+    shown = false,
+    filters = {},
+    filteredProjectCount = 0,
+    totalProjectCount = 0,
     onFilterChange,
 }) {
     function handleFilterChange(event) {
@@ -113,7 +114,7 @@ function Hero({
                     <p>
                         With a multi-disciplinary background in design, development, photography,
                         and video, my mission is to help others share knowledge and tell stories
-                        through visual media. When I'm not in front of a computer, you can find me
+                        through visual media. When I&rsquo;m not in front of a computer, you can find me
                         tinkering on cars or relaxing with animals.
                     </p>
                     <p>

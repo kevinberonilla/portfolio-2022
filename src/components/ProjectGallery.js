@@ -1,9 +1,14 @@
 import PropTypes from 'prop-types';
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './ProjectGallery.scss';
 import ProjectModal from './ProjectModal';
 
-function ProjectGallery({ projects, isMediumScreen = false, loaded = false, onThumbnailsLoaded }) {
+function ProjectGallery({
+    projects = [],
+    isMediumScreen = false,
+    loaded = false,
+    onThumbnailsLoaded,
+}) {
     const projectModal = useRef(null);
     const [_totalThumbnailsLoaded, setTotalThumbnailsLoaded] = useState(0);
     const [enableProjects, setEnableProjects] = useState(loaded);
