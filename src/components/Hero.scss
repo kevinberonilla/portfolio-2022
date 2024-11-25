@@ -122,7 +122,7 @@
 
         &__sidebar {
             flex: 0 0 auto;
-            padding-top: 6.75rem;
+            padding-top: 8.375rem;
 
             @media #{$kb-mq-medium} {
                 padding-top: 0;
@@ -189,7 +189,7 @@
 
         &__controls {
             padding: 0 0 0 3rem;
-            margin-top: 4.3rem;
+            margin-top: 2.625rem;
             border: none;
 
             @media #{$kb-mq-medium} {

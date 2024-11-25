@@ -117,18 +117,6 @@ function Hero({
                         through visual media. When I&rsquo;m not in front of a computer, you can find me
                         tinkering on cars or relaxing with animals.
                     </p>
-                    <p>
-                        This portfolio site was created with React, Sass, and Contentful. Check out
-                        the{' '}
-                        <a
-                            href="https://github.com/kevinberonilla/portfolio-2022"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            GitHub respository
-                        </a>
-                        !
-                    </p>
                 </div>
             </div>
             {filters && isMediumScreen && filterFieldset}
